@@ -35,8 +35,8 @@
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
-
     <style type="text/css">
+    	
     	#mod{
 
 		  background: #1A2980;  /* fallback for old browsers */
@@ -46,6 +46,7 @@
 
 		}
     </style>
+
 </head>
 <body >
 
@@ -56,42 +57,36 @@
 					<li class="list-inline-item"><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
 					<li class="list-inline-item"><a href="#"><i class="fa fa-instagram text-white"></i></a></li>
 					<li class="list-inline-item"><a href="#"><i class="fa fa-envelope text-white"></i></a></li>
-					<li class="list-inline-item"><a href="#"><a href="#"><i class="fa fa-google text-white"></i></a></li>
+					<li class="list-inline-item"><a href="#"><i class="fa fa-google text-white"></i></a></li>
 				</ul>
 		</div>
-		<div class="">
+		<div class="sticky-top">
 			<div class="container-fluid bg-light" style="height: 100px;">
 				<div class="container">
 					<img src="images/logo3.png" style="width: 100px;">
-
-					<!-- <span class="pull-right align-middle" style="padding-top: 30px;"><button class="p-2 text-white" style="background-color: #668fff; border:none;"><b>Login</b></button></span> -->
 				</div>
 			</div>
 		</div>
-
-
-	<nav aria-label="breadcrumb">
-	  <ol class="breadcrumb">
-	    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-	    <li class="breadcrumb-item active" aria-current="page">Nurse Registration</li>
-	  </ol>
-	</nav>
+		<nav>
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Hospital Registration</li>
+			  </ol>
+			</nav>
 	<main style="margin-top: -17px;">
-	<div class="container-fluid" id="mod">
 
-			<div class="row py-5 p-1 justify-content-left">
+	<div class="container-fluid" id="mod" >
 
 
-					<div class="col-md-5  col-lg-5 col-sm-12 col-xs-12">
+			<div class="row">
+
+
+					<div class="col-md-5 col-lg-5 col-12 col-12 py-5">
 						<div class="card border-primary wow slideInLeft">
 						  <div class="card-header bg-light" align="center">
-						    <h1 class="text-primary">Register Yourself</h1>
+						    <h1 class="text-primary">Hospital Registration</h1>
 						  </div>
 						  <div class="card-body">
-						  	<div class="row" align="center">
-						    	<div class="col-md-6 col-sm-6 col-xs-6 col-6" id="semi1" style="border-bottom: solid thin #007bff;"><a style="cursor: pointer" onclick="get_form(1)"><span id="semi2" class="text-primary"><h5><b>National</b></h5></span></a></div>
-						    	<div class="col-md-6 col-sm-6 col-xs-6 col-6" id="semi3"><a style="cursor: pointer" onclick="get_form(2)"><span id="semi4"><h5>International</h5></span></a></div>
-							</div>
 							<div id="sub2">
 						    <p class="card-text">
 						    	
@@ -100,10 +95,10 @@
 								
 								<div class="form-group row">
 								  	<div class="col-sm-3">
-								  		Name
+								  		Hospital Name
 								  	</div>
 								    <div class="col-sm-9">
-								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter your Name" required >
+								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter the name of your hospital" required >
 								    </div>
 							  	</div>
 
@@ -112,7 +107,7 @@
 								  		Email
 								  	</div>
 								    <div class="col-sm-9">
-								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required >
+								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email Id" required >
 								    </div>
 							  	</div>
 
@@ -122,90 +117,21 @@
 							  		Contact No
 							  	</div>
 							    <div class="col-sm-9">
-							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No (Whatsapp enabled)" required >
+							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No" required >
 							    </div>
 							  </div>
 
-							  <div class="form-group row">
-							  	<div class="col-sm-3">
-							  		Description
-							  	</div>
-							    <div class="col-sm-9">
-							      	<textarea name="desc" id="desc" placeholder="A few lines about yourself" class="form-control" required></textarea>
+							  <div class="form-group row" align="right">
+							  	<div class="col-sm-12">
+							  		<small>An E-mail will be sent your email id for further varification process</small>
 							    </div>
 							  </div>
 
-							  <div class="form-group row">
-							  	<div class="col-sm-3 ">
-							  		Experience
-							  	</div>
-							    <div class="col-sm-2">
-							      	<input type="text" name="exp_1" id="exp_1" class="form-control" placeholder="Years">
-							    </div>
-							    <div class="col-sm-2">
-							      	Years
-							    </div>
-							    <div class="col-sm-2">
-							      	<input type="text" name="exp_2" id="exp_2" class="form-control" placeholder="Months">
-							    </div>
-							    <div class="col-sm-2">
-							      	months
-							    </div>
-							  </div>
-							  <div class="form-group row">
-								  	<div class="col-sm-3">
-								  		Resume upload
-								  	</div>
-								    <div class="col-sm-9">
-								      	<input type="file" name="resume1" id="resume1" class="form-control" placeholder="Your License no" required >
-								    </div>
-								</div>
-							  <hr>
-							   <div class="form-group row" align="left">
-							    <div class="col-sm-3">
-							      	<label>Choose Document</label>
-							    </div>
-							    <div class="col-sm-9">
-							      	<label><input type="radio" name="l_no" value="1" checked> License</label>
-							    
-							      	<label><input type="radio" name="l_no" value="2"> Receipt</label>
-							   
-							      	<label><input type="radio" name="l_no" value="3"> None</label>
-							    </div>
-							  </div>
-							  <div id="sub1">
-							  	<div class="form-group row">
-								  	<div class="col-sm-3">
-								  		License No
-								  	</div>
-								    <div class="col-sm-9">
-								      	<input type="text" name="l_no1" id="l_no1" class="form-control" placeholder="Your License no" required >
-								    </div>
-								</div>
-							  <div class="form-group row">
-								  	<div class="col-sm-3">
-								  		Upload your license
-								  	</div>
-								    <div class="col-sm-9">
-								      	<input type="file" name="fileUpload2" id="fileUpload2" class="form-control" placeholder="Click here to upload" required >
-								    </div>
-								</div>
-							  </div>
-							  <hr>
-							  <div class="form-group row">
-								  	<div class="col-sm-3">
-								  		Link <small>(Skype/messenger)</small>
-								  	</div>
-								    <div class="col-sm-9">
-								      	<input type="text" name="link" id="link" class="form-control" placeholder="Enter your link" required >
-								    </div>
-								</div>
-						    
-						    
+
 							    <br>
 							    
 								 <div class="form-group" align="right">
-								    <button class="btn btn-primary" type="submit" name="register">Register</button>
+								    <button class="btn btn-primary" type="submit" name="register">Submit</button>
 									<button class="btn btn-default" type="button" name="cancel" onclick="goBack()">Cancel</button>
 								</div>
 								
@@ -217,33 +143,19 @@
 					</div>
 
 
-					<div class="col-md-7  col-lg-7 col-sm-12 col-xs-12 ">
-						<!-- <div class="wow slideInRight">
-							<img class="img-responsive" src="images/nuse_front_2.png" style="width: 80%">
-						</div> -->
 
-						<br>
-						<div class="p-3 wow slideInRight">
-							<label><h1 class="text-white">One more step to get a job</h1></label>
-							<ul class="list-unstyled" >
-								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Fill the form</h2></li>
-
-								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Upload Resume</h2></li>
-
-								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Upload license</h2></li>
-
-								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Go find the job</h2></li>
-							</ul>
-						</div>
-
+					<div class="col-md-7  col-lg-7 col-sm-12 col-xs-12 wow slideInRight" align="right">
+						
+							<img class="img-responsive" src="images/nurse-front.png" style="width: 69%">
+						
 					</div>
 
 
-
-
 			</div>
-		</div>
-	</main>
+		
+	</div>
+</main>
+		<br>
 
 
 
@@ -284,7 +196,9 @@
 <script src="js/custom.js"></script>
 <script type="text/javascript">
 
-	new WOW().init();
+
+
+ 	new WOW().init();
 
 	$("#f1").submit(function(e){
 		e.preventDefault();

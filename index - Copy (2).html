@@ -32,7 +32,6 @@
     <!-- CSS bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
     <style type="text/css">
@@ -44,7 +43,6 @@
 
 
 		}
-
     </style>
 
 </head>
@@ -63,51 +61,50 @@
 				<div class="container">
 					<img src="images/logo3.png" style="width: 100px;">
 
-					<span class="pull-right align-middle" style="padding-top: 30px;"><button id="mod"  class="p-2 text-white" style="background-color: #668fff; border:none;"><b>Login</b></button></span>
+					<span class="pull-right align-middle" style="padding-top: 30px;"><button class="p-2 text-white" style="background-color: #668fff; border:none;"><b>Login</b></button></span>
 				</div>
 			</div>
 		</div>
 		
 
-		<div id="mod">
-	<div class="container-fluid">
+
+	<div class="container-fluid" >
 
 			<div class="row-fluid">
 
 
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 				<div class="" align="center">
-				<h4 class="ml1">
+				<h1 class="ml1">
 					  <span class="text-wrapper">
-					    <div id="tag"><span class="letters text-white ">Placement of Healthcare Professionals</span></div>
+					    <div id="tag"><span class="letters ">Placement of Healthcare Professionals</span></div>
 					  </span>
-				</h4>
+				</h1>
 				</div>
 			</div>
 		
 			</div>
 	</div>
-	
+	<div class="container-fluid" id="mod">
 	<div class="container" >
 
 			<div class="row" >
 
 
 			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-
-				<div class="row p-3">
-					
-					<a href="register.html"><button id="mod1" class="p-3 text-white wow slideInLeft"  style="border-style: solid;border-width: 5px;background-color: #ffcb41; border: none; width: 100%"><b><img src="images/nurse.png" style="width: 35%;"><br>Registration for nurse</b></button></a>
-
+				<div class="p-4" style="background-color: #668fff">
+					<table style="height: 100%;width: 100%">
+						<tr>
+							<td rowspan="2" align="left" style="padding-right: 40px;width: 120px;"><h5 class="text-white">Register</h5></td>
+							<td align="center" style="border-left: solid thin white;"><a title="Nurse register" href="register.html" class="hover"><img src="images/nurse.png" style="width: 65%;"></a></td>
+						</tr>
+						<tr>
+							<td align="center"><a title="Hospital Register" href="register_for_hospital.html"><img src="images/hospital.png" style="width: 70%"></a></td>
+						</tr>
+					</table>
 				</div>
-
-				<div class="row p-3">
 				
-					<a href="register_for_hospital.html"><button class="p-3 text-white wow slideInLeft"  style="border-style: solid;border-width: 5px;background-color: #ffcb41; border: none; width: 100%"><b><img src="images/hospital.png" style="width: 40%;"><br>Registration for Hospitals</b></button></a>
-
-				</div>
-
-				<!-- <div class="p-4" style="background-color: #668fff; margin-top: 25px;">
+				<div class="p-4" style="background-color: #ffcb41; margin-top: 25px;">
 					<table style="height: 100%;width: 100%">
 						<tr>
 							<td rowspan="2" align="left" style="padding-right: 40px;width: 120px;"><h5 class="text-white">FAQ</h5></td>
@@ -117,12 +114,24 @@
 							<td align="center"><a href="#"><i class="fa fa-question-circle text-white fa-3x"></i></a></td>
 						</tr>
 					</table>
-				</div> -->
+				</div>
+
+				<div class="p-4" style="background-color: #668fff; margin-top: 25px;">
+					<table style="height: 100%;width: 100%">
+						<tr>
+							<td rowspan="2" align="left" style="padding-right: 40px;width: 120px;"><h5 class="text-white">FAQ</h5></td>
+							
+						</tr>
+						<tr>
+							<td align="center"><a href="#"><i class="fa fa-question-circle text-white fa-3x"></i></a></td>
+						</tr>
+					</table>
+				</div>
 
 			</div>
 
-			<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" align="right">
-				<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+			<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner" role="listbox">
 				    <div class="carousel-item active">
 				      <img class="d-block img-fluid" src="images/1.png" alt="First slide">
@@ -142,9 +151,6 @@
 				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				    <span class="sr-only">Next</span>
 				  </a>
-				</div> -->
-				<div class="wow slideInRight">
-					<img class="img-responsive" src="images/nurse-front_1.png" style="width: 100%">
 				</div>
 			</div>
 
@@ -155,7 +161,8 @@
 	</div>
 </div>
 
-
+<br>
+<br>
 
 
 
@@ -213,11 +220,8 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/anime.min.js"></script>
-<script src="js/wow.js"></script>
 <script src="js/custom.js"></script>
-<script type="text/javascript">	
-
-	new WOW().init();
+<script type="text/javascript">
 
 	$("#f1").submit(function(e){
 		e.preventDefault();
