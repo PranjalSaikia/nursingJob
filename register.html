@@ -284,7 +284,10 @@
 <script src="js/custom.js"></script>
 <script type="text/javascript">
 
-	new WOW().init();
+	$(document).ready(function(){
+		new WOW().init();
+	});
+
 
 	$("#f1").submit(function(e){
 		e.preventDefault();

@@ -198,7 +198,10 @@
 
 
 
- 	new WOW().init();
+ 	$(document).ready(function(){
+		new WOW().init();
+	});
+
 
 	$("#f1").submit(function(e){
 		e.preventDefault();
