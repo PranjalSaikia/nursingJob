@@ -37,3 +37,10 @@ anime.timeline({loop: true})
   //for multistep form
 
 
+// Preloader
+  $(window).on('load', function() {
+    $('#preloader').delay(100).fadeOut('slow',function(){$(this).remove();});
+  });
+
+  new WOW().init();
+
