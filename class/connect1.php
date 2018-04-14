@@ -19,11 +19,11 @@ class Config
 }
 
 // db
-Config::write('db.host', 'ec2-54-243-54-6.compute-1.amazonaws.com');
+Config::write('db.host', '107.150.58.99');
 Config::write('db.port', '5432');
-Config::write('db.basename', 'd19fms3qiud691');
-Config::write('db.user', 'xfcakixhdtjkhi');
-Config::write('db.password', '938d68a81b31203af9854499d5c89033a171a0dd4bc756ead8377147fd71ddd9');
+Config::write('db.basename', 'mjgroupi_nursing');
+Config::write('db.user', 'mjgroupi_pop');
+Config::write('db.password', 'Corexx@123');
 class Core
 {
     public $dbh; // handle of the db connexion
@@ -32,7 +32,7 @@ class Core
     private function __construct()
     {
         
-        $dsn = 'mysql: host=localhost;dbname=nursing';
+        $dsn = 'mysql: host=107.150.58.99;dbname=mjgroupi_nursing';
                    
        $user = Config::read('db.user');
         // getting DB password from config                
