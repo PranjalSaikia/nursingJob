@@ -100,7 +100,7 @@
 								  		Hospital Name
 								  	</div>
 								    <div class="col-sm-9">
-								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter the name of your hospital" required >
+								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter the name of your hospital" required tabindex="1" >
 								    </div>
 							  	</div>
 
@@ -109,7 +109,7 @@
 								  		Email
 								  	</div>
 								    <div class="col-sm-9">
-								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email Id" required >
+								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email Id" required tabindex="2" >
 								    </div>
 							  	</div>
 
@@ -119,22 +119,22 @@
 							  		Contact No
 							  	</div>
 							    <div class="col-sm-9">
-							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No" required >
+							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No" required tabindex="3" >
 							    </div>
 							  </div>
 
-							  <div class="form-group row" align="right">
+							  <!-- <div class="form-group row" align="right">
 							  	<div class="col-sm-12">
 							  		<small>An E-mail will be sent your email id for further varification process</small>
 							    </div>
-							  </div>
+							  </div> -->
 
 
 							    <br>
 							    
 								 <div class="form-group" align="right">
-								    <button class="btn btn-primary" type="submit" name="register">Submit</button>
-									<button class="btn btn-default" type="button" name="cancel" onclick="goBack()">Cancel</button>
+								    <button class="btn btn-primary" type="submit" name="register" tabindex="4">Submit</button>
+									<button class="btn btn-default" type="button" name="cancel" tabindex="5" onclick="goBack()">Cancel</button>
 								</div>
 								
 								</form>
@@ -200,83 +200,38 @@
 
 
 
-	$("#f1").submit(function(e){
+	$("#f2").submit(function(e){
 		e.preventDefault();
 		var name = $("#name").val();
-		var username = $("#username").val();
+		var email = $("#email").val();
+		var phn = $("#phn").val();
 
-		if(name == "" || username == "" ){
+		if(name == "" || email == "" || phn == "" ){
 			$("#message").html("<span style='color:red'>Please Enter all fields</span>");
 		}else{
 
-			var t = $("#f1").serialize();
-			$.ajax({
-				url: "php/register.php",
-				type: "POST",
-				data: t,
-				success:function(resp){
-					if(resp != 1){
-						$("#message").html("<span style='color:red'>Already taken. Try different one</span>");
-						$("#username").focus();
-					}else{
-						window.location.href="registration.html";
+
+			if(phn.length == 10){
+
+				var t = $("#f2").serialize();
+				$.ajax({
+					url: "php/register_hospital.php",
+					type: "POST",
+					data: t,
+					success:function(resp){
+						$("#sub2").html(resp);
+					},
+					error:function(resp){
+						alert(resp);
 					}
-				},
-				error:function(resp){
-					alert(resp);
-				}
-			});
+				});
+
+			}else{
+					$("#message").html("<span style='color:red'>Please enter a correct phone number</span>");	
+					$("#phn").focus();
+			}	
 		}
 	});
-
-
-	function form_data(){
-		alert("hey");
-	}
-
-	$('input[type=radio][name=l_no]').change(function() {
-		var j =  this.value;
-
-            $.ajax({
-            	url: "responses/form_data.php",
-            	type: "POST",
-            	data:{
-            		"j" : j,
-            	},
-            	success:function(resp){
-            		$("#sub1").html(resp);
-            	},
-            	error:function(resp){
-            		alert(resp);
-            	}
-            });
-   
-    });
-
-    function get_form(n){
-    	if(n == 2){
-    	$("#sub2").html("<br><p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 'de Finibus Bonorum et Malorum' (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, 'Lorem ipsum dolor sit amet..', comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>");
-    	$("#semi3").prop('style','border-bottom: solid thin #007bff');
-    	$("#semi4").prop('class','text-primary');
-    	$("#semi1").prop('style','');
-    	$("#semi2").prop('class','');
-    	}else{
-    		$.ajax({
-    			url: "responses/form_data_1.html",
-    			success:function(resp){
-    				$("#sub2").html(resp);
-    				$("#semi1").prop('style','border-bottom: solid thin #007bff');
-    				$("#semi2").prop('class','text-primary');
-    				$("#semi3").prop('style','');
-    				$("#semi4").prop('class','');
-    			},
-    			error:function(resp){
-    				alert(resp);
-    			}
-    		});
-    	}
-    }
-
 
 </script>
 </html>
