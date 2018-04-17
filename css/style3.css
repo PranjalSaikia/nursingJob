@@ -55,7 +55,7 @@ a, a:hover, a:focus {
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: linear-gradient(45deg, #26D0CE, #1A2980);;
+    background: #6d7fcc;
     color: #fff;
     transition: all 0.3s;
     overflow-y: scroll;
@@ -134,7 +134,7 @@ a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
     display: block;
     position: absolute;
     right: 20px;
-    font-family: 'Glyphicons Halflings';
+    font-family: '';
     font-size: 0.6em;
 }
 a[aria-expanded="true"]::before {

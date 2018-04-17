@@ -55,103 +55,20 @@
 	<div id="preloader"></div>
 
 
-<div id="menu"></div>
-<div class="container-fluid p-2" style="margin-top: -40px; background: linear-gradient(45deg, #26D0CE, #1A2980); color: white"><a href="profile_hospital.html"><b>Profile Home</b></a></div>
+
+			
+	<div id="menu"></div>
+    <div class="container-fluid p-2" style="margin-top: -40px; background: linear-gradient(45deg, #26D0CE, #1A2980); color: white"><a href="profile_hospital.html"><b>Profile Home</b></a> / Edit Profile</div>
 
 
-<main style="padding-top: 190px;">
+
+
+<main>
         <div class="container-fluid" style="min-height: 600px;">
-        		<div class="row" align="right">
-        			
-        		</div>
 
         		<div class="row">
 
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
-
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-
-						  </div>
-						</div>
-        			</div>
-
-        			<div class="col-md-3 p-3">
-        				<div class="card" style="width: 18rem;">
-						  
-						  <div class="card-body">
-						    <h5 class="card-title">Nurse Name <br><small><i class="fa fa-check text-info"> Licensed</i></small></h5>
-						    <p class="card-text">Short description of a nurse.</p>
-						    <a href="#" class="btn btn-primary">Read more</a>
-						    <a href="#" class="btn btn-default pull-right"><i class="fa fa-download"> Resume</i></a>
-						  </div>
-						</div>
-        			</div>
+        			
 
 
 
@@ -248,7 +165,21 @@
                     })
                 }
 
-                
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
 
 
                 

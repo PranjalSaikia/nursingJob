@@ -1,6 +1,6 @@
 <?php 
 
-	include('../class/connect1.php');
+	include('../class/connect.php');
 	include('../class/class.php');
 
 	$core = Core::getInstance();
