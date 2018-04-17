@@ -64,17 +64,147 @@
 
 
 <main>
-        <div class="container-fluid" style="min-height: 600px;">
+        <div class="container py-5" style="min-height: 600px;">
 
-        		<div class="row">
+
+                        <form method="post" class="form" id="f1" enctype="multipart/form-data">
+
+                            <h3>About</h3>
+                            <br>
+
+                            <input type="hidden" name="h_id" id="h_id">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Hospital Name</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="h_name" id="h_name" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Short Description</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <textarea name="h_des_short" id="h_des_short" class="form-control" placeholder="Short Description about your hospital"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Long Description (if any)</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <textarea name="h_des_long" id="h_des_long" class="form-control" placeholder="Description about your hospital" rows="5"></textarea>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <h3>Address</h3>
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Region</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                   <!--  <input type="text" name="region" id="region" class="form-control" placeholder="Region" required> -->
+                                    <select name="region" id="region" class="form-control" required>
+                                        <option value="North India"> North India </option>
+                                        <option value="North Eastern India"> North Easter India </option>
+                                        <option value="South India"> South India </option>
+                                        <option value="South Western India"> South Western India </option>
+                                        <option value="Western India"> Western India </option>
+                                        <option value="Eastern India"> Eastern India </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>City</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="city" id="city" class="form-control" placeholder="City" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>State</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="state" id="state" class="form-control" placeholder="State">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Pincode</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="number" name="pin" id="pin" class="form-control" placeholder="PIN">
+                                </div>
+                            </div>
+                            <hr>
+
+                            <h3>Contact Details</h3>
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Email</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="email" name="email" id="email" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Phone No</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="number" name="phn" id="phn" class="form-control">
+                                </div>
+                            </div>
+
+                            <hr>
+                            <h3>Display picture</h3>
+                            <br>
+
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Display picture</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="file" name="dp" id="dp" class="form-control">
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-12" align="right">
+                                    <button class="btn btn-primary" type="submit">Update Details</button>
+                                    <button class="btn btn-danger" type="reset">Reset all</button>
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    
+
+                    
 
         			
 
-
-
-        			
-
-        		</div>
+        		
 
 
        	</div>
@@ -86,7 +216,7 @@
 
 
 
-			<div class="container-fluid bg-light">
+			<div class="container-fluid bg-white">
 
 				<div class="container p-3">
 				<div class="row">
@@ -111,7 +241,7 @@
 			</div>
 
 			<div class="container-fluid sticky-bottom" style="background-color: #2f2f2f;" align="center">
-					<div class="text-white">All right reserved @ POST <br>&copy; 2018</div>
+					<div class="text-white">All rights reserved @ POST <br>&copy; 2018</div>
 			</div>
 
 
@@ -132,6 +262,7 @@
                     url: "menu_h.html",
                     success:function(resp){
                         $("#menu").html(resp);
+
                     }
                 });
 
@@ -156,36 +287,87 @@
                             if(e[0] == "no"){
                                 window.location.href="hospital_login.html";
                             }else{
+                                $("#h_id").val(e[0]);
                                 $("#name_hospital").html(e[1]);
+                                $("#h_name").val(e[1]);
+                                $("#phn").val(e[3]);
+                                $("#email").val(e[4]);
+
+
+
+                                get_hospital_det(e[0]);
                             }
                         },
                         error:function(resp){
                             alert(resp);
                         }
-                    })
+                    });
                 }
 
-                $("#sidebar").mCustomScrollbar({
-                    theme: "minimal"
-                });
+                function get_hospital_det(n){
+                    $.ajax({
+                        url: "php/get_hospital_det.php",
+                        type: "POST",
+                        data: {
+                            "n" : n,
+                        },
+                        success:function(resp){
+                            var e = JSON.parse(resp);
+                            if(e[0] == "no"){
+                                window.location.href="hospital_login.html";
+                            }else{
+                                $("#h_id").val(e[0]);
+                                $("#h_name").val(e[1]);
+                                $("#h_des_short").val(e[2]);
+                                $("#h_des_long").val(e[3]);
+                                $("#region").val(e[4]);
+                                $("#city").val(e[5]);
+                                $("#state").val(e[6]);
+                                $("#pin").val(e[7]);
 
-                $('#dismiss, .overlay').on('click', function () {
-                    $('#sidebar').removeClass('active');
-                    $('.overlay').fadeOut();
-                });
+                                $("#dp1").html('<img class="rounded-circle" src="'+e[8]+'" style="width: 80%">');
+                                
+                            }
+                        },
+                        error:function(resp){
+                            alert(resp);
+                        }
+                    });
+                }
 
-                $('#sidebarCollapse').on('click', function () {
-                    $('#sidebar').addClass('active');
-                    $('.overlay').fadeIn();
-                    $('.collapse.in').toggleClass('in');
-                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-                });
+
+
 
 
                 
 
 
             });
+
+
+    $("#f1").submit(function(e){
+
+        e.preventDefault();
+
+        var t = new FormData(this);
+
+        $.ajax({
+            url: "php/hospital/edit_det.php",
+            type: "POST",
+            dataType: 'html',
+            data: t,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(resp){
+                window.location.href="edit_profile.html";
+            },
+            error:function(resp){
+                alert(resp);
+            }
+        });
+
+    });
 
 
 	

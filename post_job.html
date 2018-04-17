@@ -37,6 +37,9 @@
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
+
+
+
     <style type="text/css">
     	
     	#mod{
@@ -50,7 +53,8 @@
     </style>
 
 </head>
-<body >
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+<body>
 
 	<div id="preloader"></div>
 
@@ -63,54 +67,78 @@
         <div class="container" style="min-height: 600px;">
 
         		<div class="row justify-content-center">
-
-        			<div class="col-md-8 p-3" align="right">
-        				<div class="card">
-						  <div class="card-body" align="left">
-						    <h4 class="card-title" style="color: #26D0CE">Overview</h4>
-						    
-						    
-						    <p class="card-text" ><h6>No of applicants: </h6> <b>40</b> nos</p>
-						    <p class="card-text" ><h6>Accepted: </h6> <b>21</b> nos</p>
-
-						    <p class="card-text" ><h6>Vistors: </h6> <b>101</b> nos</p>
-
-						  </div>
-						</div>
-
-						<div class="card mt-3">
-						  <div class="card-body" align="left">
-						    <h4 class="card-title" style="color: #26D0CE">Overview</h4>
-						    
-						    
-						    <p class="card-text" ><h6>No of applicants: </h6> <b>40</b> nos</p>
-						    <p class="card-text" ><h6>Accepted: </h6> <b>21</b> nos</p>
-
-						    <p class="card-text" ><h6>Vistors: </h6> <b>101</b> nos</p>
-
-						  </div>
-						</div>
-						</div>
         			
+        			<div class="col-md-12 p-3" align="center">
+        				<div class="card">
 
-
-        			<div class="col-md-4 p-3" align="right">
-        				<div class="card" style=>
-
-        					<div id="dp2"></div>
+        					<div class="card-header"><h5 style="color: #26D0CE"><b>POST</b> a job</h5></div>
 						  
-						  <div class="card-body" align="left">
-						    <h5 class="card-title"><div id="name1"></div><br><small><i class="fa fa-check text-info"> Verified</i></small></h5>
-						    <p class="card-text" id="des1"></p>
-						    <hr>
-						    <p class="card-text" id="des2"></p>
-						    <p class="card-text"><h6>Address:</h6><span id="address1"></span></p>
+						  <div class="card-body p-5" align="left">
 
-						    <p class="card-text"><h6>Contact:</h6><span id="address2"></span></p>
+						  	<form method="post" id="f1" class="form">
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Job Title</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="text" class="form-control" name="job_title" id="job_title" placeholder="Choose a Suitable title">
+						  			</div>
+						  		</div>
+
+						  		<div class="row" >
+						  			<div class="form-group col-md-4">
+						  				<label>Job Category</label>
+						  			</div>
+						  			<div class="form-group col-md-8" ng-app="MyApp" ng-controller="myCtrl">
+						  				<select ng-model="selectedCat" ng-options="y.cat_name for (x, y) in cats" class="form-control" required>
+						  					
+						  				</select>
+						  			</div>
+						  		</div>
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Job Description</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<textarea class="form-control" name="job_des" id="job_des" placeholder="Description of the job"></textarea>
+						  			</div>
+						  		</div>
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>No of Vacancies</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="number" class="form-control" name="job_no" id="job_no" placeholder="Number of vacancies">
+						  			</div>
+						  		</div>
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Minimum Experience</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="number" class="form-control" name="min_exp" id="min_exp" placeholder="Minimum year of Experience (in years e.g. 1.5)">
+						  			</div>
+						  		</div>
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Job Location</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="text" class="form-control" name="job_location" id="job_location" placeholder="Job location (Name of the city)">
+						  			</div>
+						  		</div>
+						    
 						  </div>
 						  <div class="card-footer">
-						  <a href="edit_profile.html"><button class="btn btn-default"><i class="fa fa-pencil"> Edit details</i></button></a>
+						  <button class="btn btn-primary" type="submit">Submit Job</button>
+						  <button class="btn btn-danger" type="reset">Reset</button>
 						</div>
+						</form>
 						</div>
         			</div>       			
 
@@ -164,6 +192,7 @@
 <script src="js/mdb.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/custom_scrollbar.min.js"></script>
+
 <script type="text/javascript">
 
 	$(document).ready(function () {
@@ -254,14 +283,54 @@
                     });
                 }
 
-                
 
 
                 
 
 
-            });
 
+        });
+
+
+				var app = angular.module('MyApp', [])
+		        app.controller('myCtrl', function ($scope) {
+		            $.ajax({
+		            	url: "php/get_job_cat.php",
+		            	success:function(resp){
+		            		 $scope.cats = JSON.parse(resp);
+		            		 console.log(JSON.parse(resp));
+		            	}
+		            });
+		          });
+
+
+		        function get_this(n){
+		        	console.log(n);
+		        }
+
+
+
+
+                
+
+
+      
+
+			
+
+		
+
+        /*$scope.Fruits = [{
+                Id: 1,
+                Name: 'Apple'
+            }, {
+                Id: 2,
+                Name: 'Mango'
+            }, {
+                Id: 3,
+                Name: 'Orange'
+            }];*/
+		
 
 	
 

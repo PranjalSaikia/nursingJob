@@ -2,11 +2,10 @@
 	
 
 	include('../class/connect.php');
-	//include('../class/sessioncheck_h.php');
+	include('../class/sessioncheck_h.php');
 	include('../class/class.php');
 
 
-	$token = $_COOKIE['session_key_hospital'];
 
 	$core = Core::getInstance();
 

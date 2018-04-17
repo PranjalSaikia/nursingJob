@@ -7,22 +7,20 @@
 
                 <div class="sidebar-header" align="center">
 
-                    <h1><i class="fa fa-user fa-3x"></i></h1>
+                    <div id="dp1"></div>
                     <h6><div id="name_hospital"></div></h6>
                 </div>
 
                 <ul class="list-unstyled components">
-                    <li class="active">
+                    <li id="1">
+                        <a href="profile_hospital.html">Home</a>
+                    </li>
+                    <li id="2">
                         <a href="edit_profile.html" >Edit Profile</a>
                     </li>
-                    <li>
-                        <a href="#">POST a Job</a>
-                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">View Nurses</a>
-                        <ul class="collapse list-unstyled" id="pageSubmenu">
-                            <li><a href="#">Page 1</a></li>
-                            <li><a href="#">Page 2</a></li>
-                            <li><a href="#">Page 3</a></li>
-                        </ul>
+                    <li id="3">
+                        <a href="post_job.html">POST a Job</a>
+                        
                     </li>
                     <li>
                         <a href="class/logout_h.php">Logout</a>
@@ -76,7 +74,7 @@
 
         <script type="text/javascript">
                 
-                $(document).ready(function(){
+            $(document).ready(function(){
                     $("#sidebar").mCustomScrollbar({
                     theme: "minimal"
                 });
@@ -92,6 +90,14 @@
                     $('.collapse.in').toggleClass('in');
                     $('a[aria-expanded=true]').attr('aria-expanded', 'false');
                 });
+
             });
 
         </script>
+
+        <!-- <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">View Nurses</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li>
+                            <li><a href="#">Page 3</a></li>
+                        </ul> -->
