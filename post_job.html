@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="css/style3.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
 
 
 
@@ -66,8 +67,16 @@
 <main style="">
         <div class="container" style="min-height: 600px;">
 
+        		<br>
+        		<div class="row">
+        			<div class="col-md-12" align="center">
+        				<button class="btn" style="background-color: #26D0CE; color: white" onclick="$('#post_job_button').toggle()"><i class="fa fa-plus"> <b>Add new Job</b></i></button>
+        			</div>
+        		</div>
+        		<div id="post_job_button">
         		<div class="row justify-content-center">
         			
+
         			<div class="col-md-12 p-3" align="center">
         				<div class="card">
 
@@ -77,12 +86,13 @@
 
 						  	<form method="post" id="f1" class="form">
 
+						  		<input type="hidden" name="h_id" id="h_id">
 						  		<div class="row">
 						  			<div class="form-group col-md-4">
 						  				<label>Job Title</label>
 						  			</div>
 						  			<div class="form-group col-md-8">
-						  				<input type="text" class="form-control" name="job_title" id="job_title" placeholder="Choose a Suitable title">
+						  				<input type="text" class="form-control" name="job_title" id="job_title" placeholder="Choose a title">
 						  			</div>
 						  		</div>
 
@@ -90,9 +100,10 @@
 						  			<div class="form-group col-md-4">
 						  				<label>Job Category</label>
 						  			</div>
-						  			<div class="form-group col-md-8" ng-app="MyApp" ng-controller="myCtrl">
-						  				<select ng-model="selectedCat" ng-options="y.cat_name for (x, y) in cats" class="form-control" required>
-						  					
+						  			<div class="form-group col-md-8">
+						  				<select name="job_cat" id="job_cat" class="form-control" required>
+						  					<option value="">Choose one</option>
+
 						  				</select>
 						  			</div>
 						  		</div>
@@ -143,9 +154,88 @@
         			</div>       			
 
         		</div>
+        	</div>
+
+        		<hr>
+        		<div class="container">
+        			<div class="row" >
+        				<div class="col-12"><span class="pull-right"><ul id="pagination-demo" class="pagination-sm"></ul></span></div>
+        			</div>
+        		</div>
+        		<br>
+        		
+	        		<div id="job_list">
+		        		   			
+
+	        		</div>
+
+
+
 
 
        	</div>
+
+       	<!-- Modal for edit -->
+
+
+       	<div class="modal fade" id="edit_job_modal">
+		  <div class="modal-dialog modal-lg modal-dialog-centered">
+		    <div class="modal-content">
+
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title">Edit Job</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		      	<form method="post" id="f2" class="form">
+		       <div id="edit_job_modal_body"></div>
+		      </div>
+
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary">Update</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		      </div>
+		  	</form>
+
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<!-- Modal for delete -->
+
+
+		<div class="modal fade" id="edit_job_modal">
+		  <div class="modal-dialog modal-lg modal-dialog-centered">
+		    <div class="modal-content">
+
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title">Edit Job</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		      	<form method="post" id="f2" class="form">
+		       <div id="edit_job_modal_body"></div>
+		      </div>
+
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary">Update</button>
+		        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		      </div>
+		  	</form>
+
+		    </div>
+		  </div>
+		</div>
 
 
 
@@ -191,20 +281,18 @@
 <script src="js/wow.js"></script>
 <script src="js/mdb.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
 <script src="js/custom_scrollbar.min.js"></script>
 
 <script type="text/javascript">
 
 	$(document).ready(function () {
 
+		$("#menu").load('menu_h.html');
 
+		$("#post_job_button").hide();
 
-                $.ajax({
-                    url: "menu_h.html",
-                    success:function(resp){
-                        $("#menu").html(resp);
-                    }
-                });
 
 
 
@@ -284,55 +372,160 @@
                 }
 
 
+                //populate jobcat
 
-                
-
-
-
-        });
-
-
-				var app = angular.module('MyApp', [])
-		        app.controller('myCtrl', function ($scope) {
-		            $.ajax({
+                $.ajax({
 		            	url: "php/get_job_cat.php",
 		            	success:function(resp){
-		            		 $scope.cats = JSON.parse(resp);
-		            		 console.log(JSON.parse(resp));
+
+		            		resp = JSON.parse(resp);
+
+		            		option = "";
+		            		 
+		            		 for(var i=0;i<resp.length;i++){
+		            		 	option += '<option value="'+ resp[i][0] + '">' + resp[i][1] + '-'+ resp[i][2] +'</option>';
+		            		 }
+
+		            		 $("#job_cat").html(option);
 		            	}
-		            });
-		          });
+		            }); 
+                    
+             	
 
+             	//pagination
 
-		        function get_this(n){
-		        	console.log(n);
-		        }
-
-
-
+             	$('#pagination-demo').twbsPagination({
+			        totalPages: 10,
+			        visiblePages: 3,
+			        onPageClick: function (event, page) {
+			            show_job_list(page);
+			        }
+			    });
 
                 
 
 
-      
 
-			
-
-		
-
-        /*$scope.Fruits = [{
-                Id: 1,
-                Name: 'Apple'
-            }, {
-                Id: 2,
-                Name: 'Mango'
-            }, {
-                Id: 3,
-                Name: 'Orange'
-            }];*/
-		
+        });        
 
 	
+		$("#f1").submit(function(event){
+
+			event.preventDefault();
+
+			var t = $("#f1").serialize();
+
+			$.ajax({
+				url: "php/post_a_job.php",
+				type: "POST",
+				data: t,
+				success:function(resp){
+					show_job_list(1);
+					$.alert("Succesfully Posted");
+					$("#f1")[0].reset();
+				},
+				error:function(resp){
+					alert(resp);
+				}
+			});
+
+		});	
+
+
+		$("#f2").submit(function(event){
+
+			event.preventDefault();
+
+			var t = $("#f2").serialize();
+
+			$.ajax({
+				url: "php/edit_post_a_job.php",
+				type: "POST",
+				data: t,
+				success:function(resp){
+					show_job_list(1);
+					$.alert("Succesfully Updated");
+					$('#edit_job_modal').modal('toggle');
+					//alert(resp);
+				},
+				error:function(resp){
+					alert(resp);
+				}
+			});
+
+		});	
+
+
+		function show_job_list(n){
+
+			$.ajax({
+				url: "php/show_jobs.php",
+				type: "POST",
+				data: {
+					"n" : n,
+				},
+				success:function(resp){
+					$("#job_list").html(resp);
+				},
+				error:function(resp){
+					alert(resp);
+				}
+			});
+
+		} 
+
+
+		function edit_job(n){
+			$.ajax({
+				url: "php/edit_job.php",
+				type: "POST",
+				data: {
+					"n" : n,
+				},
+				beforeSend: function(){
+					$("#edit_job_modal_body").html('<h5>Loading . . . .</h5>');
+				},
+				success:function(resp){
+					$("#edit_job_modal_body").html(resp);
+				},
+				error:function(resp){
+					alert(resp)
+				}
+			});
+		}
+
+
+	function delete_job(n){
+
+		$.confirm({
+		    title: 'Are you sure?',
+		    buttons: {
+		        confirm: function () {
+		            $.ajax({
+		            	url: "php/delete_job.php",
+		            	type: "POST",
+		            	data: {
+		            		"n" : n,
+		            	},
+		            	success:function(resp){
+		            		show_job_list(1);
+		            		$.alert("Succesfully deleted");
+		            	},
+		            	error:function(resp){
+		            		alert(resp);
+		            	}
+		            });
+		        },
+		        cancel: function () {
+		            
+		        },
+		    }
+		});
+
+	}
+
+
+		
 
 
 </script>

@@ -1,1 +1,1 @@
-<?php header( 'Location: index.html' ) ;  ?>
+<?php header( 'Location: http://nursing.habonaffeedback.com/index.html' ) ;  ?>

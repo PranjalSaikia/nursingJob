@@ -80,13 +80,11 @@
 
 						<div class="card mt-3">
 						  <div class="card-body" align="left">
-						    <h4 class="card-title" style="color: #26D0CE">Overview</h4>
+						    <h4 class="card-title" style="color: #26D0CE">Posted Jobs</h4>
 						    
+						    <div id="job_det">
 						    
-						    <p class="card-text" ><h6>No of applicants: </h6> <b>40</b> nos</p>
-						    <p class="card-text" ><h6>Accepted: </h6> <b>21</b> nos</p>
-
-						    <p class="card-text" ><h6>Vistors: </h6> <b>101</b> nos</p>
+                            </div>
 
 						  </div>
 						</div>
@@ -170,12 +168,8 @@
 
 
 
-                $.ajax({
-                    url: "menu_h.html",
-                    success:function(resp){
-                        $("#menu").html(resp);
-                    }
-                });
+              
+                        $("#menu").load('menu_h.html');
 
 
 
@@ -254,6 +248,22 @@
                     });
                 }
 
+
+
+
+                $.ajax({
+                    url: "php/home_calculation_hospital.php",
+                    type: "POST",
+                    beforeSend: function(){
+                        $("#job_det").html("<h5>Loading . . . </h5>");
+                    },
+                    success:function(resp){
+                        $("#job_det").html(resp);
+                    },
+                    error:function(resp){
+                        alert(resp);
+                    }
+                });
                 
 
 
