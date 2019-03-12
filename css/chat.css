@@ -1,0 +1,169 @@
+#chat{
+	position: fixed;
+    z-index: 11;
+	height: 400px;
+	background-color: white;
+	width: 300px;
+    margin-left: 75.5%;
+	margin-top: 140px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-transition: ease-in;
+	box-shadow: 1px 1px 10px;
+	-webkit-transition: all 1.5s ease;
+	-moz-transition: all 1.5s ease;
+	-o-transition: all 1.5s ease;
+	transition: all 1.5s ease;
+    box-shadow: 1px 1px 120px rgba(0,0,0,0.7);
+}
+
+@media only screen and (max-width: 600px){
+	#chat{
+		display: none !important;
+	}
+
+	#chat_button{
+		display: none !important;
+	}
+}
+
+#chat_button{
+	background-color: #352f97;
+	color: white;
+	opacity: 10;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	padding: 25px;
+	box-shadow: 1px 1px 120px rgba(0,0,0,0.7);
+	transition: 3s ease-in;
+}
+
+
+#head{
+	background-color: #352f97  ;
+	height: 45px;
+	color: white;
+	font-weight: bold;
+	text-align: left;
+    padding-left: 20px;
+	padding-top: 13px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+#head span{
+	float: right;
+	padding-right: 10px;
+}
+#head span:hover{
+	color: red;
+}
+
+#msg_form{
+	
+   width: 100%; 
+}
+
+
+#chat_box{
+	background-color: white;
+	overflow-y: scroll;
+	height: 320px;
+}
+
+#tag_admin{
+	background-color: lightgrey;
+	font-size: 10pt;
+	padding-left: 10px;
+	padding: 10px;
+	margin: 10px;
+	margin-right: 30px;
+	border-radius: 5px;
+	color: black;
+
+}
+
+
+
+
+
+
+
+#tag_user{
+	color: white;
+	text-align: right;
+	font-size: 10pt;
+	padding-left: 10px;
+	background-color: #857EF9;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	margin-left: 30px;
+}
+
+@media only screen and (max-width: 600px){
+
+
+	#msg_form hr{
+		display: none;
+		
+	}
+
+	#msg_form{
+        margin-top: 20px;
+	}
+
+	.float{
+        	
+        position: fixed;
+        z-index: 10;
+    
+    }
+    
+    #chat{
+        margin-left: 13% !important;
+        margin-top: 200px;
+    }
+    
+    #chat_button{
+        margin-left: 70% !important;
+    }
+    
+
+
+}
+
+
+#chat_button{
+    position: fixed;
+    margin-left: 92%;
+    margin-top: 84vh;
+    z-index: 10;
+}
+
+
+
+.chat-footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	display: grid;
+	grid-template-columns: 5fr 1fr;
+
+}
+
+#message{
+	height: 40px;
+	padding-left: 20px;
+}
+
+#btn_msg{
+	background-color: #857EF9;
+	border: none;
+	color: white;
+}
+
+#btn_msg:hover{
+	background-color: #352f97;
+}

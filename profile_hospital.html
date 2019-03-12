@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
-	<title>POST | Placement of Healthcare Professionals</title>
+    <meta http-equiv="refresh" content = "1200; url=class/logout_h.php">
+	<title>Job for sure</title>
 	<link rel="icon" href="image/favicon.png">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="keywords">
@@ -33,21 +33,23 @@
     <!-- CSS bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
-    <style type="text/css">
-    	
-    	#mod{
-
-		  background: #1A2980;  /* fallback for old browsers */
-		  background: -webkit-linear-gradient(45deg, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-		  background: linear-gradient(45deg, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-		}
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "class/session_check_h.php",
+            type: "GET",
+            success:function(resp){
+                if(resp == false){
+                    window.location.href="login.html";
+                }
+            }
+        });
+    </script>
 
 </head>
 <body >
@@ -55,200 +57,292 @@
 	<div id="preloader"></div>
 
 
-<div id="menu"></div>
-<div class="container-fluid p-2" style="margin-top: -40px; background: linear-gradient(45deg, #26D0CE, #1A2980); color: white"><a href="profile_hospital.html"><b>Profile Home</b></a></div>
+<section class="profile-main" ng-app="myApp">
+<div class="header-bar">
+        
 
 
-<main style="">
+        <h3><img src="images/logo.png" width="80px"></h3>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li>
+
+            
+              <a id="nav_button" onclick="noti_bar_view()"><span id="nos">0</span>
+               <i class="fa fa-bell fa-2x"></i>
+              </a>
+              
+            
+
+       </li>
+    
+    </ul>
+     <span id="mobile_bars_n"><a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a></span>
+
+
+     <div class="container-fluid" id="menu_now">
+        <div class="container">
+            <ul class="horizontal-navbar">
+                <li class="active"><a href="profile_hospital.html">HOME</a></li>
+                <li><a href="nurse_list.html">NURSE LIST</a></li>
+                <li><a href="requests.html">REQUESTS LIST</a></li>
+                <li><a href="post_job.html">POST A JOB</a></li>
+                <li><a href="view_apply.html">APPLICATIONS</a></li>
+                <!-- <li><a href="rec_interest_send.html">INTERESTS</a></li> -->
+                <li><a href="edit_profile_hospital.html">MY PROFILE</a></li> 
+                <li><a href="class/logout_h.php">LOGOUT</a></li>
+
+            </ul>
+         </div>
+     </div>
+
+
+
+</div>
+    
+    <div class="side-nav"></div>
+
+
+
+    <div class="notification-panel" id="notification" ng-controller="notificationController">
+        <header class="n-header"> NOTIFICATIONS <a onclick="close_noti()"><i style="float: right;padding-right: 10px;" class="fa fa-close"></i></a></header><br>
+        <div ng-repeat="noti in notis">
+
+            <div class="noti-msg">
+                <p style="padding: 10px;"><b>{{noti.n_name}}</b> has shown interest in you</p>
+                
+                <div class="noti-footer">
+                <span ng-switch="noti.seen">
+                    <span ng-switch-when="1" >
+                        <button class="btn btn-xs btn-success"><i class="fa fa-check"> Accepted</i></button>
+                        <button class="btn btn-xs btn-default"  type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                    <span ng-switch-default>
+                        <button class="btn btn-sm btn-success" type="button" ng-click="accept_req(noti.id,$index)">Accept</button>
+                        <button class="btn btn-sm btn-danger" type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                </span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+
+<main class="main-body">
+    <div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> 
+                    </div>
         <div class="container" style="min-height: 600px;">
+
+            <div class="row">
+                <div class="col-md-3" style="padding-bottom: 20px;">
+                    <a href="view_apply.html#!/"><div class="card">
+                        <h4 class="card-title" id="card_title_1">Received</h4>
+                          <div class="card-body" align="center">
+                            
+                            <p class="number_style" id="no0">3</p>
+                            
+                            <!-- <p class="card-text" id="over_view"></p> -->
+
+                          </div>
+                        </div></a>
+
+                </div>
+
+                <div class="col-md-3">
+                    <a href="view_apply.html#!/mayBe">
+                        <div class="card">
+                        <h4 class="card-title" id="card_title_1"> Shortlisted</h4>
+                          <div class="card-body" align="center">
+                            
+                            <p class="number_style" id="no1">3</p>
+                            
+                            
+
+                          </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- <div class="col-md-4">
+                    <div class="card">
+                        <h4 class="card-title" id="card_title_1">Application Verified</h4>
+                          <div class="card-body" align="center">
+                            
+                            <p class="number_style" id="no2">3</p>
+                            
+                            
+
+                          </div>
+                        </div>
+                </div> -->
+
+                <div class="col-md-3">
+                    <a href="view_apply.html#!/accept">
+                        <div class="card">
+                        <h4 class="card-title" id="card_title_1">Accepted</h4>
+                          <div class="card-body" align="center">
+                            
+                            <p class="number_style" id="no3">3</p>
+                            
+                            
+
+                          </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-md-3">
+                    <a href="view_apply.html#!/reject">
+                        <div class="card">
+                        <h4 class="card-title" id="card_title_1">Rejected</h4>
+                          <div class="card-body" align="center">
+                            
+                            <p class="number_style" id="no4">3</p>
+                            
+                            
+
+                          </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+           
 
         		<div class="row justify-content-center">
 
-        			<div class="col-md-8 p-3" align="right">
-        				<div class="card">
-						  <div class="card-body" align="left">
-						    <h4 class="card-title" style="color: #26D0CE">Overview</h4>
-						    
-						    
-						    <p class="card-text" ><h6>No of applicants: </h6> <b>40</b> nos</p>
-						    <p class="card-text" ><h6>Accepted: </h6> <b>21</b> nos</p>
-
-						    <p class="card-text" ><h6>Vistors: </h6> <b>101</b> nos</p>
-
-						  </div>
-						</div>
+        			<div class="col-md-12 p-3">
+        				
 
 						<div class="card mt-3">
-						  <div class="card-body" align="left">
-						    <h4 class="card-title" style="color: #26D0CE">Posted Jobs</h4>
-						    
-						    <div id="job_det">
-						    
-                            </div>
+                            <h4 class="card-title" style="color: #26D0CE; padding: 10px;" align="left">Posted Jobs</h4>
+						  <div class="card-body row" align="center" id="job_det">
+						      
+
+
 
 						  </div>
 						</div>
-						</div>
-        			
-
-
-        			<div class="col-md-4 p-3" align="right">
-        				<div class="card" style=>
-
-        					<div id="dp2"></div>
-						  
-						  <div class="card-body" align="left">
-						    <h5 class="card-title"><div id="name1"></div><br><small><i class="fa fa-check text-info"> Verified</i></small></h5>
-						    <p class="card-text" id="des1"></p>
-						    <hr>
-						    <p class="card-text" id="des2"></p>
-						    <p class="card-text"><h6>Address:</h6><span id="address1"></span></p>
-
-						    <p class="card-text"><h6>Contact:</h6><span id="address2"></span></p>
-						  </div>
-						  <div class="card-footer">
-						  <a href="edit_profile.html"><button class="btn btn-default"><i class="fa fa-pencil"> Edit details</i></button></a>
-						</div>
-						</div>
-        			</div>       			
+						</div>      			
 
         		</div>
 
+                
+                <br>
 
        	</div>
 
 
+        <div class="intro">
+
+        <div class="modal" id="intro_for_nurse">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Welcome!</h4>
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p align="center">
+                <img src="images/default-dp.png">
+            </p>
+            <h3 align="center">You are almost done!</h3>
+            <h6 align="center">Go to the Edit profile page and update the necessary data before continue... :)</h6>
+            <br>
+            <p align="center">
+                <a href="edit_profile_hospital.html"><button class="btn btn-default" type="button"><i class="fa fa-pencil"></i> Go to Edit profile</button></a>
+            </p>
+            <br />
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+
 
 </main>
-
-
-
-
-			<div class="container-fluid bg-white">
-
-				<div class="container p-3">
-				<div class="row">
-					<div class="col-md-6 col-sm-12 col-xs-12">
-						<h5>Contact us</h5>
-						<p>Opposite to Jalukbari Masjid<br>Jalukbari<br>Ghy-14</p>
-						<p>Call us at: 00000000000</p>
-						<p>Mail us at: something@mail.com</p>
-					</div>
-					<div class="col-md-6 col-sm-12 col-xs-12" align="right">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-envelope"></i></a>
-						<a href="#"><i class="fa fa-google"></i></a>
-						
-					</div>
-				</div>
-				
-					
-				</div>
-			</div>
-
-			<div class="container-fluid sticky-bottom" style="background-color: #2f2f2f;" align="center">
-					<div class="text-white">All right reserved @ POST <br>&copy; 2018</div>
-			</div>
+</section>
 
 
 	<div class="overlay"></div>
 </body>
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/anime.min.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/mdb.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/custom_scrollbar.min.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function () {
 
+                $("#intro_for_nurse").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                $("#intro_for_nurse").modal('hide');
+
+                $.ajax({
+                url: "php/intro_hospital.php",
+                type: "GET",
+                success:function(resp){
+                    if(resp == 1){
+                        $("#intro_for_nurse").modal('show');
+                    }else{
+                         $("#intro_for_nurse").modal('hide');  
+                    }
+                }
+                });
+            
+
 
 
               
-                        $("#menu").load('menu_h.html');
+                $.ajax({
+                    url: "php/menu_h_new.php",
+                    type: "POST",
+                    data:{
+                        "n" : 1
+                    },
+                    success:function(resp){
+                        $(".side-nav").html(resp);
+                    }
+                    });
 
 
+
+               
+
+                
 
                 $.ajax({
-
-                    url: "php/hospital_session_check.php",
+                    url: "php/get_overview_h.php",
+                    type: "POST",
                     success:function(resp){
-                        if(resp == true){
-                            get_session_det();
-                        }else{
-                            window.location.href="hospital_login.html";
-                        }
+                        var e = JSON.parse(resp);
+                        $("#no0").html(e[0]);
+                        $("#no1").html(e[1]);
+                        $("#no2").html(e[2]);
+                        $("#no3").html(e[3]);
+                        $("#no4").html(e[4]);
+
                     }
-                });
-
-
-                function get_session_det(){
-                    $.ajax({
-                        url: "php/get_session_det.php",
-                        success:function(resp){
-                            var e = JSON.parse(resp);
-                            if(e[0] == "no"){
-                                window.location.href="hospital_login.html";
-                            }else{
-                                $("#h_id").val(e[0]);
-                                $("#name_hospital").html(e[1]);
-                                $("#h_name").val(e[1]);
-                                $("#phn").val(e[3]);
-                                $("#email").val(e[4]);
-
-
-
-                                get_hospital_det(e[0]);
-                            }
-                        },
-                        error:function(resp){
-                            alert(resp);
-                        }
                     });
-                }
-
-                function get_hospital_det(n){
-                    $.ajax({
-                        url: "php/get_hospital_det.php",
-                        type: "POST",
-                        data: {
-                            "n" : n,
-                        },
-                        success:function(resp){
-                            var e = JSON.parse(resp);
-                            if(e[0] == "no"){
-                                window.location.href="hospital_login.html";
-                            }else{
-                                $("#h_id").val(e[0]);
-                                $("#h_name").val(e[1]);
-                                $("#h_des_short").val(e[2]);
-                                $("#h_des_long").val(e[3]);
-                                $("#region").val(e[4]);
-                                $("#city").val(e[5]);
-                                $("#state").val(e[6]);
-                                $("#pin").val(e[7]);
-                                $("#name1").html(e[1]);
-                                $("#des1").html(e[2]);
-                                //$("#des2").html(e[3]);
-                                $("#address1").html(e[4] + "<br>" + e[5] + "<br>" + e[6] + ", " + e[7]);
-                                $("#address2").html(e[9] + "<br>" + e[10]);
-
-                                $("#dp1").html('<img class="rounded-circle" src="'+e[8]+'" style="width: 80%">');
-                                $("#dp2").html('<img class="img-responsive" src="'+e[8]+'" style="width: 100%">');
-                                
-                            }
-                        },
-                        error:function(resp){
-                            alert(resp);
-                        }
-                    });
-                }
-
-
+                load_nurse(10,0,0);
 
 
                 $.ajax({
@@ -266,6 +360,55 @@
                 });
                 
 
+                $('#sort1').change(function() {
+                    if($('#sort1').is(":checked")){
+                        var m = 1;
+                    }else{
+                        var m = 0;
+                    }
+
+                    if($('#sort2').is(":checked")){
+                        var n = 1;
+                    }else{
+                        var n = 0;
+                    }
+
+                    load_nurse(10,m,n);
+                         
+                });
+                $('#sort2').change(function() {
+                    if($('#sort1').is(":checked")){
+                        var m = 1;
+                    }else{
+                        var m = 0;
+                    }
+
+                    if($('#sort2').is(":checked")){
+                        var n = 1;
+                    }else{
+                        var n = 0;
+                    }
+
+                    load_nurse(10,m,n);
+                         
+                });
+
+
+
+                function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+
+
+            count_notifications();
+
 
                 
 
@@ -273,7 +416,158 @@
             });
 
 
-	
+    function load_nurse(m,n,o){
+        $.ajax({
+                    url: "php/get_nurse_list_for_hospital.php",
+                    type: "POST",
+                    data:{
+                        "m" : m,
+                        "n" : n,
+                        "o" : o
+                    },
+                    success:function(resp){
+                        $("#view_nurse").html(resp);
+                    }
+                    });
+    }
+
+
+function interested(m,n){
+
+        $.ajax({
+            url: "php/interested_yes.php",
+            type: "POST",
+            data: {
+                "n_id" : m,
+                "e" : n
+            },
+            success:function(resp){
+                $("#show_interest_"+n).html(resp);
+                alertify.logPosition("bottom right");
+                alertify.success("Successfully done");
+            }
+        });
+        
+    }
+
+
+    function interested_no(m,n){
+
+        $.ajax({
+            url: "php/interested_no.php",
+            type: "POST",
+            data: {
+                "n_id" : m,
+                "e" : n
+            },
+            success:function(resp){
+                $("#show_interest_"+n).html(resp);
+                alertify.logPosition("bottom right");
+                alertify.success("Successfully done");
+            }
+        });
+        
+    }
+
+
+
+function myf_1(){
+                $('.side-nav').css({
+                    left: '0px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_2()"><i class="fa fa-close fa-2x"></i></a>');
+            }
+
+
+            function myf_2(){
+                $('.side-nav').css({
+                    left: '-400px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a>');
+            }
+    
+
+
+var app = angular.module('myApp',['notification']);
+
+var notification = angular.module('notification',[]);
+notification.controller('notificationController',function($scope,$http,$interval){
+    $scope.loadData = function(){
+        $http.get('php/interested_lists_rec.php').then(function mySuccess(resp){
+            $scope.notis = resp.data;
+        },function myError(resp){
+            console.log("Notification Panel Error: "+resp.statusText)
+        });
+    }
+
+
+    $scope.loadData(); //initial load
+
+
+    var refreshDiv = function(){$scope.loadData();count_notifications();}
+
+    $interval(refreshDiv,10000);
+    //realtime refresh 
+
+
+    $scope.remove = function(index){
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+
+    $scope.accept_req = function(id,index){
+        change_req(id,'1');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+    $scope.reject_req = function(id,index){
+        change_req(id,'2');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+})
+
+
+function noti_bar_view(){
+        $(".notification-panel").css('right','0px');
+    }
+
+    function close_noti(){
+        $(".notification-panel").css('right','-100vw');
+    }
+
+
+
+    function change_req(m,n){
+        $.ajax({
+            url: "php/change_req_rec.php",
+            type: "POST",
+            data:{
+                "id" : m,
+                "seen": n
+            },
+            success:function(resp){
+                return true;
+            }
+
+        });
+    }
+
+
+    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
 
 
 </script>

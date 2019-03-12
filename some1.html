@@ -1,0 +1,50 @@
+<div>
+        		<div class="application-card" ng-repeat="p in person">
+        			<div class="row p-3">
+        			<div class="card col-md-12">
+					  <div class="card-body">
+					  	
+					  	<div class="row">
+					  		<div class="col-10">
+					  			
+					  			<table width="100%">
+					  				<tr>
+					  					<td width="10%">Name:</td>
+					  					<td width="30%">{{p.n_name}}</td>
+					  					<td width="10%">Applied For:</td>
+					  					<td width="30%">{{p.cat_des}}</td>
+					  				</tr>
+					  				<tr>
+					  					<td width="10%">Applied on:</td>
+					  					<td width="30%">{{p.time_stamp1}}</td>
+					  					<td width="10%">Experience</td>
+					  					<td width="30%">View</td>
+					  				</tr>
+
+					  				<tr>
+					  					<td width="10%">Resume:</td>
+					  					<td width="30%">
+					  						<a href="{{p.resume}}"><button type="button" class="btn btn-default btn-sm"><i class="fa fa-download"> Resume</i></button></a></td>
+					  					<td width="10%">License:</td>
+					  					<td width="30%">
+					  						<a href="{{p.slicense}}"><button type="button" class="btn btn-default btn-sm"><i class="fa fa-download"> License</i></button></a>
+					  					</td>
+					  				</tr>
+					  			</table>
+
+
+					  		</div>
+					  		<div class="col-2">
+					  			<table width="100%">
+					  				<tr>
+					  					<td><button style="width: 100%" class="btn btn-default btn-sm" ng-click="change_status(p.apply_id,'1')">May Be</button></td>
+					  				</tr>
+					  				<tr>
+					  					<td><button style="width: 100%" class="btn btn-success btn-sm">Accept</button></td>
+					  				</tr>
+					  				<tr>
+					  					<td><button style="width: 100%" class="btn btn-danger btn-sm">Reject</button></td>
+					  				</tr>
+					  			</table>
+					  		</div>
+					  	</div>

@@ -19,6 +19,12 @@ class Config
 }
 
 // db
+/*Config::write('db.host', '107.150.58.99');
+Config::write('db.port', '3306');
+Config::write('db.basename', 'corexxin_nursing');
+Config::write('db.user', 'corexxin_pop');
+Config::write('db.password', 'Corexx@123');*/
+
 Config::write('db.host', 'localhost');
 Config::write('db.port', '5432');
 Config::write('db.basename', 'nursing');

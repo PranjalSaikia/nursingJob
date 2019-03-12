@@ -11,14 +11,15 @@
 	$h_id = addslashes(strip_tags(trim($_POST['h_id'])));
 	$job_title = addslashes(strip_tags(trim($_POST['job_title'])));
 	$job_cat = addslashes(strip_tags(trim($_POST['job_cat'])));
-	$job_des = addslashes(strip_tags(trim($_POST['job_des'])));
+	$job_des = $_POST['ed1'];
 	$job_no = addslashes(strip_tags(trim($_POST['job_no'])));
 	$min_exp = addslashes(strip_tags(trim($_POST['min_exp'])));
+	$min_sal = addslashes(strip_tags(trim($_POST['min_sal'])));
 	$job_location = addslashes(strip_tags(trim($_POST['job_location'])));
 
 
 
-		$q1 = "UPDATE job_post_h SET job_title=:job_title, job_cat=:job_cat,job_des=:job_des,job_no=:job_no,min_exp=:min_exp,job_location=:job_location WHERE job_id=:job_id";
+		$q1 = "UPDATE job_post_h SET job_title=:job_title, job_cat=:job_cat,job_des=:job_des,job_no=:job_no,min_exp=:min_exp,min_sal=:min_sal,job_location=:job_location WHERE job_id=:job_id";
 		$stmt1=$core->dbh->prepare($q1);
 		$stmt1->bindParam(':job_id',$job_id,PDO::PARAM_INT);
 		$stmt1->bindParam(':job_title',$job_title,PDO::PARAM_STR);
@@ -26,6 +27,7 @@
 		$stmt1->bindParam(':job_des',$job_des,PDO::PARAM_STR);
 		$stmt1->bindParam(':job_no',$job_no,PDO::PARAM_STR);
 		$stmt1->bindParam(':min_exp',$min_exp,PDO::PARAM_STR);
+		$stmt1->bindParam(':min_sal',$min_sal,PDO::PARAM_STR);
 		$stmt1->bindParam(':job_location',$job_location,PDO::PARAM_STR);
 		$stmt1->execute();
 	
@@ -64,6 +66,8 @@
 								  <b>No of vacancies:</b> &nbsp;<?php echo $r2->job_no; ?>
 								  <br>
 								  <b>Minimum Experience:</b> &nbsp;<?php echo $r2->min_exp; ?> Years
+								  <br>
+								  <b>Minimum Salary:</b> &nbsp;<?php echo $r2->min_sal; ?> 
 								  <br>
 								  <b>Job location:</b> &nbsp;<?php echo $r2->job_location; ?>
 								  <br>

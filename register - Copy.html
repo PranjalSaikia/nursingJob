@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>POST | Placement of Healthcare Professionals</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+</head>
+<body>
+
+	<div id="preloader"></div>
+	<section class="login-background">
+        
+    <div class="header-text">
+        <a href="index.html"><h3>Job For Sure</h3></a>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li><a>Register</a></li>
+        <li><a href="nurse_login.html">Nurse's login</a></li>
+        <li><a href="hospital_login.html">Recruiter's login</a></li>
+        <li><a>Need help</a></li>
+    </ul>
+    </div>
+    
+    <div class="login-form">
+        <div class="card">
+            <form method="post" id="f4">
+                <div class="form-group">
+                    <h4>Nurse Login</h4>
+                </div>
+            
+                <div class="form-group">
+                    <label>Email ID</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your email ID" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="*********" required>
+                </div>
+                
+                <div class="form-group" align="right">
+                    <button class="btn btn-success">Login</button> or <button class="btn btn-info">Register</button>
+                </div>
+                <hr>
+                <div class="form-group" align="right">
+                    Forgot password ? <a>Click here</a>
+                </div>
+            </form>
+            
+        </div>
+        <span id="tag_line">Present to you by jobforsure.in</span>
+    </div>
+    
+</section>
+
+		<div style="height: 60px;" >
+			<div class="container-fluid  fixed-top" style="height: 60px;  background-color:#54aeee">
+				<div class="container-fluid">
+					<a href="index.html"><span id="logo_text">POST |<font size="3pt;"> Nurse Login</font></span></a>
+
+					<span class="pull-right align-middle" id="big1" style="padding-top: 15px;">
+						<!--<a href="register.html"><button class="btn1" ></i>Register</button></a>
+
+						<a href="nurse_login.html"><button  class="btn1" ><i class="fa fa-user"></i> Login</button></a>-->
+
+						<a href="hospital_login.html"><button  class="btn1" ><i class="fa fa-users"></i> For Recruiter</button></a>
+
+						<a href="#"><button class="btn3"><i class="fa fa-question-circle"> Help?</i></button></a>
+					</span>
+
+						<div class="pull-right" id="small1" style="display: none;">
+							<a onclick="myFuntion()"><i class="fa fa-bars fa-2x"></i></a>
+						</div>
+
+
+						
+
+				</div>
+			</div>
+		</div>			
+		<div id="side_menu">
+		<div class="container-fluid bg-light" style="position: fixed; z-index: 101; height: 100%;">
+			<ul class="list-unstyled" style="text-align: center; padding: 20px;">
+				<li style="padding-top: 20px;"><a href="nurse_login.html">Register</a></li>
+				<li style="padding-top: 20px;"><a href="nurse_login.html"><i class="fa fa-user"></i> Login</a></li>
+				<li style="padding-top: 20px;"><a href="hospital_login.html"><i class="fa fa-users"></i> Recruiter</a></li>
+				<li style="padding-top: 20px;"><a href="#">About us</a></li>
+				<li style="padding-top: 20px;"><a href="#">Contact us</a></li>
+				
+			</ul>
+		</div>
+		</div>
+		</div>
+
+
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb bg-white">
+	    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+	    <li class="breadcrumb-item active" aria-current="page">Nurse Registration</li>
+	  </ol>
+	</nav>
+	<main style="margin-top: -17px;">
+	<div class="container">
+
+			<div class="row py-5 p-1 justify-content-left">
+
+
+					<div class="col-md-5  col-lg-5 col-sm-12 col-xs-12">
+						<div class="card border-primary wow slideInLeft">
+						  <div class="card-header bg-light" align="center">
+						    <h1 class="text-primary">Register Yourself</h1>
+						  </div>
+						  <div class="card-body">
+						  	<div class="row" align="center">
+						    	<div class="col-md-6 col-sm-6 col-xs-6 col-6" id="semi1" style="border-bottom: solid thin #007bff;"><a style="cursor: pointer" onclick="get_form(1)"><span id="semi2" class="text-primary"><h5><b>National</b></h5></span></a></div>
+						    	<div class="col-md-6 col-sm-6 col-xs-6 col-6" id="semi3"><a style="cursor: pointer" onclick="get_form(2)"><span id="semi4"><h5>International</h5></span></a></div>
+							</div>
+							<div id="sub2">
+						    <p class="card-text">
+						    	
+						    	<form class="col-12" method="post" id="f2" enctype="multipart/form-data">
+								<div class="form-group row" id="message"></div>
+								
+								<div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Name
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter your Name" required >
+								    </div>
+							  	</div>
+
+							  	<div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Email
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required  >
+								    </div>
+							  	</div>
+
+
+							  <div class="form-group row">
+							  	<div class="col-sm-3">
+							  		Contact No
+							  	</div>
+							    <div class="col-sm-9">
+							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No (Whatsapp enabled)" required  >
+							    </div>
+							  </div>
+
+							  <!-- <div class="form-group row">
+							  	<div class="col-sm-3">
+							  		Description
+							  	</div>
+							    <div class="col-sm-9">
+							      	<textarea name="des" id="des" placeholder="A few lines about yourself" class="form-control" ></textarea>
+							    </div>
+							  </div>
+
+							  <div class="form-group row">
+							  	<div class="col-sm-3 ">
+							  		Experience
+							  	</div>
+							    <div class="col-sm-9">
+							      	<input type="text" name="exp" id="exp" class="form-control" placeholder="in Years">
+							    </div>
+							  </div>
+							  <div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Resume upload
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="file" name="resume1" id="resume1" class="form-control" placeholder="Your License no"  >
+								    </div>
+								</div>
+							  <hr>
+							   <div class="form-group row" align="left">
+							    <div class="col-sm-3">
+							      	<label>Choose Document</label>
+							    </div>
+							    <div class="col-sm-9">
+							      	<label><input type="radio" name="l_no" value="1" checked> License</label>
+							    
+							      	<label><input type="radio" name="l_no" value="2"> Receipt</label>
+							   
+							      	<label><input type="radio" name="l_no" value="3"> None</label>
+							    </div>
+							  </div>
+							  <div id="sub1">
+							  	<div class="form-group row">
+								  	<div class="col-sm-3">
+								  		License No
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="text" name="l_no1" id="l_no1" class="form-control" placeholder="Your License no"  >
+								    </div>
+								</div>
+							  <div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Upload your license
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="file" name="fileUpload2" id="fileUpload2" class="form-control" placeholder="Click here to upload"  >
+								    </div>
+								</div>
+							  </div>
+							  <hr>
+							  <div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Link <small>(Skype/messenger)</small>
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="text" name="link" id="link" class="form-control" placeholder="Enter your link"  >
+								    </div>
+								</div> -->
+						      
+						    
+							    <br>
+                                    
+                                <div class="form-group">
+                                    <input type="checkbox" name="check_terms" required> I agree the <a style="color: blue;" data-toggle="modal" data-target="#tnc">Terms & Condition</a>
+                                </div>
+							    
+								 <div class="form-group" align="right">
+								    <button class="btn btn-primary" type="submit" name="register">Register</button>
+									<button class="btn btn-default" type="button" name="cancel" onclick="goBack()">Cancel</button>
+								</div>
+								
+								</form>
+								</p>
+							</div> <!-- Sub2 end -->
+						  </div>
+						</div>
+					</div>
+
+
+					<div class="col-md-7  col-lg-7 col-sm-12 col-xs-12 ">
+						<!-- <div class="wow slideInRight">
+							<img class="img-responsive" src="images/nuse_front_2.png" style="width: 80%">
+						</div> -->
+
+						<br>
+						<!-- <div class="p-3 wow slideInRight">
+							<label><h1 class="text-white">One more step to get a job</h1></label>
+							<ul class="list-unstyled" >
+								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Fill the form</h2></li>
+
+								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Upload Resume</h2></li>
+
+								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Upload license</h2></li>
+
+								<li><h2 class="text-white"><i class="fa fa-check-circle"></i> Go find the job</h2></li>
+							</ul>
+						</div> -->
+
+					</div>
+
+
+
+
+			</div>
+		</div>
+	</main>
+    
+    
+     <div class="modal" id="tnc" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h5 class="modal-title">Terms & Conditions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p align="justify">
+                  The following terms and conditions are deemed to have been accepted by the User on usage of the website www.post.com. The terms "You" and "User" refer to all individuals and/or entities accessing this site for any reason
+            </p>
+              <p align="justify">
+                  <h5>GENERAL DISCLAIMER</h5>
+                Every effort has been made to ensure the accuracy of the information. The site is designed, updated and maintained by www.post.com. The information contained in this Web site is intended, solely to provide general information for the personal use of the reader, who accepts full responsibility for its use and does not represent or endorse the accuracy or reliability of any information, including content or advertisements contained on, distributed through, or linked, downloaded or accessed from any of the services contained on this web site. The web site may contain inaccuracies, typographical and clerical errors, though efforts had been made to ensure accuracy. But www.post.com. reserves the right to change, alter, and delete any of the representations, clauses in this website without prior notice or information.
+              </p>
+            
+            <p align="justify">
+                  <h5>NO WARRANTIES</h5>
+                www.post.com. does not make any warranties, express or implied, including, without limitation, those of merchantability, non infringement and fitness for a particular purpose, and that the website will operate error free or that the website and its server are free of computer viruses or other harmful mechanisms with respect to any information, data, statements or products made available on the Site and is on a “as is” available basis only.
+              </p>
+          <p align="justify">
+                  <h5>INDEMNITY</h5>
+               Users agree to indemnify and hold www.post.com. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+        
+                <p align="justify">
+                  <h5>NO LIABILITY</h5>
+               Users agree to indemnify and hold www.post.com. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+    
+                <p align="justify">
+                  <h5>INTELLECTUAL PROPERTY RIGHTS</h5>
+               All Intellectual property rights are vested solely with www.post.com. No part of the webpage/service shall be reproduced or transmitted or stored in any other web site, nor may any of its information or part thereof be disseminated in any electronic or non-electronic form, nor included in any public or private electronic retrieval system or service without obtaining prior written permission from www.post.com. Any infringement in this regard shall be adequately compensated by the User .
+              </p>
+            <p align="justify">
+                  <h5>OTHER TERMS AND CONDITIONS</h5>
+               By using this web site you are indicating your acceptance to abide by the Terms and Conditions which can be updated or modified at any time by www.post.com..
+                www.post.com. do not disclose any personal information unless specifically requested by the user or required to do so by the law or in good faith that such disclosure is reasonably necessary to: (a) Comply with legal processes (b) Enforce the Terms and Conditions (c) Respond to claims that any content violates the rights of third parties or (d) Protect the rights, property or personal safety of www.post.com., its users and the public.
+              </p>
+    
+            <p align="justify">
+               www.post.com. does not take any responsibility for the acts/omissions on the part of the user(s)/visitor(s)/customer(s) of the site. www.randstad.in. shall not be obliged to resolve or mediate any dispute or difference, which may arise between users/visitors
+              </p>
+    
+            <p align="justify">
+               Through this website you may be re - directed to other sites for various purposes and links. www.post.com. shall not be liable for any of such sites and their related links.
+              </p>
+            <p align="justify">
+                www.post.com. shall not be liable if any such links shall directly or indirectly lead to any slander, prohibited sites or obscene sites.
+                This site and the intended activities are for the promotion and welfare of the society and does not contribute to any other unauthorized activities.
+            </p>
+            <p align="justify">
+                The website and its users are subject to Chennai jurisdiction
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+	<div class="site-footer">
+	<div class="container-fluid bg-light">
+
+		<div class="container p-3">
+		<div class="row">
+			<div class="col-md-6 col-sm-12 col-xs-12">
+				<h5>Contact us</h5>
+				<p>Opposite to Jalukbari Masjid<br>Jalukbari<br>Ghy-14</p>
+				<p>Call us at: 00000000000</p>
+				<p>Mail us at: something@mail.com</p>
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12" align="right">
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-envelope"></i></a>
+				<a href="#"><i class="fa fa-google"></i></a>
+				
+			</div>
+		</div>
+		
+			
+		</div>
+	</div>
+	</div>
+	<div class="container-fluid sticky-bottom" style="background-color: #2f2f2f;" align="center">
+			<div class="text-white">All rights reserved @ POST <br>&copy; 2018</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$("#side_menu").hide();
+	});
+
+	function myFuntion(){
+		$("#side_menu").toggle();
+	}
+
+	$("#f2").submit(function(e){
+		e.preventDefault();
+		var name = $("#name").val();
+		var email = $("#email").val();
+		var phn = $("#phn").val();
+
+		if(name == "" || email == "" || phn == "" ){
+			$("#message").html("<span style='color:red'>Please Enter all fields</span>");
+		}else{
+
+
+			if(phn.length == 10){
+
+				$.ajax({
+					url: "php/check_nurse.php",
+					type: "POST",
+					data: {
+						"email": email,
+						"phn" : phn,
+					},
+					success:function(resp){
+						if(resp == false){
+							$("#message").html('<p style="color: red"><b>Already registered. <a href="nurse_login.html">click here</a> to login</b></p>');
+						}else{
+							var t = $("#f2").serialize();
+							$.ajax({
+								url: "php/register_nurse.php",
+								type: "POST",
+								data: t,
+								success:function(resp){
+									$("#sub2").html(resp);
+								},
+								error:function(resp){
+									alert(resp);
+								}
+							});
+						}
+					},
+					error:function(resp){
+						alert(resp);
+					}
+				});
+
+				
+
+			}else{
+					$("#message").html("<span style='color:red'>Please enter a correct phone number</span>");	
+					$("#phn").focus();
+			}	
+		}
+	});
+
+
+	function form_data(){
+		alert("hey");
+	}
+
+	$('input[type=radio][name=l_no]').change(function() {
+		var j =  this.value;
+
+            $.ajax({
+            	url: "responses/form_data.php",
+            	type: "POST",
+            	data:{
+            		"j" : j,
+            	},
+            	success:function(resp){
+            		$("#sub1").html(resp);
+            	},
+            	error:function(resp){
+            		alert(resp);
+            	}
+            });
+   
+    });
+
+    function get_form(n){
+    	if(n == 2){
+    	$("#sub2").load('responses/international_text.html');
+    	$("#semi3").prop('style','border-bottom: solid thin #007bff');
+    	$("#semi4").prop('class','text-primary');
+    	$("#semi1").prop('style','');
+    	$("#semi2").prop('class','');
+    	}else{
+    		$.ajax({
+    			url: "responses/form_data_1.html",
+    			success:function(resp){
+    				$("#sub2").html(resp);
+    				$("#semi1").prop('style','border-bottom: solid thin #007bff');
+    				$("#semi2").prop('class','text-primary');
+    				$("#semi3").prop('style','');
+    				$("#semi4").prop('class','');
+    			},
+    			error:function(resp){
+    				alert(resp);
+    			}
+    		});
+    	}
+    }
+
+
+</script>
+</html>

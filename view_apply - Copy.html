@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
+	<title>Job for Sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+
+</head>
+<body>
+
+	<div id="preloader"></div>
+
+
+<section class="profile-main">
+<div class="header-bar"></div>
+<div class="side-nav"></div>
+
+
+<main class="main-body" ng-app="navList">
+	<div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> Applications
+                    </div>
+        <div class="container-fluid" style="min-height: 600px;">
+
+        		<br>
+        		
+        		<h3>Applicaions received</h3><br>
+        		<!-- <div id="applied_job"></div> -->
+
+        		<ul class="nav">
+				  <li class="active"><a ui-sref="home">Received</a></li>
+				  <li><a ui-sref="mayBe">May Be</a></li>
+				  <li><a ui-sref="accept">Accepted</a></li>
+				  <li><a ui-sref="reject">Rejected</a></li>
+				</ul>
+        		
+        		<br>
+        		<ui-view></ui-view>
+        		
+
+
+
+					  </div>
+					</div>
+					</div>
+        		</div>
+        	</div>
+
+
+
+
+
+
+       	</div>
+
+       
+
+
+
+</main>
+</section>
+
+
+
+
+
+	<div class="overlay"></div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+		$(".header-bar").load("php/header_bar_hospital.php");
+
+            $.ajax({
+                url: "php/menu_h_new.php",
+                type: "POST",
+                data:{
+                    "n" : 3
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
+
+		$("#applied_job").load('php/applied_job.php');
+
+		
+    		$('#myTable').DataTable();
+        });        
+
+
+	function change_status(m,n){
+		console.log(m);
+		$.ajax({
+			url: "php/change_status.php",
+			type: "POST",
+			data: {
+				"m": m,
+				"n": n
+			},
+			success:function(resp){
+				
+			},
+		});
+
+	}
+
+
+
+	
+	var app = angular.module('myApp',['ui.router']);
+
+
+	
+
+
+	//routing
+
+	var nav = angular.module("navList", ["ui.router"]);
+
+	nav.config(function($stateProvider){
+		var receivedState = {
+		    name: 'home',
+		    url: '/home',
+		    templateUrl: 'some.html',
+		    controller: 'myCtrl'
+		  }
+
+		  var maybeState = {
+		    name: 'mayBe',
+		    url: '/mayBe',
+		    templateUrl: 'some.html',
+		    controller: 'myCtrl1'
+		  }
+
+		  var acceptState = {
+		    name: 'accept',
+		    url: '/accept',
+		    templateUrl: 'some.html',
+		    controller: 'myCtrl2'
+		  }
+
+		  var rejectState = {
+		    name: 'reject',
+		    url: '/reject',
+		    templateUrl: 'some.html',
+		    controller: 'myCtrl3'
+		  }
+
+		/*$routeProvider.when('/',{
+			templateUrl: "some.html",
+			controller: "myCtrl"
+		})
+		.when('/mayBe',{
+			templateUrl: "some.html",
+			controller: "myCtrl1"
+		})
+		.when('/accept',{
+			template: "accept.html"
+		})
+		.when('/reject',{
+			template: "reject"
+		})
+		.otherwise({redirectTo: '/'});*/
+
+		$stateProvider.state(receivedState);
+		$stateProvider.state(maybeState);
+		$stateProvider.state(acceptState);
+		$stateProvider.state(rejectState);
+	})
+
+	nav.controller('myCtrl',function($scope,$http){
+
+		$http({
+			method: "GET",
+			url: "php/applied_job_json_0.php",
+		}).then(function mySuccess(resp){
+			$scope.person = resp.data;
+		}, function myError(resp){
+			$scope.person = resp.statusText;
+		});
+
+		$scope.change_status = function(m,n){
+			change_status(m,n);
+		};
+
+        
+	});
+
+	nav.controller('myCtrl1',function($scope,$http){
+
+		$http({
+			method: "GET",
+			url: "php/applied_job_json_1.php",
+		}).then(function mySuccess(resp){
+			$scope.person = resp.data;
+		}, function myError(resp){
+			$scope.person = resp.statusText;
+		});
+
+        
+	});
+
+
+		
+
+
+</script>
+</html>

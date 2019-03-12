@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Job for Sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.flexdatalist.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/css/bootstrap-tour-standalone.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "class/session_check_n.php",
+            type: "GET",
+            success:function(resp){
+                if(resp == false){
+                    window.location.href="https://www.jobforsure.in/login.html";
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+<div id="preloader"></div>
+<section class="profile-main" ng-app="myApp">
+<div class="header-bar">
+        
+        <h3><img src="images/logo.png" width="80px"></h3>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li>
+
+            
+              <a id="nav_button" onclick="noti_bar_view()"><span id="nos">0</span>
+               <i class="fa fa-bell fa-2x"></i>
+              </a>
+              
+            
+
+       </li>
+    
+    </ul>
+     <span id="mobile_bars_n"><a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a></span>
+
+
+     <div class="container-fluid" id="menu_now">
+        <div class="container">
+            <ul class="horizontal-navbar">
+                <li class="active"><a href="profile_nurse.html">HOME</a></li>
+                <li><a href="jobs_applied.html">APPLIED JOBS</a></li>
+                <li><a href="rec_interested.html">INTERESTED</a></li>
+                <li><a href="online_education.html">ONLINE EDUCATION</a></li>
+                <li><a href="career_counselling.html">CAREER COUNSELLING</a></li>
+                <li><a href="team.html">TEAM</a></li>
+                <li><a href="edit_profile_nurse.html">MY PROFILE</a></li> 
+                <li><a href="class/logout_n.php">LOGOUT</a></li>
+
+            </ul>
+         </div>
+     </div>
+
+</div>
+
+
+    
+    <div class="side-nav">
+        
+
+        <header class="p-3">
+            <!-- <div class="profile-image" onmouseover="show_edit()" onmouseout="hide_edit()">
+                <img src="<?php echo $dp; ?>" width="100%">
+            </div> -->
+            
+            
+        </header>
+        <div style="overflow-y: auto;">
+        <ul class="list-unstyled" id="nav_list">
+            <a href="profile_nurse.html"><li id="item_1"><tag class="fa fa-home"></tag> Home <span><i class="fa fa-angle-right"></i></span></li></a>
+            <a href="jobs_applied.html"><li id="item_2"><tag class="fa fa-users"></tag> Applied Jobs <span><i class="fa fa-angle-right"></i></span></li></a>
+            <a href="rec_interested.html"><li><tag class="fa fa-info"></tag> Interested <span><i class="fa fa-angle-right"></i></span></li></a>
+            <hr>
+            <label class="nav-label">Career With us</label>
+            <a href="online_education.html"><li id="item_3"><tag class="fa fa-book"></tag> Online Education <span><i class="fa fa-angle-right"></i></span></li></a>
+            <a href="career_counselling.html"><li id="item_4"><tag class="fa fa-info-circle"></tag> Career Counselling <span><i class="fa fa-angle-right"></i></span></li></a>
+
+            <a href="team.html"><li id="item_5"><tag class="fa fa-grav"></tag> Team <span><i class="fa fa-angle-right"></i></span></li></a>
+            <hr>
+            <label class="nav-label">Profile</label>
+            <a href="edit_profile_nurse.html"><li id="item_6"><tag class="fa fa-pencil"></tag> Edit Profile <span><i class="fa fa-angle-right"></i></span></li></a>
+            <a href="design_video.html"><li id="item_7"><tag class="fa fa-video-camera"></tag> Design your video <span><i class="fa fa-angle-right"></i></span></li></a>
+            <a href="class/logout_n.php"><li><tag class="fa fa-sign-out"></tag> Logout</li></a>
+        </ul>
+        
+        </div>
+
+        <div style="position: absolute; bottom: 0; left: 0; text-align: center; width: 100%;background-color: #2f2f2f; color: white; font-size: 7pt;padding: 8px" >
+            &copy;jobforsure.in | All rights reserved
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="notification-panel" id="notification" ng-controller="notificationController">
+        <header class="n-header"> NOTIFICATIONS <a onclick="close_noti()"><i style="float: right;padding-right: 10px;" class="fa fa-close"></i></a></header><br>
+        <div ng-repeat="noti in notis">
+
+            <div class="noti-msg">
+                <p style="padding: 10px;"><b>{{noti.h_name}}</b> has shown interest in you</p>
+                
+                <div class="noti-footer">
+                <span ng-switch="noti.seen">
+                    <span ng-switch-when="1" >
+                        <button class="btn btn-xs btn-success"><i class="fa fa-check"> Accepted</i></button>
+                        <button class="btn btn-xs btn-default"  type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                    <span ng-switch-default>
+                        <button class="btn btn-xs btn-default" type="button" ng-click="accept_req(noti.id,$index)">Accept</button>
+                        <button class="btn btn-xs btn-default" type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                </span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+
+<main class="main-body">
+                    
+                    <div class="container" id="breadcumb" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i>
+                    </div>
+
+                    <div class="jumbotron" >
+                    <div class="container" style="padding: 10px;"> <!-- style="background-image: url(images/quick_bg.jpg); background-size: cover" -->
+                        <h1 align="center">Browse Jobs</h1>
+                        <form class="form row p-1" id="f2">
+                            
+                            <div class="form-group col-md-3">
+                                <label>Search By Category</label>
+                                <input class="form-control" name="cat_id" id="cat_id" list="list1">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Search By Company</label>
+                                <input class="form-control" name="h_id1" id="h_id1" list="list3">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label>Search By Location</label>
+                                <input class="form-control" name="location" id="location" list="list2">
+                            </div>
+
+                            <div class="form-group col-md-3" style="margin-top: 24px;">
+                                
+                                <button class="btn btn-success" type="submit" ><i class="fa fa-search"></i> Search</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+
+                <!-- DataList -->
+
+                <div id="cat_det"></div>
+                <div id="location_det"></div>
+                <div id="hospital_det_load"></div>
+                
+
+        <!-- <div class="container py-5" style="min-height: 600px;">
+                    <div id="hospital_list"></div>  			
+       	</div> -->
+        <div class="container py-2">
+            <div id="sorted"></div>
+        </div>
+
+        
+
+
+         
+
+        <div class="container py-2">
+            <h2 id="pp1"> Our Featured Recruiters </h2><br>
+            
+            
+                <div id="s1"></div>
+                <br>
+                <br>
+            
+        </div>
+
+
+        <div class="modal" id="hospital_display">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header bg-info">&nbsp;
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body" id="s5">
+                
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">&times; Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <hr>
+    <div class="container py-2" id="listView" ng-controller="myCtrl">
+            <h2 id="pp2"> Job feeds <span id="sorr" class="form-inline">
+                
+                <div class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                  </div>
+                  <input class="form-control" aria-label="Small" ng-model="search" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                </div>
+
+                <form class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Sort by</span>
+                  </div>
+                  <select class="form-control" name="sort_id" id="sort_id" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-change="sort()" ng-model="selectedItem">
+                      <option value="time_stamp1">Latest Jobs First</option>
+                      <option value="job_location">Location</option>
+                      <option value="min_exp">Experience</option>
+                  </select>
+                </form>
+            </span></h2><br>
+
+            <section class="row">
+            <div ng-repeat="jobs in jobList|orderBy:sortkey:reverse|filter:search" class="col-md-4 col-sm-12 col-xs-12 py-3" id="ng_ani_class">
+                
+                
+                    
+                    <div class="nurse-card" style="cursor: pointer;" >
+                        
+                    <div class="hcard-text-nurse">
+                        <span class="close-tag"><a ng-click="remove($index)">&times;</a></span>
+                        <span style="color: blue; font-size: 14pt">{{jobs.job_title}}</span><br>{{jobs.h_name}}, <span style="font-size: 8pt">Posted {{get_moment(jobs.time_stamp1)}}</span><br>
+                        <span style="font-size: 10pt; color: brown"><i class="fa fa-map-marker"></i> {{jobs.job_location}}</span><br>
+                        <span align="justify" ng-bind-html="jobs.job_des | htmlToPlaintext"></span>
+                        
+                    <br>
+                        
+                        <div class="nurse-footer">
+                        <button class="btn btn-xs btn-warning" style="border-radius: 0px;">Salary: {{jobs.min_sal}}</button>
+                        <button class="btn btn-xs btn-success" style="border-radius: 0px;">Exp: {{jobs.min_exp}} Yrs</button>
+                        <button class="btn btn-xs btn-default" style="border-radius: 0px;" data-toggle="modal" data-target="#view_job_modal" ng-click="get_job_det1(jobs.job_id)">View Details</button>
+                        </div>
+                    </div>
+                        
+                    </div>
+                
+
+
+            </div>
+
+            </section>
+
+            <br><br>
+                  
+    </div>
+
+
+        <div class="popup" id="id01">
+            
+            <br><br>
+            <h2 class="p-3">Job Details</h2>
+           
+        </div>
+
+
+        <div class="modal" id="view_job_modal">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Job details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body" id="s4">
+                
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    <div class="intro">
+
+        <div class="modal" id="intro_for_nurse">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Welcome!</h4>
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p align="center">
+                <img src="images/default-dp.png">
+            </p>
+            <h3 align="center">You are almost done!</h3>
+            <h6 align="center">Go to the Edit profile page and upload the necessary data before continue... :)</h6>
+            <br>
+            <p align="center">
+                <a href="edit_profile_nurse.html"><button class="btn btn-default" type="button"><i class="fa fa-pencil"></i> Go to Edit profile</button></a>
+            </p>
+            <br />
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+    </div>
+</main>
+</section>
+
+
+			
+      
+
+
+	<div class="overlay"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/js/bootstrap-tour-standalone.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+<script src="js/jquery.flexdatalist.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
+
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+        //session check
+        
+
+        $("#intro_for_nurse").modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+
+        $("#intro_for_nurse").modal('hide');
+
+        $('#cat_id').flexdatalist({
+            minLength: 1
+        });
+
+        $('#location').flexdatalist({
+            minLength: 1
+        });
+
+        $('#h_id1').flexdatalist({
+            minLength: 1
+        });
+
+            $("#cat_det").load('php/cat_lists.php');
+            $("#location_det").load('php/location_lists.php');
+            $("#hospital_det_load").load('php/hospital_lists.php');
+            
+
+        
+
+
+            $.ajax({
+                url: "php/intro_nurse.php",
+                type: "GET",
+                success:function(resp){
+                    if(resp == 1){
+                        $("#intro_for_nurse").modal('show');
+                    }else{
+                         $("#intro_for_nurse").modal('hide');  
+                    }
+                }
+                });
+
+            function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+
+
+            count_notifications();
+
+
+            });
+
+
+
+
+
+
+        $(document).ready(function(){
+                $("#s1").load('php/load_hospital_for_front_small.php');
+        });
+
+
+    /*function load_more(){
+        job_list_get(list_count);
+    }*/
+    
+    
+    
+    
+    function myf_1(){
+     			$('.side-nav').css({
+     				left: '0px',
+     			});
+
+     			$('#mobile_bars_n').html('<a onclick="myf_2()"><i class="fa fa-close fa-2x"></i></a>');
+     		}
+
+
+     		function myf_2(){
+     			$('.side-nav').css({
+     				left: '-400px',
+     			});
+
+     			$('#mobile_bars_n').html('<a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a>');
+     		}
+
+
+ function job_list_get(n,sorted){
+            $.ajax({
+                url: 'php/load_job_for_nurse.php',
+                type: "POST",
+                data:{
+                    "n" : n,
+                    "sorted" : sorted
+                },
+                beforeSend: function(){
+                    $("#status_msg").html("Loading...");
+                },
+                success:function(resp){
+
+                        if(resp != false){
+                            
+                            $("#status_msg").html("");
+                            $("#s3").append(resp);    
+
+                        }else{
+
+                            $("#status_msg").html("No more jobs");
+
+                        }
+                        
+
+                }
+            });
+        }
+function get_job_det(n){
+        $.ajax({
+            url: 'php/get_job_det.php',
+            type: 'POST',
+            data:{
+                "job_id" : n,
+            },
+            success:function(resp){
+                $("#s4").html(resp);
+            },
+            error:function(resp){
+                //alert(resp);
+            }
+        });
+}
+
+
+
+function get_rec_det(n){
+        $.ajax({
+            url: 'php/get_rec_det.php',
+            type: 'POST',
+            data:{
+                "h_id" : n,
+            },
+            success:function(resp){
+                $("#s5").html(resp);
+            },
+            error:function(resp){
+                //alert(resp);
+            }
+        });
+}
+
+
+
+
+function get_job_details(n){
+    $.ajax({
+        url: "php/get_h_det.php",
+        type: "POST",
+        data: {
+            "n" : n,
+        },
+        success:function(resp){
+            $("#s2").html(resp);
+        },
+        error:function(resp){
+            alert(resp);
+        }
+    })
+}
+    
+    
+    
+
+$("#f2").submit(function(event){
+
+    event.preventDefault();
+
+    var t = $("#f2").serialize();
+
+
+    $.ajax({
+        url: "php/sort_job_by.php",
+        type: "POST",
+        data:t,
+        success:function(resp){
+            $("#sorted").html(resp);
+        },
+        error:function(resp){
+            alert(resp);
+        }
+
+    });
+
+});
+
+
+
+
+
+
+function request_a_video_call(n){
+    $.ajax({
+        url: "php/request_a_video_call.php",
+        type: "POST",
+        data:{
+            "h_id": n
+        },
+        success:function(resp){
+            if(resp == true){
+                $.alert("Request has been sent");
+            }
+        }
+    })
+}
+
+function apply_job(n){
+
+    $.ajax({
+        url: "php/apply.php",
+        type: "POST",
+        data: {
+            "job_id" : n,
+        },
+        success:function(resp){
+            get_job_det(n);
+            re_job_list_get();
+            alertify.success("Succesfully applied");
+            document.getElementById('id01').style.display='none';
+        },
+        error:function(resp){
+            alert(resp);
+        }
+    });
+
+}
+
+
+function cancel_apply(n){
+
+    $.ajax({
+        url: "php/cancel_apply.php",
+        type: "POST",
+        data: {
+            "job_id" : n,
+        },
+        success:function(resp){
+            get_job_det(n);
+            re_job_list_get();
+            alertify.error("Cancelled Successfully");
+            document.getElementById('id01').style.display='none';
+        },
+        error:function(resp){
+            alert(resp);
+        }
+    });
+
+}
+
+var list_count = 2;
+
+$(window).scroll(function() {
+
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+           // ajax call get data from server and append to the div
+
+           var s = document.getElementById('sort_id');
+           var sorted = s.options[s.selectedIndex].value;
+
+            job_list_get(list_count,sorted);
+
+            list_count = list_count + 2;
+
+    }
+});
+
+
+function get_sorted_list(n){
+    $("#s3").html("");
+    job_list_get(2,n);
+    list_count = list_count + 2;
+}
+	
+
+
+    var app = angular.module('myApp',['listView','notification','ngAnimate']);
+
+    var listView = angular.module('listView',[]);
+    listView.controller('myCtrl',function($scope,$http){
+        $http.get('php/load_job_for_nurse_a.php').then(function mySuccess(resp){
+            $scope.jobList = resp.data;
+            //console.log(resp);
+        },function myError(resp){
+            console.log("not Succesful");
+        });
+
+        $scope.get_job_det1 = function(n){
+            get_job_det(n);
+        }
+
+        $scope.sort = function(){
+            $scope.sortkey = $scope.selectedItem;
+            $scope.reverse = !$scope.reverse;
+        }
+        
+        
+        $scope.remove = function(index) {
+    	   $scope.jobList.splice(index, 1);
+
+        }
+        
+        
+        $scope.get_moment = function(time1){
+            return moment(time1, "YYYYMMDD").fromNow();
+        }
+
+    });
+
+
+    listView.filter('htmlToPlaintext', function($sce) {
+    return function(text) {
+       var t = text.substr(0,100);
+      return  $sce.trustAsHtml(t);
+      //text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+  });
+
+
+
+
+
+
+    var notification = angular.module('notification',[]);
+
+    notification.controller('notificationController',function($scope,$http,$interval){
+        $scope.loadData = function(){
+            $http.get('php/interested_lists.php').then(function mySuccess(resp){
+                $scope.notis = resp.data;
+            },function myError(resp){
+                console.log("Notification Panel Error: "+resp.statusText)
+            });
+        }
+
+        $scope.loadData(); //initial load
+
+        var refreshDiv = function(){$scope.loadData();count_notifications();}
+
+        $interval(refreshDiv,10000);
+        //realtime refresh 
+
+
+        $scope.remove = function(index){
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+
+        $scope.accept_req = function(id,index){
+            change_req(id,'1');
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+        $scope.reject_req = function(id,index){
+            change_req(id,'2');
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+    });
+
+
+
+    function noti_bar_view(){
+        $(".notification-panel").css('right','0px');
+    }
+
+    function close_noti(){
+        $(".notification-panel").css('right','-100vw');
+    }
+
+
+
+    function change_req(m,n){
+        $.ajax({
+            url: "php/change_req.php",
+            type: "POST",
+            data:{
+                "id" : m,
+                "seen": n
+            },
+            success:function(resp){
+                return true;
+            }
+
+        });
+    }
+
+
+    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+    function req_from_nurse(n){
+        $.ajax({
+            url: "php/request_from_nurse.php",
+            type: "POST",
+            data: {
+                "h_id" : n
+            },
+            success:function(resp){
+                $("#hospital_display").modal('toggle');
+            }
+        });
+    }
+
+
+
+    
+
+</script>
+</html>

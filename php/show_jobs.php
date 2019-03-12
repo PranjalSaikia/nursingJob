@@ -35,7 +35,7 @@
 		        			<div class="col-md-4 p-3">
 		        				<div class="card" style="height: 450px; ">
 
-		        					<div class="card-header" style="background: linear-gradient(45deg, #26D0CE, #1A2980);"><h5 style="color: white; "><?php echo $r2->job_title; ?></h5></div>
+		        					<div class="card-header" id="card_post_job"><h5 style="color: white; "><?php echo $r2->job_title; ?></h5></div>
 								  
 								  <div class="card-body" align="left" style="overflow-y: auto">
 
@@ -46,6 +46,8 @@
 								  <b>No of vacancies:</b> &nbsp;<?php echo $r2->job_no; ?>
 								  <br>
 								  <b>Minimum Experience:</b> &nbsp;<?php echo $r2->min_exp; ?> Years
+								  <br>
+								  <b>Minimum Salary:</b> &nbsp;<?php echo $r2->min_sal; ?>
 								  <br>
 								  <b>Job location:</b> &nbsp;<?php echo $r2->job_location; ?>
 								  <br>

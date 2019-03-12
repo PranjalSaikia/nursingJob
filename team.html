@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=class/logout_n.php">
+	<title>Job for sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.flexdatalist.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "class/session_check_n.php",
+            type: "GET",
+            success:function(resp){
+                if(resp == false){
+                    window.location.href="login.html";
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+<div id="preloader"></div>
+<section class="profile-main">
+<div class="header-bar">
+        
+        <h3><img src="images/logo.png" width="80px"></h3>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li>
+
+            <a id="nav_button" onclick="noti_bar_view()"><span id="nos">0</span>
+               <i class="fa fa-bell fa-2x"></i>
+              </a>
+
+       </li>
+    
+    </ul>
+     <span id="mobile_bars_n"><a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a></span>
+
+
+     <div class="container-fluid" id="menu_now">
+        <div class="container">
+            <ul class="horizontal-navbar">
+                <li><a href="profile_nurse.html">HOME</a></li>
+                <li><a href="jobs_applied.html">APPLIED JOBS</a></li>
+                <li><a href="rec_interested.html">INTERESTED</a></li>
+                <li><a href="online_education.html">ONLINE EDUCATION</a></li>
+                <li ><a href="career_counselling.html">CAREER COUNSELLING</a></li>
+                <li class="active"><a href="team.html">TEAM</a></li>
+                <li><a href="edit_profile_nurse.html">MY PROFILE</a></li> 
+                <li><a href="class/logout_n.php">LOGOUT</a></li>
+
+            </ul>
+         </div>
+     </div>
+
+</div>
+    
+    <div class="side-nav"></div>
+
+    <div class="notification-panel" ng-app="notification" ng-controller="notificationController">
+        <header class="n-header"> NOTIFICATIONS <a onclick="close_noti()"><i style="float: right;padding-right: 10px;" class="fa fa-close"></i></a></header><br>
+        <div ng-repeat="noti in notis">
+
+            <div class="noti-msg">
+                <p style="padding: 10px;"><b>{{noti.h_name}}</b> has shown interest in you</p>
+                
+                <div class="noti-footer">
+                <span ng-switch="noti.seen">
+                    <span ng-switch-when="1" >
+                        <button class="btn btn-xs btn-success"><i class="fa fa-check"> Accepted</i></button>
+                        <button class="btn btn-xs btn-default"  type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                    <span ng-switch-default>
+                        <button class="btn btn-xs btn-default" type="button" ng-click="accept_req(noti.id,$index)">Accept</button>
+                        <button class="btn btn-xs btn-default" type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                </span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+<main class="main-body">
+                    
+                    <div class="container" style="padding: 10px 10px 10px 10px;" id="breadcumb">
+                    HOME <i class="fa fa-angle-right"></i> Team
+                    </div>
+
+                    <div class="jumbotron" style="min-height: 100vh" >
+                    <div class="container" style="padding-top: 10vh;">
+                        <h1 align="left">WHO ARE WE</h1>
+                        <div class="row">
+                            
+
+                            <div class="col-md-12 col-xs-12 col-lg-12" align="center">
+                                <p align="justify" style="font-size: 12pt">Built with an aim to connect and serve the nurses fraternity, we marked our existence in the year 2017 and since then, has been consistently growing leaps and bounds. Our rich experience, commitment, accountability and ability to connect with small, medium and large hospitals has helped us to provide jobs to the nurses to their satisfaction. With digital presence nationally and internationally both, we also have been able to carve a niche for ourselves in the job industry.</p>
+                                <p align="justify" style="font-size: 12pt">We have successfully been able to serve the hospital industry at levels besides providing nurses from all over the country, we also plan to expand our  expertise to lab technicians through continued expansion of our presence. With global recognition and technical expertise, we have been able to render clear visibility to our clients’ and have helped them to reach the right target.</p>
+                            </div>
+                            
+
+                            <div class="col-md-12">
+                                <h1>Contact us</h1>
+                                <p>Our office Address:</p>
+                                <p></p>
+
+                                <br>
+                                <p><b>Official Email:</b> <br><a href="mailto:info@jobforsure.in">info@jobforsure.in</a></p>
+                                <p><b>Call us:</b> <br><a href="tel:+919101043435">+91 91010 43435</a></p>
+                            </div>
+
+                            
+
+                            <div class=" col-md-3" style="margin-top: 24px;">
+                                
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+</main>
+</section>
+
+
+	<div class="overlay"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/mdb.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+<script src="js/jquery.flexdatalist.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+        count_notifications();
+
+            $.ajax({
+                url: "php/menu_n_new.php",
+                type: "POST",
+                data:{
+                    "n" : 5
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
+
+            
+            });
+    
+    
+    function myf_1(){
+     			$('.side-nav').css({
+     				left: '0px',
+     			});
+
+     			$('#mobile_bars_n').html('<a onclick="myf_2()"><i class="fa fa-close fa-2x"></i></a>');
+     		}
+
+
+     		function myf_2(){
+     			$('.side-nav').css({
+     				left: '-400px',
+     			});
+
+     			$('#mobile_bars_n').html('<a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a>');
+     		}
+
+
+
+
+//notifications
+
+
+
+             var notification = angular.module('notification',[]);
+
+    notification.controller('notificationController',function($scope,$http,$interval){
+        $scope.loadData = function(){
+            $http.get('php/interested_lists.php').then(function mySuccess(resp){
+                $scope.notis = resp.data;
+            },function myError(resp){
+                console.log("Notification Panel Error: "+resp.statusText)
+            });
+        }
+
+        $scope.loadData(); //initial load
+
+        var refreshDiv = function(){$scope.loadData();count_notifications();}
+
+        $interval(refreshDiv,10000);
+        //realtime refresh 
+
+
+        $scope.remove = function(index){
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+
+        $scope.accept_req = function(id,index){
+            change_req(id,'1');
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+        $scope.reject_req = function(id,index){
+            change_req(id,'2');
+            $scope.notis.splice(index,1);
+            count_notifications();
+        }
+
+    });
+
+
+
+    function noti_bar_view(){
+        $(".notification-panel").css('right','0px');
+    }
+
+    function close_noti(){
+        $(".notification-panel").css('right','-100vw');
+    }
+
+
+
+    function change_req(m,n){
+        $.ajax({
+            url: "php/change_req.php",
+            type: "POST",
+            data:{
+                "id" : m,
+                "seen": n
+            },
+            success:function(resp){
+                return true;
+            }
+
+        });
+    }
+
+
+    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+ 
+	
+
+
+</script>
+</html>

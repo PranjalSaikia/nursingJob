@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
+	<title>Job for Sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+
+
+
+
+    <style type="text/css">
+    	
+    	#mod{
+
+		  background: #1A2980;  /* fallback for old browsers */
+		  background: -webkit-linear-gradient(45deg, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+		  background: linear-gradient(45deg, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+		}
+    </style>
+
+</head>
+<body>
+
+	<!-- <div id="preloader"></div> -->
+
+
+<section class="profile-main">
+<div class="header-bar"></div>
+<div class="side-nav"></div>
+
+
+<main class="main-body">
+	<div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> Team
+                    </div>
+        <div class="container-fluid" style="min-height: 600px;">
+
+        		<div class="" style="min-height: 100vh" >
+                    <div class="container" style="padding-top: 10vh;">
+                        <h1 align="left">WHO ARE WE</h1>
+                        <div class="row">
+                            
+
+                            <div class="col-md-12 col-xs-12 col-lg-12" align="center">
+                                <p align="justify" style="font-size: 12pt">Built with an aim to connect and serve the nurses fraternity, we marked our existence in the year 2016 and since then, has been consistently growing leaps and bounds. Our rich experience, commitment, accountability and ability to connect with small, medium and large hospitals has helped us to provide jobs to the nurses to their satisfaction. With digital presence nationally and internationally both, we also have been able to carve a niche for ourselves in the job industry.</p>
+                                <p align="justify" style="font-size: 12pt">We have successfully been able to serve the hospital industry at levels besides providing nurses from all over the country, we also plan to expand our  expertise to lab technicians through continued expansion of our presence. With global recognition and technical expertise, we have been able to render clear visibility to our clients’ and have helped them to reach the right target.</p>
+                            </div>
+                            
+
+                            <div class="col-md-12">
+                                <h1>Contact us</h1>
+                                <p>Our office Address:</p>
+                                <p></p>
+
+                                <br>
+                                <p><b>Official Email:</b> <br><a href="mailto:info@jobforsure.in">info@jobforsure.in</a></p>
+                                <p><b>Call us:</b> <br><a href="tel:+919101043435">+91 91010 43435</a></p>
+                            </div>
+
+                            
+
+                            <div class=" col-md-3" style="margin-top: 24px;">
+                                
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+       	</div>
+
+       
+
+
+
+</main>
+</section>
+
+
+
+
+
+	<div class="overlay"></div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+		$(".header-bar").load("php/header_bar_hospital.php");
+
+            $.ajax({
+                url: "php/menu_h_new.php",
+                type: "POST",
+                data:{
+                    "n" : 4
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
+
+		
+
+		
+    		
+        });        
+
+
+	function change_status(m,n){
+
+		$.ajax({
+			url: "php/change_status.php",
+			type: "POST",
+			data: {
+				"m": m,
+				"n": n
+			},
+			success:function(resp){
+				$("#st_"+m).html(resp);
+			},
+			error:function(resp){
+				alert(resp);
+			}
+		});
+
+	}
+
+
+
+	
+
+
+		
+
+
+</script>
+</html>

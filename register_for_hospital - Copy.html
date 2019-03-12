@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Job for Sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    
+    
+</head>
+<body>
+
+	<div id="preloader"></div>
+
+
+		<section class="login-background">
+        
+	    <div class="header-text">
+	        <a href="index.html"><img src="images/logo.png" width="80px"></a>
+	    
+	    <ul class="list-unstyled" id="top_nav">
+	        <li><a href="register_init.html">Register</a></li>
+	        <li><a href="login.html">Login</a></li>
+	        <li><a data-toggle="modal" data-target="#needhelp">Need help</a></li>
+	    </ul>
+            
+            <span id="mobile_bars"><a onclick="myFunction()"><i class="fa fa-bars fa-2x"></i></a></span>
+            
+            <div id="side_menu">
+            <div class="container-fluid bg-light" style="position: fixed; z-index: 101; height: 100%;">
+                <ul class="list-unstyled" id="side_nav_item">
+                    <li><a onclick="myFunction()"><i class="fa fa-close"></i> Close</a></li>
+                    <li><a href="register.html">Register</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a data-toggle="modal" data-target="#needhelp">Need help</a></li>
+                </ul>
+                <span id="foot_side">&copy; jobforsure.in</span>
+            </div>
+            </div>
+	    </div>
+
+
+      <div class="modal" id="needhelp" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Need Help??</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-6">
+              <h5><b>Call us</b></h5>
+              <p><a href="tel:+919101043435">+91 91010 43435</a></p>
+
+              <br><br>
+
+              <h5><b>Mail us</b></h5>
+              <p><a href="mailto:info@jobforsure.in">info@jobforsure.in</a></p>
+            </div>
+
+            <div class=" col-md-6">
+
+              <h5><b>Chat Now</b></h5>
+              <p>Chat with our support team for quick help.</p>
+              <br>
+
+              <button class="btn btn-success" type="button" onclick="btn_clk()">Chat Now</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <section class="body-main">
+      
+      <div class="instructions">
+        <header><h4>Instructions</h4></header>
+        <br>
+
+        <div class="ribbon-wrap">
+          <div class="ribbon">
+            <a href="#">1. Fill us the registration form. Don't worry. It is free !!</a>
+          </div>
+        </div>
+
+        <div class="ribbon-wrap">
+          <div class="ribbon">
+            <a href="#">2. Upload the files. We will send you a link for setting up your profile.</a>
+          </div>
+        </div>
+
+        <div class="ribbon-wrap">
+          <div class="ribbon">
+            <a href="#">3. Set a new password for the account.</a>
+          </div>
+        </div>
+
+        <div class="ribbon-wrap">
+          <div class="ribbon">
+            <a href="#">4. Fill up the profile information.</a>
+          </div>
+        </div>
+
+        <div class="ribbon-wrap">
+          <div class="ribbon">
+            <a href="#">5. Go search for nurses</a>
+          </div>
+        </div>
+
+        
+      </div>
+	    
+	    <div class="login-form">
+	        <div class="card">
+	            <form method="post" id="f2" onsubmit="return Validate(this)">
+	                <div class="form-group" align="center">
+                        <h4>Recruiter Register</h4>
+                        <p>Create an account (it's free)</p>
+	                </div>
+	            	<hr>
+	            	<div id="message" style="text-align: center; width: 100%;color: red;"></div>
+	            	<div id="sub2">
+	                <div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Name <span style="color: red">*</span>
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter your Name" required >
+								    </div>
+							  	</div>
+
+							  	<div class="form-group row">
+								  	<div class="col-sm-3">
+								  		Email <span style="color: red">*</span>
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email" required  >
+								    </div>
+							  	</div>
+
+
+							  <div class="form-group row">
+							  	<div class="col-sm-3">
+							  		Contact No <span style="color: red">*</span>
+							  	</div>
+							    <div class="col-sm-9">
+							      	<input type="number" name="phn" id="phn" maxlength="10" class="form-control" placeholder="Phone No (Whatsapp enabled)" required  >
+							    </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <div class="col-sm-3">
+                                    Letter of incorporation <span style="color: red">*</span> 
+                                </div>
+                              <div class="col-sm-9">
+                                
+                                    <div class="upload-btn-wrapper">
+                                        <button class="btn11" id="stat1">Click here to upload file</button>
+                                        <input type="file" name="myfile1" accept="application/pdf" required />
+                                      </div>
+                                
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    Bank account details <span style="color: red">*</span>
+                                </div>
+                              <div class="col-sm-9">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn11" id="stat2">Click here to upload file</button>
+                                    <input type="file" name="myfile2" accept="application/pdf" required />
+                                  </div>
+                              </div>
+                            </div>
+                        
+                        <div class="form-group row">
+							  	<div class="col-sm-3">
+							  		Capcha
+							  	</div>
+							    <div class="col-sm-9">
+                                    <input type="text" id="txtCaptcha"
+
+                                    style="background-image:url('images/1.jpg'); text-align:center; border:none;
+                                    font-weight:bold; font-family:Modern; -webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;
+-ms-user-select: none;user-select: none;" disabled />
+                                <input type="button" id="btnrefresh" value="Refresh" onclick="DrawCaptcha();" /><br>
+							      	<input type="text" id="txtInput" placeholder="type the above numbers"/>  
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+                                    <input type="checkbox" name="check_terms" required> I agree the <a style="color: blue;" data-toggle="modal" data-target="#tnc">Terms & Condition</a>
+                                </div>
+							    
+								 <div class="form-group" align="right">
+								    <button class="btn btn-primary" type="submit" name="register"><span id="load12"></span> Register</button>
+								</div>
+	                <hr>
+	                <div class="form-group" align="right">
+	                    Already registered ? <a href="hospital_login.html">Login here</a>
+                    </div>
+                    
+                    
+
+	            </div>
+	            </form>
+	            
+	        </div>
+	        <span id="tag_line">Present to you by jobforsure.in</span>
+	    </div>
+
+    </section>
+	    
+	</section>
+    
+    <div class="modal" id="tnc" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h5 class="modal-title">Terms & Conditions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p align="justify">
+                  The following terms and conditions are deemed to have been accepted by the User on usage of the website www.jobforsure.in. The terms "You" and "User" refer to all individuals and/or entities accessing this site for any reason
+            </p>
+              <p align="justify">
+                  <h5>GENERAL DISCLAIMER</h5>
+                Every effort has been made to ensure the accuracy of the information. The site is designed, updated and maintained by www.jobforsure.in. The information contained in this Web site is intended, solely to provide general information for the personal use of the reader, who accepts full responsibility for its use and does not represent or endorse the accuracy or reliability of any information, including content or advertisements contained on, distributed through, or linked, downloaded or accessed from any of the services contained on this web site. The web site may contain inaccuracies, typographical and clerical errors, though efforts had been made to ensure accuracy. But www.jobforsure.in. reserves the right to change, alter, and delete any of the representations, clauses in this website without prior notice or information.
+              </p>
+            
+            <p align="justify">
+                  <h5>NO WARRANTIES</h5>
+                www.jobforsure.in. does not make any warranties, express or implied, including, without limitation, those of merchantability, non infringement and fitness for a particular purpose, and that the website will operate error free or that the website and its server are free of computer viruses or other harmful mechanisms with respect to any information, data, statements or products made available on the Site and is on a “as is” available basis only.
+              </p>
+          <p align="justify">
+                  <h5>INDEMNITY</h5>
+               Users agree to indemnify and hold www.jobforsure.in. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+        
+                <p align="justify">
+                  <h5>NO LIABILITY</h5>
+               Users agree to indemnify and hold www.jobforsure.in. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+    
+                <p align="justify">
+                  <h5>INTELLECTUAL PROPERTY RIGHTS</h5>
+               All Intellectual property rights are vested solely with www.jobforsure.in. No part of the webpage/service shall be reproduced or transmitted or stored in any other web site, nor may any of its information or part thereof be disseminated in any electronic or non-electronic form, nor included in any public or private electronic retrieval system or service without obtaining prior written permission from www.jobforsure.in. Any infringement in this regard shall be adequately compensated by the User .
+              </p>
+            <p align="justify">
+                  <h5>OTHER TERMS AND CONDITIONS</h5>
+               By using this web site you are indicating your acceptance to abide by the Terms and Conditions which can be updated or modified at any time by www.jobforsure.in..
+                www.jobforsure.in. do not disclose any personal information unless specifically requested by the user or required to do so by the law or in good faith that such disclosure is reasonably necessary to: (a) Comply with legal processes (b) Enforce the Terms and Conditions (c) Respond to claims that any content violates the rights of third parties or (d) Protect the rights, property or personal safety of www.jobforsure.in., its users and the public.
+              </p>
+    
+            <p align="justify">
+               www.jobforsure.in. does not take any responsibility for the acts/omissions on the part of the user(s)/visitor(s)/customer(s) of the site. www.randstad.in. shall not be obliged to resolve or mediate any dispute or difference, which may arise between users/visitors
+              </p>
+    
+            <p align="justify">
+               Through this website you may be re - directed to other sites for various purposes and links. www.jobforsure.in. shall not be liable for any of such sites and their related links.
+              </p>
+            <p align="justify">
+                www.jobforsure.in. shall not be liable if any such links shall directly or indirectly lead to any slander, prohibited sites or obscene sites.
+                This site and the intended activities are for the promotion and welfare of the society and does not contribute to any other unauthorized activities.
+            </p>
+            <p align="justify">
+                The website and its users are subject to Guwahati jurisdiction
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+		<br>
+
+
+
+
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$("#side_menu").hide();
+        DrawCaptcha();
+        $('#txtCaptcha').disableSelection();    
+
+        $('[data-toggle="tooltip"]').tooltip();
+	});
+
+    $("input[name=myfile1]").change(function(){
+        $("#stat1").html("one file is selected");
+    });
+
+    $("input[name=myfile2]").change(function(){
+        $("#stat2").html("one file is selected");
+    });
+
+	function myFuntion(){
+		$("#side_menu").toggle();
+	}
+
+	$("#f2").submit(function(e){
+		e.preventDefault();
+
+        var tr = Validate(this);
+
+        if(tr == true){
+        
+            var q = ValidCaptcha();
+            if(q == true){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var phn = $("#phn").val();
+
+            if(name == "" || email == "" || phn == "" ){
+                $("#message").html("<span style='color:red'>Please Enter all fields</span>");
+            }else{
+
+
+                if(phn.length == 10){
+
+                    var t = new FormData(this);
+                    $.ajax({
+                        url: "php/register_hospital.php",
+                        type: "POST",
+                        dataType: 'html',
+                        data: t,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend:function(){
+                          $("#load12").html("<i class='fa fa-spinner fa-spin'></i>");
+                        },
+                        success:function(resp){
+                          $("#load12").html("");
+                          $("#sub2").html(resp);
+                        },
+                        error:function(resp){
+                            alert(resp);
+                        }
+                    });
+
+                }else{
+                        $("#message").html("<span style='color:red'>Please enter a correct phone number</span>");	
+                        $("#phn").focus();
+                }	
+            }
+            }else{
+                $("#message").html("<span style='color:red'>Invalid Capcha</span>");
+            }
+        }else{
+            $("#message").html("File format is invalid. please use pdf only");
+        }
+	});
+
+
+    //validate file extension
+
+    var _validFileExtensions = [".pdf"];    
+    function Validate(oForm) {
+        var arrInputs = oForm.getElementsByTagName("input");
+        for (var i = 0; i < arrInputs.length; i++) {
+            var oInput = arrInputs[i];
+            if (oInput.type == "file") {
+                var sFileName = oInput.value;
+                if (sFileName.length > 0) {
+                    var blnValid = false;
+                    for (var j = 0; j < _validFileExtensions.length; j++) {
+                        var sCurExtension = _validFileExtensions[j];
+                        if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                            blnValid = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!blnValid) {
+                        $("#message").html("Sorry, " + sFileName + " is invalid, allowed extensions are: " + _validFileExtensions.join(", "));
+                        return false;
+                    }
+                }
+            }
+        }
+    
+        return true;
+    }
+    
+    
+    
+    //Created / Generates the captcha function    
+    function DrawCaptcha()
+    {
+        var a = Math.ceil(Math.random() * 10)+ '';
+        var b = Math.ceil(Math.random() * 10)+ '';       
+        var c = Math.ceil(Math.random() * 10)+ '';  
+        var d = Math.ceil(Math.random() * 10)+ '';  
+        var e = Math.ceil(Math.random() * 10)+ '';  
+        var f = Math.ceil(Math.random() * 10)+ '';  
+        var g = Math.ceil(Math.random() * 10)+ '';  
+        var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+        document.getElementById("txtCaptcha").value = code
+    }
+
+    // Validate the Entered input aganist the generated security code function   
+    function ValidCaptcha(){
+        var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+        var str2 = removeSpaces(document.getElementById('txtInput').value);
+        if (str1 == str2) return true;        
+        return false;
+        
+    }
+
+    // Remove the spaces from the entered and generated code
+    function removeSpaces(string)
+    {
+        return string.split(' ').join('');
+    }
+    
+    
+    
+    $.fn.extend({ 
+                disableSelection: function() { 
+                    this.each(function() { 
+                        if (typeof this.onselectstart != 'undefined') {
+                            this.onselectstart = function() { return false; };
+                        } else if (typeof this.style.MozUserSelect != 'undefined') {
+                            this.style.MozUserSelect = 'none';
+                        } else {
+                            this.onmousedown = function() { return false; };
+                        }
+                    }); 
+                } 
+            });
+
+</script>
+</html>

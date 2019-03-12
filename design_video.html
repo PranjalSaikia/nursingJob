@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=class/logout_n.php">
+	<title>Job for sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.flexdatalist.css">
+        <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="preloader"></div>
+<section class="profile-main">
+<div class="header-bar"></div>
+    
+    <div class="side-nav"></div>
+
+
+<main class="main-body">
+                    
+                    <div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> Design your video
+                    </div>
+
+                    <div class="container" align="center">
+
+
+                        <div class="video-box">
+                            hey
+                        </div>
+
+
+                    </div>
+</main>
+</section>
+
+
+	<div class="overlay"></div>
+</body>
+
+
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/mdb.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+<script src="js/jquery.flexdatalist.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+        $('#cat_id').flexdatalist({
+            minLength: 1
+        });
+
+        $('#location').flexdatalist({
+            minLength: 1
+        });
+
+        $('#h_id1').flexdatalist({
+            minLength: 1
+        });
+
+            $("#cat_det").load('php/cat_lists.php');
+            $("#location_det").load('php/location_lists.php');
+            $("#hospital_det_load").load('php/hospital_lists.php');
+            //$(".side-nav").load("php/menu_n_new.php");
+            $(".header-bar").load("php/header_bar_nurse.php");
+
+            $.ajax({
+                url: "php/menu_n_new.php",
+                type: "POST",
+                data:{
+                    "n" : 7
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
+
+
+            playVideo();
+
+            
+
+            
+            });
+
+
+
+
+
+
+    function playVideo(){
+
+        $.ajax({
+            url: "video/nurse_1.php",
+            success:function(resp){
+                $(".video-box").html(resp);
+            }
+        });
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+ 
+	
+
+
+</script>
+</html>

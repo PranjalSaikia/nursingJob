@@ -1,0 +1,71 @@
+<div class="container" style="min-height: 600px">
+
+           
+
+
+            <div class="row">
+                <div class="col-md-12 " align="right" >
+
+                    <div class="form-inline">
+                
+                <div class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                  </div>
+                  <input class="form-control" aria-label="Small" ng-model="search" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                </div>
+
+                <form class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Sort by</span>
+                  </div>
+                  <select class="form-control" name="sort_id" id="sort_id" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-change="sort()" ng-model="selectedItem">
+                      <option value="city">Location</option>
+                      <option value="min_exp">Experience</option>
+                  </select>
+                </form>
+            
+                </div>
+            </div>
+        </div>
+                <div class="row" >
+                        
+        <div class="col-md-4 py-1" ng-repeat="n in nurses|orderBy:sortkey:reverse|filter:search">
+            <div class="card" id="nurse-det-card">
+                <table width="100%">
+                    <tr class="bg-light">
+                        <td align="right" style="padding-right: 10px;font-size: 12pt;"><a ng-click="remove($index)">&times;</a></td>
+                    </tr>
+
+                    <tr>
+                        <td align="left" style="padding: 10px"><img src="{{n.dp}}" class="dp-small rounded-circle"></td>
+                    </tr>
+                    <tr>
+                        <td width="100%" valign="top" id="head_tag_content" style="padding: 10px">
+                           <h4>{{n.n_name}}</h4>
+                           City: {{n.city}} | Exp: {{n.job_exp}}<br>
+                            <span>About me: <p align="justify" ng-bind-html="n.n_des | htmlToPlaintext" style="padding: 20px;"></p></span>
+                            <div ng-switch="n.interest">
+                                <span ng-switch-when="0"><button ng-click="interested_yes(n.n_id)" class="btn btn-sm btn-primary"  data-toggle="  pop tooltip" data-placement="top" title="If the nurse accept your request you can view their profile" >Send Request</button></span>
+
+                                <span ng-switch-when="1" class="text-primary"><i class="fa fa-check"> Request Sent</i></span>
+
+                                <span ng-switch-when="2" class="text-primary">
+                                  <button ng-click="view_profile(n.n_id)" class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#view_profile">View Profile</button>
+                                  <a href=skype:{{n.slink}}><button class="btn btn-sm btn-primary"><i class="fa fa-skype"></i></button></a>
+                                  <a href=tel:{{n.n_phn}}><button class="btn btn-sm btn-primary"><i class="fa fa-phone"></i></button></a>
+                                </span>
+                            </div>
+                            <br/>
+                              <!-- <a href="tel:{{n.n_phn}}"><button class="btn btn-sm"><i class="fa fa-phone"> Make a call</i></button></a>
+                    <a href="mailto:{{n.n_email}}"><button class="btn btn-sm"><i class="fa fa-envelope"> Send a mail</i></button></a>
+                    <a href="skype:{{n.slink}}"><button class="btn btn-sm"><i class="fa fa-video-camera"> video call</i></button></a> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+                </div>
+
+       	</div>

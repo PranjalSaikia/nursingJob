@@ -1,0 +1,55 @@
+<div class="container" style="min-height: 600px">
+
+            <div class="row">
+                <div class="col-md-12 " align="right" >
+
+                    <div class="form-inline">
+                
+                <div class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                  </div>
+                  <input class="form-control" aria-label="Small" ng-model="search" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
+                </div>
+
+                <form class="input-group input-group-sm mb-3 p-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Sort by</span>
+                  </div>
+                  <select class="form-control" name="sort_id" id="sort_id" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-change="sort()" ng-model="selectedItem">
+                      <option value="time_stamp1">Recent Posts</option>
+                      <option value="city">Location</option>
+                      <option value="min_exp">Experience</option>
+                  </select>
+                </form>
+            
+                </div>
+            </div>
+        </div>
+                <div class="row" >
+                        
+        <div class="col-md-12 py-1" ng-repeat="n in nurses|orderBy:sortkey:reverse|filter:search">
+            <div class="card">
+                <div class="row" >
+                  <div class="col-md-1 bg-light" align="center">
+                    
+                  </div>
+
+                  <div class="col-md-9 p-3">
+                    <h4>{{n.n_name}}</h4>
+                    <h6>on {{n.time_stamp1}}</h6>
+                    <p>{{n.message}}</p>
+                  </div>
+
+                  <div class="col-md-2"><br/><br/>
+                    <button ng-click="view_profile(n.n_id)" class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#view_profile">View Profile</button>
+                    <a href=skype:{{n.slink}}><button class="btn btn-sm btn-primary"><i class="fa fa-skype"></i></button></a>
+                    <a href=tel:{{n.n_phn}}><button class="btn btn-sm btn-primary"><i class="fa fa-phone"></i></button></a>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+                </div>
+
+       	</div>

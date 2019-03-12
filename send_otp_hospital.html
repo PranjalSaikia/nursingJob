@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Job for sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+</head>
+<body style="background-image: url('images/login-bg-bg.jpg');background-size: cover; background-repeat: no-repeat;">
+
+	<div id="preloader"></div>
+	<section class="container-fluid" style="">
+      
+	    
+	    <section class="body-main-1" style="display: flex; justify-content: center;align-items: center;height: 100vh;">
+    	
+   
+	    <div class="login-form-1" style="" >
+	        <div class="card" style="padding: 40px;box-shadow: 0px 0px 200px rgba(0,0,0,0.7); border-radius: 0px; background-image: url('images/login-bg.jpg'); border: none; min-height: 70vh; background-size: cover;opacity: 0.9">
+	            <form method="post" id="f4">
+	                <div class="form-group" align="center">
+	                    <h3 style="color: white"><strong>OTP Verification</strong></h3>
+	                </div>
+	            	<hr  style="background-color: white" />
+	            	<div id="message"></div>
+	            	<br/>
+	            	<div id="sub1" style="color: white">
+	                <div class="form-group row" style="color: white">
+								  	<div class="col-sm-3">
+								  		Enter OTP
+								  	</div>
+								    <div class="col-sm-9">
+								      	<input type="text" name="name" id="name" class="form-control" placeholder="Enter OTP" required >
+								    </div>
+							  	</div>
+							  	
+							  <br/>
+							  
+							    
+								 <div class="form-group" align="right">
+								    <button class="btn " style="border-radius: 0px; background-color: rgba(0,0,0,0.4); color: white; font-weight: bold" type="submit" name="register"><span id="load12"></span>Submit</button>
+
+								    
+								</div>
+	                
+
+	            </div>
+	            </form>
+	            
+	        </div>
+	        <span id="tag_line">Present to you by jobforsure.in</span>
+	    </div>
+	    </section>
+	</section>
+    
+    
+   
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+
+	$("#f4").submit(function(e){
+		e.preventDefault();
+		var name = $("#name").val();
+		
+
+		if(name == ""){
+			$("#message").html("<span class='alert alert-danger alert-dismissible fade show' style='color:red'>Please Enter OTP</span>");
+		}else{
+			$.ajax({
+								url: "php/register_hospital.php",
+								type: "POST",
+								data:{"name":name},
+								beforeSend:function(){
+									$("#load12").html("<i style='color: white' class='fa fa-spinner fa-spin'></i>");
+								},
+								success:function(resp){
+									console.log(resp);
+									if(resp == 0){
+							window.location.href="register_for_hospital.html";
+							
+										}
+										
+										else {window.location.href=resp;}
+								},
+								error:function(resp){
+									alert(resp);
+								}
+							});
+
+    }
+});
+
+
+</script>
+</html>

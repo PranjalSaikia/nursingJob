@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "top-bar"
+        "carousel"
+        "main-part";
+}
+
+.navbar-brand{
+    grid-area: top-bar;
+    height: 70px;
+    background-color: #286088;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: "main1 nav1 profile";
+}
+
+.navbar-brand>div{
+}

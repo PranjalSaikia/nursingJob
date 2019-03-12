@@ -1,0 +1,116 @@
+<div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
+
+                <div class="sidebar-header" align="center">
+
+                    <div id="dp1"></div>
+                    <h6><div id="name_nurse"></div></h6>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li id="1">
+                        <a href="profile_nurse.html">Home</a>
+                    </li>
+                    <li id="2">
+                        <a href="edit_profile_n.html" >Edit Profile</a>
+                    </li>
+
+                    <li id="2">
+                        <a href="apply_status.html" >Apply Status</a>
+                    </li>
+                    <li>
+                        <a href="class/logout_n.php">Logout</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#"><small>FAQ</small></a>
+                        <a href="#"><small>Report an issue</small></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <!-- <div id="content">
+                <nav class="navbar navbar-default" style="background-color: #1A2980; height: 50px;">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                             <button type="button" id="sidebarCollapse" class="btn navbar-btn" style="background: none;">
+                                <i style="color: white;" class="fa fa-bars"></i>
+                                
+                            </button>
+                            <a href="#"><img class="" src="images/POST.png" style="width: 70px;"></a>
+                        
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">Page</a></li>
+                                <li><a href="#">Page</a></li>
+                                <li><a href="#">Page</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div> -->
+
+            <div style="height: 60px;" >
+            <div class="container-fluid fixed-top" style="height: 60px;  background-color:#54aeee">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn navbar-btn" style="background: none;">
+                                <i style="color: white;" class="fa fa-bars fa-2x"></i>
+                                
+                            </button>
+                    <a href="profile_nurse.html"><span id="logo_text">POST |<font size="3pt;"> Nurse Profile</font></span></a>
+
+                    <!-- <span class="pull-right align-middle" id="big1" style="padding-top: 15px;">
+                        <a href="register.html"><button class="btn1" >Register</button></a>
+
+                        <a href="nurse_login.html"><button  class="btn1" ><i class="fa fa-user"></i> Login</button></a>
+
+                        <a href="hospital_login.html"><button  class="btn1" ><i class="fa fa-users"></i> Recruiter</button></a>
+
+                        <a href="#"><button class="btn3"><i class="fa fa-question-circle"> Need help?</i></button></a>
+                    </span> -->
+
+                        <div class="pull-right" id="small1" style="display: none;">
+                            <a onclick="myFuntion()"><i style="color: white" class="fa fa-bars fa-2x"></i></a>
+                        </div>
+
+
+                        
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+                
+            $(document).ready(function(){
+                    $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+            });
+
+        </script>

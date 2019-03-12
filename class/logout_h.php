@@ -10,5 +10,5 @@
 
 
  	session_destroy();
- 	header('location: ../hospital_login.html');
+ 	header('location: ../login.html');
  ?>

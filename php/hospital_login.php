@@ -17,6 +17,7 @@
 	if($stmt->rowCount() >0){
 		$r = $stmt->fetchObject();
 		$_SESSION['user_token'] = $r->access_token;
+		$_SESSION['h_id'] = $r->h_id;
 
 		//setcookie("session_key_hospital", $r->access_token , time() + 60*60*24*120);
 

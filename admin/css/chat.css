@@ -1,0 +1,163 @@
+.float{
+			padding-top: 100px;
+			position: absolute;
+			z-index: 1003;
+			padding-top: 600px;
+		}
+
+
+#head span{
+	float: right;
+	padding-right: 10px;
+}
+#head span:hover{
+	color: red;
+}
+
+#msg_form{
+	z-index: 1004;
+	padding-top: 10px;
+	width: 220px;
+	padding-left: 25px;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px){
+	#msg_form hr{
+		display: none;
+		
+	}
+
+	#msg_form{
+		top:570px !important; 
+		bottom: 0;
+	}
+
+	#msg_form input{
+		width: 80%;
+		float: left;
+		display: inline-block;
+		margin-bottom: -40px;
+	}
+	#msg_form button{
+		width: 20%;
+		float: right;
+		display: inline-block;
+	}
+
+	.float{
+
+			padding-top: 60px;
+			position: fixed;
+			z-index: 1003;
+			right: 0;
+			padding-top: 580px;
+			padding-right: 20px;
+		}
+
+}
+
+
+.userlist{
+	height: 70vh;
+	background-color: #e1e8ed;
+}
+.userlist #head{
+	text-align: center;
+}
+
+.userlist li{
+	padding: 10px;
+	padding-left: 20px;
+	border: solid;
+	border-width: 0.3px;
+	border-color: #ABA8A7;
+}
+
+.userlist li.active{
+	padding: 10px;
+	padding-left: 20px;
+	border: solid;
+	border-width: 0.3px;
+	border-color: white;
+	background-color: #7B7C7A;
+	color: white;
+}
+
+
+.userlist span{
+	float: right;
+}
+
+
+#chat{
+	height: 100%;
+	background-color: #e1e8ed;
+	border: solid;
+	border-width: 0.5px;
+	border-color: #ABA8A7;
+}
+
+#head{
+	background-color: green;
+	height: 40px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 8px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+
+#head_chat{
+	background-color: green;
+	height: 40px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 8px;
+}
+
+
+.chat_box{
+	background-color: #e1e8ed;
+	padding: 6px;
+	height: 60vh;
+	overflow: scroll;
+	padding-bottom: 20px;
+}
+
+#tag_admin{
+	color: blue;
+	font-size: 10pt;
+	padding-right: 10px;
+	text-align: right;
+}
+
+#tag_user{
+	color: green;
+	font-size: 10pt;
+	padding-left: 10px;
+	text-align: left;
+
+}
+
+#form{
+	padding-left: 40px;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	background-color: white;
+}
+#f1{
+	padding-top: 10px;
+}
+
+#side{
+ padding-left: 600px;
+}

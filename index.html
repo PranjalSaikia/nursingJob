@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>POST | Placement of Healthcare Professionals</title>
+	<title>Job for sure</title>
 	<link rel="icon" href="image/favicon.png">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="keywords">
@@ -34,167 +34,419 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 
     <style type="text/css">
-    	#mod{
+      #text_head{
+        color: white;
+        padding-top: 150px;
+        text-transform: uppercase;
+      }
 
-		  background: #1A2980;  /* fallback for old browsers */
-		  background: -webkit-linear-gradient(45deg, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-		  background: linear-gradient(45deg, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      @media only screen and (max-width: 600px){
+        #text_head{
+          padding-top: 120px;
+        }
 
+        #text_head h1{
+          font-size: 14pt;
+        }
 
-		}
-
+        #text_head h3{
+          font-size: 12pt;
+        }
+      }
     </style>
 
 </head>
 <body>
 	<div id="preloader"></div>
 
-		<div class="container-fluid " style="background-color: #333;height: 30px;" align="right">
-				<ul class="list-unstyled list-inline text-white">
-					<li class="list-inline-item"><a href="#"><i class="fa fa-facebook text-white"></i></a></li>
-					<li class="list-inline-item"><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
-					<li class="list-inline-item"><a href="#"><i class="fa fa-instagram text-white"></i></a></li>
-					<li class="list-inline-item"><a href="#"><i class="fa fa-envelope text-white"></i></a></li>
-					<li class="list-inline-item"><a href="#"><a href="#"><i class="fa fa-google text-white"></i></a></li>
-				</ul>
-		</div>
-		<div class="" >
-			<div class="container-fluid bg-light" style="height: 100px;">
-				<div class="container">
-					<img class="" src="images/nn.png" style="width: 200px; padding-top: 10px;">
-
-					<span class="pull-right align-middle" style="padding-top: 30px;"><a href="hospital_login.html"><button  class="p-2 text-white" style="background-color: #1A2980; border:none;"><b>Recruiters' Login</b></button></a></span>
-				</div>
-			</div>
-		</div>
 		
-
-		<div id="mod">
-	<div class="container-fluid">
-
-			<div class="row-fluid">
-
-
-			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-				<div class="" align="center">
-				<h4 class="ml1">
-					  <span class="text-wrapper">
-					    <div id="tag"><span class="letters text-white ">Placement of Healthcare Professionals</span></div>
-					  </span>
-				</h4>
+			<div id="chat" style="display: none">
+				<div id="head">
+					Chat with us 
 				</div>
-			</div>
-		
-			</div>
-	</div>
-	
-	<div class="container" >
 
-			<div class="row" >
-
-
-			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-
-				<div class="row p-3">
+				<div id="chat_box">
+                    <div id="tag_admin"> Hi....How can I help you ?</div>
+					<div id="msg"></div>
+				</div>
+        
+				<form method="post" id="msg_form">
+					<div class="chat-footer">
+						
+                    <input type="text" name="message" id="message" class="" placeholder="Type your message">
+                        
+                
+                    
+                    <button class="" id="btn_msg" type="submit"><i class="fa fa-send"> Send</i></button>
+						
 					
-					<a href="register.html"><button id="mod1" class="p-3 text-white wow slideInLeft"  style="border-style: solid;border-width: 5px;background-color: #ffcb41; border: none; width: 100%"><b><img src="images/nurse.png" style="width: 35%;"><br>Registration for nurse</b></button></a>
-
-				</div>
-
-				<div class="row p-3">
-				
-					<a href="register_for_hospital.html"><button class="p-3 text-white wow slideInLeft"  style="border-style: solid;border-width: 5px;background-color: #ffcb41; border: none; width: 100%"><b><img src="images/hospital.png" style="width: 40%;"><br>Registration for Recruiters</b></button></a>
-
-				</div>
-
-				<!-- <div class="p-4" style="background-color: #668fff; margin-top: 25px;">
-					<table style="height: 100%;width: 100%">
-						<tr>
-							<td rowspan="2" align="left" style="padding-right: 40px;width: 120px;"><h5 class="text-white">FAQ</h5></td>
-							
-						</tr>
-						<tr>
-							<td align="center"><a href="#"><i class="fa fa-question-circle text-white fa-3x"></i></a></td>
-						</tr>
-					</table>
-				</div> -->
-
+					</div>
+				</form>
+        
 			</div>
+			
+		<div id="bto">
+    <button class="btn" id="chat_button" type="button" onclick="open_chat()"><i class="fa fa-comment fa-2x"></i></button></div>
+		<div style="min-height: 60px;" >
+			<div class="container-fluid"  id="header_line" style=""   > <!--1A2980 #F78F72 -->
+				<div class="container-fluid">
+                    <div class="header-text">
+                       <h3 id="logo_text_1"> <a href="index.html"><img src="images/logo.png" width="80px"></a></h3>
 
-			<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12" align="right">
-				<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-				  <div class="carousel-inner" role="listbox">
-				    <div class="carousel-item active">
-				      <img class="d-block img-fluid" src="images/1.png" alt="First slide">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block img-fluid" src="images/2.png" alt="Second slide">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block img-fluid" src="images/3.jpg" alt="Third slide">
-				    </div>
-				  </div>
-				  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Previous</span>
-				  </a>
-				  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
-				</div> -->
-				<div class="wow slideInRight">
-					<img class="img-responsive" src="images/nurse-front_1.png" style="width: 100%">
+                    <ul class="list-unstyled" id="top_nav" style="position: absolute !important;">
+                        <li><a href="http://secure.jobforsure.in">Register</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a data-toggle="modal" data-target="#needhelp">Need help</a></li>
+                    </ul>
+                        
+                        <span id="mobile_bars_n1"><a onclick="myFunction()"><i class="fa fa-bars fa-2x"></i></a></span>
+                    </div>
 				</div>
 			</div>
+		</div>			
+		<div id="side_menu">
+		<div class="container-fluid bg-light" style="position: fixed; z-index: 101; height: 100%;">
+			<ul class="list-unstyled" id="side_nav_item">
+                <li><a onclick="myFunction()"><i class="fa fa-close"></i> Close</a></li>
+				<li><a href="register_init.html">Register</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a data-toggle="modal" data-target="#needhelp">Need help</a></li>
+			</ul>
+            <span id="foot_side">&copy; jobforsure.in</span>
+		</div>
+		</div>
 
-			</div>
+    <div class="modal" id="needhelp" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
 
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Need Help??</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-6">
+              <h5><b>Call us</b></h5>
+              <p><a href="tel:+919101043435">+91 91010 43435</a></p>
+
+              <br><br>
+
+              <h5><b>Mail us</b></h5>
+              <p><a href="mailto:info@jobforsure.in">info@jobforsure.in</a></p>
+            </div>
+
+            <div class=" col-md-6">
+
+              <h5><b>Chat Now</b></h5>
+              <p>Chat with our support team for quick help.</p>
+              <br>
+
+              <button class="btn btn-success" type="button" onclick="btn_clk()">Chat Now</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 		
 
-	</div>
+		<div class="container-fluid" id="top_header" style="background: url('images/index-bg.jpg');background-size: cover;background-attachment: fixed;">
+			<div class="container" id="text_head">
+                <h1>India's First Ever Nursing Job Portal</h1>
+                <h3>Forget about rushing door to door, Get your job here</h3><br>
+                <p><a href="http://secure.jobforsure.in"><button class="btn btn-lg" style="background-color: rgba(0,0,0,0.4); color: white; font-weight: bold; border-radius: 0px;padding: 20px 40px 20px 40px;">GET STARTED</button></a></p>
+                <p><a href="quick_post.html"><button class="btn btn-default">Post a quick job</button></a></p>
+            </div>
+		</div>
+
+<div class="container-fluid" style="min-height: 500px; background-color:#ECFBFF  " id="back_new">
+<div class="container py-5">
+	
+
+
+  <h2 align="center">How it <span style="color: blue">Works</span></h2>
+	<p align="center">Follow the following steps to get hired</p>
+	<br>
+
+  <br>
+  <div class="row" align="center">
+    <div class="col-md-3 col-sm-12">
+      <figure class="icon-class" style="background-color: #FB7854;"><i class="fa fa-sign-in fa-4x"></i></figure>
+      
+      <label><h3>Login</h3><p>Click on the login button at the top of the page. Provide the valid Email ID and you are done.</p></label>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <figure class="icon-class" style="background-color: #77FB54;"><i class="fa fa-book fa-4x"></i></figure>
+
+       <label><h3>Create profile</h3><p>Create your profile with fields in the edit profile page.</p></label>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+      <figure class="icon-class" style="background-color: #54FBF3;"><i class="fa fa-search fa-4x"></i></figure>
+
+       <label><h3>Apply for Jobs</h3><p>Apply for job in your dream organization</p></label>
+    </div>
+
+    <div class="col-md-3 col-sm-12">
+       <figure class="icon-class" style="background-color: #A854FB;"><i class="fa fa-check fa-4x"></i></figure>
+
+       <label><h3>Get Hired</h3><p>Get an interview call from recruiters and get the job!!</p></label>
+    </div>
+  </div>
+</div>
+</div>
+    
+    
+<div class="container-fluid" style="background-color: #72A7F7; min-height: 320px; background: url('images/index-bg.jpg');background-cover: cover;background-attachment: fixed;">
+<!-- <div class="container py-4" ng-app="myApp" ng-controller="myCtrl">
+    <h3 style="color: white;">What we provide</h3>
+	
+    <div class="catgories_names" >
+        <div ng-repeat="cat in categories">
+          <div class="">{{cat.cat_name}}</div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+  <br/>
+  <br/>
+    <h3 style="color: white;">What we provide</h3>
+    <br/>
+    <br/>
+    <div class="row">
+        
+        <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-graduation-cap fa-5x"></i>
+            <h4 class="text-white">Career Counselling</h4>
+
+        </div>
+
+        <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-globe fa-5x"></i>
+            <h4 class="text-white">Online <br/>Education</h4>
+
+        </div>
+
+        <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-user fa-5x"></i>
+            <h4 class="text-white">The Right <br/>Job</h4>
+
+        </div>
+
+        <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-users fa-5x"></i>
+            <h4 class="text-white">The Right Employee</h4>
+
+        </div>
+
+        <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-file fa-5x"></i>
+            <h4 class="text-white">Professional &amp; Presonalised CV</h4>
+
+        </div>
+
+                <div class="col-md-2" align="center">
+
+
+            
+            <i class="text-white fa fa-file-video-o fa-5x"></i>
+            <h4 class="text-white">Video <br/>Chat</h4>
+
+        </div>
+
+    </div>
+
 </div>
 
 
+</div>
+
+<div class="container-fluid" style="background-color: #F8EFFE    " >
+<div class="container py-5">
+	 
+  <h2 align="center" style="color: #C14803    ">Recruit smart, recruit right</h2>
+  <div></div>
+
+
+  <div class="row py-5">
+    <div class="col-md-4 col-xs-12 col-lg-4" align="center">
+      <h5 align="center"><i style="color: #F2BB34  " class="fa fa-user-md fa-4x"></i></h5>
+      <h4 align="center">900+ nurses</h4>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-lg-4" align="center">
+      <h5><i style="color: #F2BB34" class="fa fa-briefcase fa-4x"></i></h5>
+      <h4 align="center">Smart response technology</h4>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-lg-4" align="center">
+      <h5 align="center"><i style="color: #F2BB34  " class="fa fa-clock-o fa-4x"></i></h5>
+      <h4 align="center">2 minutes to post </h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-xs-12" align="center">
+        <a href="http://secure.jobforsure.in"><button class="btn btn-lg" style="background-color: #72A7F7; color: white;" type="button">Signup for free</button></a>
+    </div>
+  </div>
+	
+</div>
+</div>
+
+
+<div class="container-fluid" style="border-bottom: solid;border-color: #72A7F7; border-width: 1px; background-color: white">
+<div class="container py-2">
+	<br>
+	<br>
+	<h2><b> About Us </b></h2>
+	<br>	
+		<p align="justify" style="font-size: 12pt">Built with an aim to connect and serve the nurses fraternity, we marked our existence in the year 2017 and since then, has been consistently growing leaps and bounds. Our rich experience, commitment, accountability and ability to connect with small, medium and large hospitals has helped us to provide jobs to the nurses to their satisfaction. With digital presence nationally and internationally both, we also have been able to carve a niche for ourselves in the job industry.</p>
+    <p align="justify" style="font-size: 12pt">We have successfully been able to serve the hospital industry at levels besides providing nurses from all over the country, we also plan to expand our  expertise to lab technicians through continued expansion of our presence. With global recognition and technical expertise, we have been able to render clear visibility to our clients’ and have helped them to reach the right target.</p>
+	 <br>
+	
+</div>
+</div>
+    
+    
+    <div class="modal" id="tnc" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <h5 class="modal-title">Terms & Conditions</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p align="justify">
+                  The following terms and conditions are deemed to have been accepted by the User on usage of the website www.jobforsure.in. The terms "You" and "User" refer to all individuals and/or entities accessing this site for any reason
+            </p>
+              <p align="justify">
+                  <h5>GENERAL DISCLAIMER</h5>
+                Every effort has been made to ensure the accuracy of the information. The site is designed, updated and maintained by www.jobforsure.in. The information contained in this Web site is intended, solely to provide general information for the personal use of the reader, who accepts full responsibility for its use and does not represent or endorse the accuracy or reliability of any information, including content or advertisements contained on, distributed through, or linked, downloaded or accessed from any of the services contained on this web site. The web site may contain inaccuracies, typographical and clerical errors, though efforts had been made to ensure accuracy. But www.jobforsure.in. reserves the right to change, alter, and delete any of the representations, clauses in this website without prior notice or information.
+              </p>
+            
+            <p align="justify">
+                  <h5>NO WARRANTIES</h5>
+                www.jobforsure.in. does not make any warranties, express or implied, including, without limitation, those of merchantability, non infringement and fitness for a particular purpose, and that the website will operate error free or that the website and its server are free of computer viruses or other harmful mechanisms with respect to any information, data, statements or products made available on the Site and is on a “as is” available basis only.
+              </p>
+          <p align="justify">
+                  <h5>INDEMNITY</h5>
+               Users agree to indemnify and hold www.jobforsure.in. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+        
+                <p align="justify">
+                  <h5>NO LIABILITY</h5>
+               Users agree to indemnify and hold www.jobforsure.in. and its subsidiaries, affiliates, officers, agents, co-branders or other partners and employees, harmless from any claim or demand, including reasonable attorneys' fees made by any third party due to the content you submit, post or transmit through the Service, your use of the Service, your connection to the Service, your violation of the Terms and Conditions, or your violation of any rights of another user and any third party claims.
+              </p>
+    
+                <p align="justify">
+                  <h5>INTELLECTUAL PROPERTY RIGHTS</h5>
+               All Intellectual property rights are vested solely with www.jobforsure.in. No part of the webpage/service shall be reproduced or transmitted or stored in any other web site, nor may any of its information or part thereof be disseminated in any electronic or non-electronic form, nor included in any public or private electronic retrieval system or service without obtaining prior written permission from www.jobforsure.in. Any infringement in this regard shall be adequately compensated by the User .
+              </p>
+            <p align="justify">
+                  <h5>OTHER TERMS AND CONDITIONS</h5>
+               By using this web site you are indicating your acceptance to abide by the Terms and Conditions which can be updated or modified at any time by www.jobforsure.in..
+                www.jobforsure.in. do not disclose any personal information unless specifically requested by the user or required to do so by the law or in good faith that such disclosure is reasonably necessary to: (a) Comply with legal processes (b) Enforce the Terms and Conditions (c) Respond to claims that any content violates the rights of third parties or (d) Protect the rights, property or personal safety of www.jobforsure.in., its users and the public.
+              </p>
+    
+            <p align="justify">
+               www.jobforsure.in. does not take any responsibility for the acts/omissions on the part of the user(s)/visitor(s)/customer(s) of the site. www.jobforsure.in. shall not be obliged to resolve or mediate any dispute or difference, which may arise between users/visitors
+              </p>
+    
+            <p align="justify">
+               Through this website you may be re - directed to other sites for various purposes and links. www.jobforsure.in. shall not be liable for any of such sites and their related links.
+              </p>
+            <p align="justify">
+                www.jobforsure.in. shall not be liable if any such links shall directly or indirectly lead to any slander, prohibited sites or obscene sites.
+                This site and the intended activities are for the promotion and welfare of the society and does not contribute to any other unauthorized activities.
+            </p>
+            <p align="justify">
+                The website and its users are subject to Guwahati jurisdiction
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
 
 
 
-	<div class="site-footer">
-		<div class="container-fluid bg-light">
+
+	<div class="site-footer bg-dark text-white">
+		<div class="container-fluid">
 
 			<div class="container p-3">
 			<div class="row">
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<h5>Contact us</h5>
-					<p>Opposite to Jalukbari Masjid<br>Jalukbari<br>Ghy-14</p>
-					<p>Call us at: +91-88763-71354</p>
-					<p>Mail us at: something@mail.com</p>
+					<p><a href="tel:+919101043435">+91 91010 43435</a></p>
 				</div>
 
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<h5>Information</h5>
 					<ul class="list-unstyled">
-						<li>Terms & Conditions</li>
-						<li>About us</li>
-						<li>Private Policy</li>
-						<li>Careers with us</li>
-						<li>Sitemap</li>
-						<li>Contact us</li>
+						<li><a data-toggle="modal" data-target="#tnc">Terms & Conditions</a></li>
 						<li>FAQs</li>
 					</ul>
 					
 				</div>
 
 				
-				<div class="col-md-4 col-sm-12 col-xs-12" align="right">
-					Follow us: 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-instagram"></i></a>
-					<a href="#"><i class="fa fa-envelope"></i></a>
-					<a href="#"><i class="fa fa-google"></i></a>
+				<div class="col-md-4 col-sm-12 col-xs-12" align="center">
+					<h5>Follow us</h5>
+					<ul class="list-unstyled" >
+						<li style="display: inline-block;"><a href="#">	<i class="fa fa-facebook"></i></a></li>
+						<li style="display: inline-block;"><a href="#">	<i class="fa fa-twitter"></i></a></li>
+						<li style="display: inline-block;"><a href="#">	<i class="fa fa-instagram"></i></a></li>
+						<li style="display: inline-block;"><a href="#">	<i class="fa fa-envelope"></i></a></li>
+						<li style="display: inline-block;"><a href="#">	<i class="fa fa-google"></i></a></li>
+					</ul>
+					
+					
+					
+					
 					
 				</div>
 			</div>
@@ -203,7 +455,7 @@
 			</div>
 		</div>
 		<div class="container-fluid" style="background-color: #2f2f2f" align="center">
-				<div class="text-white">All right reserved @ POST <br>&copy; 2018</div>
+				<div class="text-white">All right reserved @ jobforsure.in <br>&copy; 2018</div>
 		</div>
 	</div>
 
@@ -217,9 +469,104 @@
 <script src="js/anime.min.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/custom.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/sha256.js"></script>
 <script type="text/javascript">	
 
+	$(document).ready(function(){
+    
+    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+    if(mobile == true){
+       $('#chat_button').css('display', 'none');
+    }else{
+      $('#chat_button').show();
+    }
 
+
+
+   
+       
+
+			/*$(document).keypress(function(event){
+
+	    		if (event.keyCode === 10 || event.keyCode === 13) 
+	        		event.preventDefault();
+
+	 		 });*/
+       
+       /*setTimeout(function(){
+          $('#chat_button').fadeIn();
+       }, 5000);*/
+
+       /*setTimeout(function(){
+          $('#chat_button').click();
+          var ele = document.getElementById('chat_button');
+          ele.scrollIntoView();
+
+       }, 10000);*/
+
+        
+
+        
+        
+        
+        
+
+		$("#msg").load('messenger/chat_message_load.php');
+		$("#chat_box").scrollTop($("#chat_box")[0].scrollHeight);
+		setInterval(function () {
+        	$("#msg").load('messenger/chat_message_load.php');
+        	$("#chat_box").scrollTop($("#chat_box")[0].scrollHeight);
+    	}, 3000);
+    /*
+		animateValue('count_1',1,200,2000);
+		animateValue('count_2',200,700,2000);
+    animateValue('count_3',200,900,2000);*/
+		$("#s1").load('php/load_hospital_for_front.php');
+		$("#s2").load('php/load_jobs_for_front.php');
+		$("#user_count").load('php/userontxt.php');
+
+
+    setTimeout(function(){$("#chat_button").click()}, 5000);
+
+		/*$('.owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:10,
+		    responsiveClass:true,
+        autoPlay: true,
+		    responsive:{
+		        0:{
+		            items:1,
+		            nav:true
+		        },
+		        600:{
+		            items:3,
+		            nav:false
+		        },
+		        1000:{
+		            items:5,
+		            nav:true,
+		            loop:false
+		        }
+		    }
+		});*/
+
+
+		$("#side_menu").hide();
+
+
+
+	});
+
+
+	function myFunction(){
+		$("#side_menu").toggle();
+	}
+
+  function btn_clk(){
+      $("#needhelp").modal('hide');
+       $('#chat_button').click();
+    }
 	
 	
 
@@ -270,5 +617,147 @@
     });
 
 
+    function animateValue(id, start, end, duration) {
+    var range = end - start;
+    var current = start;
+    var increment = end > start? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    var obj = document.getElementById(id);
+    var timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current + '+';
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+
+function open_chat(){
+	$('#chat').css('display','block');
+	$("#message").focus();
+	$("#chat_box").scrollTop($("#chat_box")[0].scrollHeight);
+  //$("body").css('overflow', 'hidden');
+  $("#bto").html('<button class="btn" id="chat_button" type="button" onclick="close_chat()"><i class="fa fa-close fa-2x"> </i></button>');
+}
+
+function close_chat(){
+	$('#chat').css('display','none');
+  //$("body").css('overflow', 'auto');
+  $("#bto").html('<button class="btn" id="chat_button" type="button" onclick="open_chat()"><i class="fa fa-comment fa-2x"></i></button>');
+}
+
+$('#message').on('focus', function() {
+    document.body.scrollTop = $(this).offset().top;
+});
+
+$("#msg_form").submit(function(event){
+	event.preventDefault();
+	var msg = $("#message").val();
+	$.ajax({
+		url: "messenger/chat_message.php",
+		type: "POST",
+		data:{
+			"message": msg,
+		},
+		success:function(resp){
+
+			$("#msg").html(resp);
+			$("#chat_box").scrollTop($("#chat_box")[0].scrollHeight);
+			//alert(resp);
+			$("#message").focus();
+		},
+		error:function(resp){
+			$("#msg").html("Problem with the messenger");
+		}
+	});
+
+	$("#message").val("");
+	$("#message").focus();
+});
+    
+    
+    $("#f9").submit(function(e){
+		e.preventDefault();
+		var name = $("#u_name").val();
+		var pass = sha256($("#pass").val());
+
+
+		$.ajax({
+
+			url: "php/nurse_login.php",
+			type: "POST",
+			data: {
+				"u_name": name,
+				"pass": pass,
+			},
+			success:function(resp){
+				//console.log(resp);
+				if(resp == true){
+					window.location.href="profile_nurse.html";
+				}else{
+					$("#message").html('<span style="color: red">Username/Password is wrong</span>');
+				}
+			},
+			error:function(resp){
+				alert(resp);
+			}
+
+		});
+
+
+		
+	});
+
+
+    //angular script
+
+    var app = angular.module('myApp',[]);
+
+    app.controller('myCtrl',function($scope,$http){
+
+        let data = [
+          {
+            "cat_name": "Career Counselling"
+          },
+          {
+            "cat_name": "Online Education"
+          },
+          {
+            "cat_name": "The Right Job"
+          },
+          {
+            "cat_name": "The Right Employee"
+          },
+          {
+            "cat_name": "Professional and Personalised CV"
+          },
+          {
+            "cat_name": "Video Chat"
+          }
+
+        ]
+
+        $scope.categories=data;  
+
+        /*$http({
+          method: "GET",
+          url: "php/get_cat_for_index.php"
+        }).then(function mySuccess(resp){
+          console.log(resp.data);
+          if(resp == false){
+            console.log("False alarm");
+          }else{
+            $scope.categories=resp.data;  
+          }
+        },function myError(resp){
+          console.log(resp.statusText);
+        });*/
+
+
+    });
+
+    
+    
 </script>
 </html>

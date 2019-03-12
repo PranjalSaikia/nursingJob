@@ -7,7 +7,7 @@
 
 	$token = addslashes(strip_tags(trim($_POST['token'])));
 
-	$q = "SELECT * FROM hospital_master WHERE access_token=:token AND is_verified='0'";
+	$q = "SELECT * FROM hospital_master WHERE access_token=:token";
 	$stmt=$core->dbh->prepare($q);
 	$stmt->bindParam(':token',$token,PDO::PARAM_STR);
 	$stmt->execute();

@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
-	<title>POST | Placement of Healthcare Professionals</title>
+	<title>Job for sure</title>
 	<link rel="icon" href="image/favicon.png">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="keywords">
@@ -33,25 +33,35 @@
     <!-- CSS bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
 
+    <script src="ckeditor/ckeditor.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "class/session_check_h.php",
+            type: "GET",
+            success:function(resp){
+                if(resp == false){
+                    window.location.href="login.html";
+                }
+            }
+        });
 
 
-
-    <style type="text/css">
-    	
-    	#mod{
-
-		  background: #1A2980;  /* fallback for old browsers */
-		  background: -webkit-linear-gradient(45deg, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-		  background: linear-gradient(45deg, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-		}
-    </style>
+        function settext(nm){
+          document.getElementById("textid").value=nm;
+         if(document.getElementById(nm).value!=""){
+           var res=document.getElementById(nm).value;
+           CKEDITOR.instances.ed.setData(res);
+          }
+        }
+    </script>
 
 </head>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
@@ -60,11 +70,77 @@
 	<div id="preloader"></div>
 
 
-<div id="menu"></div>
-<div class="container-fluid p-2" style="margin-top: -40px; background: linear-gradient(45deg, #26D0CE, #1A2980); color: white"><a href="profile_hospital.html"><b>Profile Home</b></a></div>
+<section class="profile-main" ng-app="myApp">
+<div class="header-bar">
+		
+		<h3><img src="images/logo.png" width="80px"></h3>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li>
+
+            
+              <a id="nav_button" onclick="noti_bar_view()"><span id="nos">0</span>
+               <i class="fa fa-bell fa-2x"></i>
+              </a>
+              
+            
+
+       </li>
+    
+    </ul>
+     <span id="mobile_bars_n"><a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a></span>
 
 
-<main style="">
+     <div class="container-fluid" id="menu_now">
+        <div class="container">
+            <ul class="horizontal-navbar">
+                <li><a href="profile_hospital.html">HOME</a></li>
+                <li><a href="nurse_list.html">NURSE LIST</a></li>
+                <li><a href="requests.html">REQUESTS LIST</a></li>
+                <li class="active"><a href="post_job.html">POST A JOB</a></li>
+                <li><a href="view_apply.html">APPLICATIONS</a></li>
+                <!-- <li><a href="rec_interest_send.html">INTERESTS</a></li> -->
+                <li><a href="edit_profile_hospital.html">MY PROFILE</a></li> 
+                <li><a href="class/logout_h.php">LOGOUT</a></li>
+
+            </ul>
+         </div>
+     </div>
+
+</div>
+<div class="side-nav"></div>
+
+
+
+
+<div class="notification-panel" id="notification" ng-controller="notificationController">
+        <header class="n-header"> NOTIFICATIONS <a onclick="close_noti()"><i style="float: right;padding-right: 10px;" class="fa fa-close"></i></a></header><br>
+        <div ng-repeat="noti in notis">
+
+            <div class="noti-msg">
+                <p style="padding: 10px;"><b>{{noti.n_name}}</b> has shown interest in you</p>
+                
+                <div class="noti-footer">
+                <span ng-switch="noti.seen">
+                    <span ng-switch-when="1" >
+                        <button class="btn btn-xs btn-success"><i class="fa fa-check"> Accepted</i></button>
+                        <button class="btn btn-xs btn-default"  type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                    <span ng-switch-default>
+                        <button class="btn btn-sm btn-success" type="button" ng-click="accept_req(noti.id,$index)">Accept</button>
+                        <button class="btn btn-sm btn-danger" type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                    </span>
+                </span>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+<main class="main-body">
+	<div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> Add Job
+                    </div>
         <div class="container" style="min-height: 600px;">
 
         		<br>
@@ -98,7 +174,7 @@
 
 						  		<div class="row" >
 						  			<div class="form-group col-md-4">
-						  				<label>Job Category</label>
+						  				<label>Qualification Required</label>
 						  			</div>
 						  			<div class="form-group col-md-8">
 						  				<select name="job_cat" id="job_cat" class="form-control" required>
@@ -113,7 +189,17 @@
 						  				<label>Job Description</label>
 						  			</div>
 						  			<div class="form-group col-md-8">
-						  				<textarea class="form-control" name="job_des" id="job_des" placeholder="Description of the job"></textarea>
+						  				<input type="text" name="textid" id="textid" readonly style="display:none" value="" /> 
+							          <textarea name="ed" id="ed"></textarea> 
+							           <script>
+
+							              CKEDITOR.replace( 'ed', { height:400, 
+							                
+							                   allowedContent: true
+							                   
+							              } );
+
+							            </script>	
 						  			</div>
 						  		</div>
 
@@ -132,6 +218,16 @@
 						  			</div>
 						  			<div class="form-group col-md-8">
 						  				<input type="number" class="form-control" name="min_exp" id="min_exp" placeholder="Minimum year of Experience (in years e.g. 1.5)">
+						  			</div>
+						  		</div>
+
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Minimum Salary (Rs.)</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="text" class="form-control" name="min_sal" id="min_sal" placeholder="Minimum salary to be offered">
 						  			</div>
 						  		</div>
 
@@ -241,43 +337,14 @@
 
 </main>
 
-
-
-
-			<div class="container-fluid bg-white">
-
-				<div class="container p-3">
-				<div class="row">
-					<div class="col-md-6 col-sm-12 col-xs-12">
-						<h5>Contact us</h5>
-						<p>Opposite to Jalukbari Masjid<br>Jalukbari<br>Ghy-14</p>
-						<p>Call us at: 00000000000</p>
-						<p>Mail us at: something@mail.com</p>
-					</div>
-					<div class="col-md-6 col-sm-12 col-xs-12" align="right">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-envelope"></i></a>
-						<a href="#"><i class="fa fa-google"></i></a>
-						
-					</div>
-				</div>
-				
-					
-				</div>
-			</div>
-
-			<div class="container-fluid sticky-bottom" style="background-color: #2f2f2f;" align="center">
-					<div class="text-white">All right reserved @ POST <br>&copy; 2018</div>
-			</div>
-
-
+</section>
 	<div class="overlay"></div>
 </body>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script src="js/anime.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
 <script src="js/wow.js"></script>
 <script src="js/mdb.js"></script>
 <script src="js/custom.js"></script>
@@ -289,88 +356,25 @@
 
 	$(document).ready(function () {
 
-		$("#menu").load('menu_h.html');
+		
+
+            $.ajax({
+                url: "php/menu_h_new.php",
+                type: "POST",
+                data:{
+                    "n" : 2
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
 
 		$("#post_job_button").hide();
 
 
 
 
-                $.ajax({
-
-                    url: "php/hospital_session_check.php",
-                    success:function(resp){
-                        if(resp == true){
-                            get_session_det();
-                        }else{
-                            window.location.href="hospital_login.html";
-                        }
-                    }
-                });
-
-
-                function get_session_det(){
-                    $.ajax({
-                        url: "php/get_session_det.php",
-                        success:function(resp){
-                            var e = JSON.parse(resp);
-                            if(e[0] == "no"){
-                                window.location.href="hospital_login.html";
-                            }else{
-                                $("#h_id").val(e[0]);
-                                $("#name_hospital").html(e[1]);
-                                $("#h_name").val(e[1]);
-                                $("#phn").val(e[3]);
-                                $("#email").val(e[4]);
-
-
-
-                                get_hospital_det(e[0]);
-                            }
-                        },
-                        error:function(resp){
-                            alert(resp);
-                        }
-                    });
-                }
-
-                function get_hospital_det(n){
-                    $.ajax({
-                        url: "php/get_hospital_det.php",
-                        type: "POST",
-                        data: {
-                            "n" : n,
-                        },
-                        success:function(resp){
-                            var e = JSON.parse(resp);
-                            if(e[0] == "no"){
-                                window.location.href="hospital_login.html";
-                            }else{
-                                $("#h_id").val(e[0]);
-                                $("#h_name").val(e[1]);
-                                $("#h_des_short").val(e[2]);
-                                $("#h_des_long").val(e[3]);
-                                $("#region").val(e[4]);
-                                $("#city").val(e[5]);
-                                $("#state").val(e[6]);
-                                $("#pin").val(e[7]);
-                                $("#name1").html(e[1]);
-                                $("#des1").html(e[2]);
-                                //$("#des2").html(e[3]);
-                                $("#address1").html(e[4] + "<br>" + e[5] + "<br>" + e[6] + ", " + e[7]);
-                                $("#address2").html(e[9] + "<br>" + e[10]);
-
-                                $("#dp1").html('<img class="rounded-circle" src="'+e[8]+'" style="width: 80%">');
-                                $("#dp2").html('<img class="img-responsive" src="'+e[8]+'" style="width: 100%">');
-                                
-                            }
-                        },
-                        error:function(resp){
-                            alert(resp);
-                        }
-                    });
-                }
-
+                
 
                 //populate jobcat
 
@@ -383,7 +387,7 @@
 		            		option = "";
 		            		 
 		            		 for(var i=0;i<resp.length;i++){
-		            		 	option += '<option value="'+ resp[i][0] + '">' + resp[i][1] + '-'+ resp[i][2] +'</option>';
+		            		 	option += '<option value="'+ resp[i][0] + '">' + resp[i][1] + '</option>';
 		            		 }
 
 		            		 $("#job_cat").html(option);
@@ -402,6 +406,22 @@
 			        }
 			    });
 
+
+
+			    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+
+
+            count_notifications();
+
                 
 
 
@@ -412,6 +432,10 @@
 		$("#f1").submit(function(event){
 
 			event.preventDefault();
+
+			for (var i in CKEDITOR.instances) {
+	        	CKEDITOR.instances[i].updateElement();
+	    	}
 
 			var t = $("#f1").serialize();
 
@@ -435,6 +459,10 @@
 		$("#f2").submit(function(event){
 
 			event.preventDefault();
+
+			for (var i in CKEDITOR.instances) {
+	        	CKEDITOR.instances[i].updateElement();
+	    	}
 
 			var t = $("#f2").serialize();
 
@@ -525,8 +553,233 @@
 	}
 
 
+
+//ckeditor
+
+	function show_txt(){ 
+ document.getElementById("txt").value= document.getElementById("txtedit").innerHTML;
+}
+
+
+function text_heading(){
+    var op=$( '.text_heading' ).val();
+  var highlight = window.getSelection();
+  var rep=""; var tg="";
+  if(op=="norm"){ 
+  if(highlight== $("H1:contains("+ highlight +")").text())
+  { tg="H1";   rep="go123</H1>"+highlight+"<H1>go123";
+  }else if(highlight== $("H2:contains("+ highlight +")").text())
+  { tg="H2";  rep="go123</H2>"+highlight+"<H2>go123";
+  }else if(highlight== $("H3:contains("+ highlight +")").text())
+  { tg="H3";   rep="go123</H3>"+highlight+"<H3>go123";
+  }else if(highlight== $("H4:contains("+ highlight +")").text())
+  { tg="H4";   rep="go123</H4>"+highlight+"<H4>go123";
+  }else if(highlight== $("H5:contains("+ highlight +")").text())
+  { tg="H5";   rep="go123</H5>"+highlight+"<H5>go123";
+  }else if(highlight== $("H6:contains("+ highlight +")").text())
+  { tg="H6";   rep="go123</H6>"+highlight+"<H6>go123";
+  }
+    
+  // rep="</H1>"+highlight+"<H1>";
+  var text = $('.textEditor').html(); 
+    $('.textEditor').html(text.replace(highlight, rep));
+  if(tg=='H1'){
+  $("H1:contains('go123')").remove();
+  }if(tg=='H2'){
+  $("H2:contains('go123')").remove();
+  }if(tg=='H3'){
+  $("H3:contains('go123')").remove();
+  }if(tg=='H4'){
+  $("H4:contains('go123')").remove();
+  }if(tg=='H5'){
+  $("H5:contains('go123')").remove();
+  }if(tg=='H6'){
+  $("H6:contains('go123')").remove();
+  }
+   placeCaretAtEnd($('.textEditor').get(0));
+  }else{ if(op=="h1"){
+      rep = '<H1>'+highlight+'</H1>';
+  }else if(op=="h2"){
+    rep = '<H2>'+highlight+'</H2>';
+  }else if(op=="h3"){
+    rep = '<H3>'+highlight+'</H3>';
+  }else if(op=="h4"){
+    rep = '<H4>'+highlight+'</H4>';
+  }else if(op=="h5"){
+    rep = '<H5>'+highlight+'</H5>';
+  }else if(op=="h6"){
+    rep = '<H6>'+highlight+'</H6>';
+  }
+  if(op!=""){ 
+  var text = $('.textEditor').html(); 
+  
+    $('.textEditor').html(text.replace(highlight, rep));
+   placeCaretAtEnd($('.textEditor').get(0));
+  }
+  }
+  
+}
+function bld(){
+     document.execCommand('bold');
+}
+/*$('body').on('click','.embolden',function(){
+    document.execCommand('bold');
+});*/
+function itlc(){
+    document.execCommand('italic');
+}
+function undr(){
+    document.execCommand('underline');
+}
+
+function unordr(){
+    var span = '<br/><ul><li></li></ul>';
+  $('.textEditor').append(span);
+   placeCaretAtEnd($('.textEditor').get(0));
+}
+
+function ordr(){
+    var span = '<br/><ol><li></li></ol>';
+  $('.textEditor').append(span);
+   placeCaretAtEnd($('.textEditor').get(0));
+}
+function placeCaretAtEnd(el) {
+    el.focus();
+    if (typeof window.getSelection != "undefined"
+            && typeof document.createRange != "undefined") {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    } else if (typeof document.body.createTextRange != "undefined") {
+        var textRange = document.body.createTextRange();
+        textRange.moveToElementText(el);
+        textRange.collapse(false);
+        textRange.select();
+    }
+}
+
+function indent(){
+  var highlight = window.getSelection();
+   var txt='<span style ="padding-left:30px;">'+ highlight+ '</span>';
+  var text = $('.textEditor').html();
+    $('.textEditor').html(text.replace(highlight, txt));
+  //window
+}
+function outdent(){
+  var highlight = window.getSelection();
+   var txt='<span style="margin-left:-30px;">'+ highlight+ '</span>';
+  var text = $('.textEditor').html();
+    $('.textEditor').html(text.replace(highlight, txt));
+  //window
+}
+function link(){
+  var highlight = window.getSelection();
+    var span = '<a href="'+highlight+'" style="color:#03F">'+highlight+'</a>';
+  var text = $('.textEditor').html();
+    $('.textEditor').html(text.replace(highlight, span));
+   placeCaretAtEnd($('.textEditor').get(0));
+}
 		
 
+
+
+		var app = angular.module('myApp',['notification']);
+
+var notification = angular.module('notification',[]);
+notification.controller('notificationController',function($scope,$http,$interval){
+    $scope.loadData = function(){
+        $http.get('php/interested_lists_rec.php').then(function mySuccess(resp){
+            $scope.notis = resp.data;
+        },function myError(resp){
+            console.log("Notification Panel Error: "+resp.statusText)
+        });
+    }
+
+
+    $scope.loadData(); //initial load
+
+
+    var refreshDiv = function(){$scope.loadData();count_notifications();}
+
+    $interval(refreshDiv,10000);
+    //realtime refresh 
+
+
+    $scope.remove = function(index){
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+
+    $scope.accept_req = function(id,index){
+        change_req(id,'1');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+    $scope.reject_req = function(id,index){
+        change_req(id,'2');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+})
+
+
+function noti_bar_view(){
+        $(".notification-panel").css('right','0px');
+    }
+
+    function close_noti(){
+        $(".notification-panel").css('right','-100vw');
+    }
+
+
+
+    function change_req(m,n){
+        $.ajax({
+            url: "php/change_req_rec.php",
+            type: "POST",
+            data:{
+                "id" : m,
+                "seen": n
+            },
+            success:function(resp){
+                return true;
+            }
+
+        });
+    }
+
+
+    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+            function myf_1(){
+                $('.side-nav').css({
+                    left: '0px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_2()"><i class="fa fa-close fa-2x"></i></a>');
+            }
+
+
+            function myf_2(){
+                $('.side-nav').css({
+                    left: '-400px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a>');
+            }
 
 </script>
 </html>

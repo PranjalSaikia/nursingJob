@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
+	<title>Job for Sure</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/new_style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: "class/session_check_h.php",
+            type: "GET",
+            success:function(resp){
+                if(resp == false){
+                    window.location.href="login.html";
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+	<div id="preloader"></div>
+
+
+<section class="profile-main" ng-app="myApp">
+<div class="header-bar">
+	
+	<h3><img src="images/logo.png" width="80px"></h3>
+    
+    <ul class="list-unstyled" id="top_nav">
+        <li>
+
+            
+              <a id="nav_button" onclick="noti_bar_view()"><span id="nos">0</span>
+               <i class="fa fa-bell fa-2x"></i>
+              </a>
+              
+            
+
+       </li>
+    
+    </ul>
+     <span id="mobile_bars_n"><a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a></span>
+
+
+     <div class="container-fluid" id="menu_now">
+        <div class="container">
+            <ul class="horizontal-navbar">
+                <li><a href="profile_hospital.html">HOME</a></li>
+                <li><a href="nurse_list.html">NURSE LIST</a></li>
+                <li><a href="requests.html">REQUESTS LIST</a></li>
+                <li><a href="post_job.html">POST A JOB</a></li>
+                <li class="active"><a href="view_apply.html">APPLICATIONS</a></li>
+                <!-- <li><a href="rec_interest_send.html">INTERESTS</a></li> -->
+                <li><a href="edit_profile_hospital.html">MY PROFILE</a></li> 
+                <li><a href="class/logout_h.php">LOGOUT</a></li>
+
+            </ul>
+         </div>
+     </div>
+
+</div>
+<div class="side-nav"></div>
+
+
+<div class="notification-panel" id="notification" ng-controller="notificationController">
+        <header class="n-header"> NOTIFICATIONS <a onclick="close_noti()"><i style="float: right;padding-right: 10px;" class="fa fa-close"></i></a></header><br>
+        <div ng-repeat="noti in notis">
+
+        <div class="noti-msg">
+            <p style="padding: 10px;"><b>{{noti.n_name}}</b> has shown interest in you</p>
+            
+            <div class="noti-footer">
+            <span ng-switch="noti.seen">
+                <span ng-switch-when="1" >
+                    <button class="btn btn-xs btn-success"><i class="fa fa-check"> Accepted</i></button>
+                    <button class="btn btn-xs btn-default"  type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                </span>
+                <span ng-switch-default>
+                    <button class="btn btn-sm btn-success" type="button" ng-click="accept_req(noti.id,$index)">Accept</button>
+                    <button class="btn btn-sm btn-danger" type="button" ng-click="reject_req(noti.id,$index)">Reject</button>
+                </span>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="main-body" id="navList">
+	<div class="container" style="padding: 10px 10px 10px 10px;">
+                    HOME <i class="fa fa-angle-right"></i> Applications
+                    </div>
+        <div class="container-fluid" style="min-height: 600px;">
+
+        		<br>
+        		
+        		<h3>Applications received</h3><br>
+        		<!-- <div id="applied_job"></div> -->
+
+        		<ul class="nav nav-pills" id="new_nav">
+				  <li id="1"><a href="#/!">Received</a></li>
+				  <li id="2"><a href="#!mayBe">Shortlisted</a></li>
+				  <li id="3"><a href="#!accept">Accepted</a></li>
+				  <li id="4"><a href="#!reject">Rejected</a></li>
+				</ul>
+        		
+        		<br>
+        		<div ng-view></div>
+        		
+
+
+
+					  </div>
+					
+        	</div>
+
+
+
+
+
+
+       	</div>
+
+       
+
+
+
+</main>
+</section>
+
+
+
+
+
+	<div class="overlay"></div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery-confirm.min.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+		
+
+            $.ajax({
+                url: "php/menu_h_new.php",
+                type: "POST",
+                data:{
+                    "n" : 3
+                },
+                success:function(resp){
+                    $(".side-nav").html(resp);
+                }
+            });
+
+		$("#applied_job").load('php/applied_job.php');
+
+		
+    		$('#myTable').DataTable();
+
+
+
+
+    		function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+
+
+            count_notifications();
+    		
+    		
+        });        
+
+
+	function change_status(m,n){
+	
+		$.ajax({
+			url: "php/change_status.php",
+			type: "POST",
+			data: {
+				"m": m,
+				"n": n
+			},
+			success:function(resp){
+				
+			},
+		});
+
+	}
+
+
+	function make_active(n){
+		for(var i =1 ; i < 5 ; i++){
+			$("#"+i).removeClass('active');
+		}
+
+		$("#"+n).addClass(' active');
+	}
+
+
+	
+
+
+	//routing
+
+	var app = angular.module('myApp',['navList','notification']);
+	var nav = angular.module("navList", ["ngRoute"]);
+
+	nav.config(function($routeProvider){
+		$routeProvider.when('/',{
+			templateUrl: "some.html",
+			controller: "myCtrl"
+		})
+		.when('/mayBe',{
+			templateUrl: "some.html",
+			controller: "myCtrl1"
+		})
+		.when('/accept',{
+			templateUrl: "some.html",
+			controller: "myCtrl2"
+		})
+		.when('/reject',{
+			templateUrl: "some.html",
+			controller: "myCtrl3"
+		})
+		.otherwise({redirectTo: '/'});
+	})
+
+	nav.controller('myCtrl',function($scope,$http){
+		$scope.loadData = function() {
+			$http({
+				method: "GET",
+				url: "php/applied_job_json_0.php",
+			}).then(function mySuccess(resp){
+				if(resp.data == '0'){
+					$("#msg").html('<h6>No data available</h6>');
+				}else{
+					$scope.person = resp.data;
+				}
+			}, function myError(resp){
+				$scope.person = "No values found";
+			});
+
+
+		}
+
+		$scope.loadData();
+		make_active(1);
+
+		$scope.change_status = function(m,n){
+			change_status(m,n);
+			$scope.loadData();
+			
+			$.alert("Status Changed");
+		};
+
+		$scope.fetch_exp = function(n){
+			$("#table_"+n).html("hey");
+		};
+
+        
+	});
+
+	nav.controller('myCtrl1',function($scope,$http){
+		$scope.loadData = function(){
+
+			$http({
+				method: "GET",
+				url: "php/applied_job_json_1.php",
+			}).then(function mySuccess(resp){
+				if(resp.data == '0'){
+					$("#msg").html('<h6>No data available</h6>');
+				}else{
+					$scope.person = resp.data;
+				}
+			}, function myError(resp){
+				$scope.person = resp.statusText;
+			});
+
+			
+
+		}
+
+		$scope.loadData();
+		make_active(2);
+		$scope.change_status = function(m,n){
+			change_status(m,n);
+			
+			$.alert("Status Changed");
+		};
+
+
+		$scope.fetch_exp = function(n){
+			$("#table_"+n).html("hey");
+			};
+
+        
+	});
+
+
+	nav.controller('myCtrl2',function($scope,$http){
+
+		$http({
+			method: "GET",
+			url: "php/applied_job_json_2.php",
+		}).then(function mySuccess(resp){
+			if(resp.data == '0'){
+				$("#msg").html('<h6>No data available</h6>');
+			}else{
+				$scope.person = resp.data;
+			}
+		}, function myError(resp){
+			$scope.person = resp.statusText;
+		});
+
+
+		make_active(3);
+		$scope.change_status = function(m,n){
+			change_status(m,n);
+			
+			$.alert("Status Changed");
+		};
+
+        
+	});
+
+	nav.controller('myCtrl3',function($scope,$http){
+
+		$http({
+			method: "GET",
+			url: "php/applied_job_json_3.php",
+		}).then(function mySuccess(resp){
+			if(resp.data == '0'){
+				$("#msg").html('<h6>No data available</h6>');
+			}else{
+				$scope.person = resp.data;
+			}
+			
+		}, function myError(resp){
+			$scope.person = resp.statusText;
+		});
+
+		make_active(4);
+
+		$scope.change_status = function(m,n){
+			change_status(m,n);
+			
+			$.alert("Status Changed");
+		};
+
+        
+	});
+
+	nav.filter('htmlToPlaintext', function($sce) {
+    return function(text) {
+       //var t = text.substr(0,300);
+      return  $sce.trustAsHtml(text);
+      //text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+  });
+
+
+
+
+
+
+	var notification = angular.module('notification',[]);
+notification.controller('notificationController',function($scope,$http,$interval){
+    $scope.loadData = function(){
+        $http.get('php/interested_lists_rec.php').then(function mySuccess(resp){
+            $scope.notis = resp.data;
+        },function myError(resp){
+            console.log("Notification Panel Error: "+resp.statusText)
+        });
+    }
+
+
+    $scope.loadData(); //initial load
+
+
+    var refreshDiv = function(){$scope.loadData();count_notifications();}
+
+    $interval(refreshDiv,10000);
+    //realtime refresh 
+
+
+    $scope.remove = function(index){
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+
+    $scope.accept_req = function(id,index){
+        change_req(id,'1');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+
+    $scope.reject_req = function(id,index){
+        change_req(id,'2');
+        $scope.notis.splice(index,1);
+        count_notifications();
+    }
+})
+
+
+function noti_bar_view(){
+        $(".notification-panel").css('right','0px');
+    }
+
+    function close_noti(){
+        $(".notification-panel").css('right','-100vw');
+    }
+
+
+
+    function change_req(m,n){
+        $.ajax({
+            url: "php/change_req_rec.php",
+            type: "POST",
+            data:{
+                "id" : m,
+                "seen": n
+            },
+            success:function(resp){
+                return true;
+            }
+
+        });
+    }
+
+
+    function count_notifications(){
+                $.ajax({
+                    url: "php/count_notifications_rec.php",
+                    type: "GET",
+                    success:function(resp){
+                        $("#nos").html(resp);
+                    }
+                });
+            }
+
+
+function myf_1(){
+                $('.side-nav').css({
+                    left: '0px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_2()"><i class="fa fa-close fa-2x"></i></a>');
+            }
+
+
+            function myf_2(){
+                $('.side-nav').css({
+                    left: '-400px',
+                });
+
+                $('#mobile_bars_n').html('<a onclick="myf_1()"><i class="fa fa-bars fa-2x"></i></a>');
+            }
+		
+
+
+</script>
+</html>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="refresh" content = "1200; url=http://localhost/nursing/profile_hospital.html#">
+    <meta http-equiv="refresh" content = "1200; url=class/logout_h.php">
 	<title>POST | Placement of Healthcare Professionals</title>
 	<link rel="icon" href="image/favicon.png">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -159,7 +159,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="form-group col-md-8">
-                                    <input type="email" name="email" id="email" class="form-control">
+                                    <input type="email" name="email" id="email" class="form-control" readonly>
                                 </div>
                             </div>
 
@@ -181,8 +181,11 @@
                                 <div class="form-group col-md-4">
                                     <label>Display picture</label>
                                 </div>
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-6">
                                     <input type="file" name="dp" id="dp" class="form-control">
+                                </div>
+                                <div class="form-group col-md-2">
+                                     <button class="btn btn-default" type="button" data-toggle="modal" data-target="#view_modal" onclick="get_image(3)"><i class="fa fa-eye"> View</i></button>
                                 </div>
                             </div>
 
@@ -208,6 +211,36 @@
 
 
        	</div>
+
+
+
+
+        <!-- Modal for viewing  -->
+
+
+       <div class="modal fade" id="view_modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">View</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div id="sub1"></div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-deafult" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
 
 
 
@@ -258,13 +291,8 @@
 
 	$(document).ready(function () {
 
-                $.ajax({
-                    url: "menu_h.html",
-                    success:function(resp){
-                        $("#menu").html(resp);
+                $("#menu").load('menu_h.html');
 
-                    }
-                });
 
                 $.ajax({
 
@@ -314,7 +342,7 @@
                         success:function(resp){
                             var e = JSON.parse(resp);
                             if(e[0] == "no"){
-                                window.location.href="hospital_login.html";
+                                //window.location.href="hospital_login.html";
                             }else{
                                 $("#h_id").val(e[0]);
                                 $("#h_name").val(e[1]);
@@ -368,6 +396,29 @@
         });
 
     });
+
+    function get_image(n){
+        var h_id = $("#h_id").val();
+        $.ajax({
+            url: "php/get_an_image_h.php",
+            type: "POST",
+            data: {
+                "n" : n,
+                "h_id" : h_id,
+            },
+            success:function(resp){
+                view_image(resp);
+            },
+            error:function(resp){
+                alert(resp);
+            }
+
+        });
+    }
+
+    function view_image(n){
+        $("#sub1").html('<img class="img-responsive" src="'+ n +'" width="100%">');
+    }
 
 
 	

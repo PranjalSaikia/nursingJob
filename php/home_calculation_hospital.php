@@ -26,19 +26,7 @@
 
 ?>
 
-				<p class="card-text" ><h6>No of Vacancies: </h6> <b><?php echo $r2->job_no2; ?></b> nos</p>
-
-                            <div class="p-3">
-                                <table class="table table-bordered" align="center">
-
-                                <thead>
-                                    <tr class="alert-info">
-                                        <td>#</td>
-                                        <td width="60%">Job Category</td>
-                                        <td>No of Vacancies</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
+				
                                 	<?php 
 
                                 		$e = 1;
@@ -50,11 +38,14 @@
                                 			while($r1 = $stmt1->fetchObject()){
 
                                 	?>
-                                    <tr>
-                                        <td><?php echo $e;$e++; ?></td>
-                                        <td><?php echo $r1->cat_name; ?></td>
-                                        <td><?php echo $r1->job_no1; ?></td>
-                                    </tr>
+                                    <div class="col-md-2" style="padding-bottom: 10px;">
+                                    <div class="card">
+                                        <h4 class="card-title" id="card_title_1"><?php echo $r1->cat_name; ?></h4>
+                                        <div class="card-body" align="center">
+                                            <p><?php echo $r1->job_no1; ?></p> Vacancies
+                                        </div>
+                                    </div>
+                                    </div>
                                     <?php 
 
                                     		}
@@ -62,7 +53,4 @@
 
 
                                     ?>
-                                </tbody>
                                 
-                            </table>
-                            </div>

@@ -1,1 +1,0 @@
-<?php header( 'Location: http://nursing.bahonafeedback.com/index.html' ) ;  ?>

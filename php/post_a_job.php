@@ -7,12 +7,13 @@
 
 	$core = Core::getInstance();
 
-	$h_id = addslashes(strip_tags(trim($_POST['h_id'])));
+	$h_id = $_SESSION['h_id'];
 	$job_title = addslashes(strip_tags(trim($_POST['job_title'])));
 	$job_cat = addslashes(strip_tags(trim($_POST['job_cat'])));
-	$job_des = addslashes(strip_tags(trim($_POST['job_des'])));
+	$job_des = $_POST['ed'];
 	$job_no = addslashes(strip_tags(trim($_POST['job_no'])));
 	$min_exp = addslashes(strip_tags(trim($_POST['min_exp'])));
+	$min_sal = addslashes(strip_tags(trim($_POST['min_sal'])));
 	$job_location = addslashes(strip_tags(trim($_POST['job_location'])));
 
 
@@ -26,7 +27,7 @@
 	$stmt->execute();
 
 	if($stmt->rowCount() == 0){
-		$q1 = "INSERT INTO job_post_h(h_id,job_title,job_cat,job_des,job_no,min_exp,job_location,send_post,active) VALUES(:h_id,:job_title,:job_cat,:job_des,:job_no,:min_exp,:job_location,'0','1')";
+		$q1 = "INSERT INTO job_post_h(h_id,job_title,job_cat,job_des,job_no,min_exp,min_sal,job_location,send_post,active) VALUES(:h_id,:job_title,:job_cat,:job_des,:job_no,:min_exp,:min_sal,:job_location,'0','1')";
 		$stmt1=$core->dbh->prepare($q1);
 		$stmt1->bindParam(':h_id',$h_id,PDO::PARAM_INT);
 		$stmt1->bindParam(':job_title',$job_title,PDO::PARAM_STR);
@@ -34,6 +35,7 @@
 		$stmt1->bindParam(':job_des',$job_des,PDO::PARAM_STR);
 		$stmt1->bindParam(':job_no',$job_no,PDO::PARAM_STR);
 		$stmt1->bindParam(':min_exp',$min_exp,PDO::PARAM_STR);
+		$stmt1->bindParam(':min_sal',$min_sal,PDO::PARAM_STR);
 		$stmt1->bindParam(':job_location',$job_location,PDO::PARAM_STR);
 		$stmt1->execute();
 	}
@@ -74,6 +76,8 @@
 								  <b>No of vacancies:</b> &nbsp;<?php echo $r2->job_no; ?>
 								  <br>
 								  <b>Minimum Experience:</b> &nbsp;<?php echo $r2->min_exp; ?> Years
+								  <br>
+								  <b>Minimum Salary:</b> &nbsp;<?php echo $r2->min_sal; ?>
 								  <br>
 								  <b>Job location:</b> &nbsp;<?php echo $r2->job_location; ?>
 								  <br>

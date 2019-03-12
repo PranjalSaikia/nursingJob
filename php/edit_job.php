@@ -64,7 +64,17 @@
 						  				<label>Job Description</label>
 						  			</div>
 						  			<div class="form-group col-md-8">
-						  				<textarea class="form-control" name="job_des" id="job_des" placeholder="Description of the job"><?php echo $r->job_des; ?></textarea>
+						  				<input type="text" name="textid" id="textid" readonly style="display:none" value="" /> 
+							          <textarea name="ed1" id="ed1"><?php echo $r->job_des; ?></textarea> 
+							           <script>
+
+							              CKEDITOR.replace( 'ed1', { height:400, 
+							                
+							                   allowedContent: true
+							                   
+							              } );
+
+							            </script>
 						  			</div>
 						  		</div>
 
@@ -83,6 +93,15 @@
 						  			</div>
 						  			<div class="form-group col-md-8">
 						  				<input type="number" class="form-control" name="min_exp" id="min_exp" placeholder="Minimum year of Experience (in years e.g. 1.5)" value="<?php echo $r->min_exp; ?>">
+						  			</div>
+						  		</div>
+
+						  		<div class="row">
+						  			<div class="form-group col-md-4">
+						  				<label>Minimum Salary</label>
+						  			</div>
+						  			<div class="form-group col-md-8">
+						  				<input type="text" class="form-control" name="min_sal" id="min_sal" placeholder="Minimum Salary to be offered)" value="<?php echo $r->min_sal; ?>">
 						  			</div>
 						  		</div>
 

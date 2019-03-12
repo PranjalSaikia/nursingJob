@@ -1,3 +1,4 @@
+
 // Wrap every letter in a span
 $('.ml1 .letters').each(function(){
   $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
@@ -54,5 +55,57 @@ anime.timeline({loop: true})
                     wow.init();
 
 
+    $(document).ready(function(){
+        $("#side_menu").hide();    
+        
+        
+        
+        
+        
+    })
+
+
+window.onload = function(){
+    
+    
+        
+}
+    
+
+
+
+	function myFunction(){
+		$("#side_menu").toggle();
+	}
+
+
+
+
+  function myFunction_1(){
+    $(".side-nav").toggle();
+  }
+
+
+
+$(document).ready(function() {
+
+  function close_accordion_sections() {
+    $('.ribbon-wrap').removeClass('open');
+    $('.ribbon-content').slideUp(300).removeClass('open');
+  }
+
+  $('.ribbon-wrap').click(function(e) {
+    close_accordion_sections();
+    $(this).addClass('open');
+    $(this).children('.ribbon-content').slideDown(300);
+    e.preventDefault();
+  });
+
+});
+
+
+
+
+            
 
 

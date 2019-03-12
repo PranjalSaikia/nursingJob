@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content = "1200; url=class/logout_n.php">
+	<title>POST | Placement of Healthcare Professionals</title>
+	<link rel="icon" href="image/favicon.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+	<meta property="og:title" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:image" content="">
+
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- CSS bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style3.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+    <style type="text/css">
+    	
+    	#mod{
+
+		  background: #1A2980;  /* fallback for old browsers */
+		  background: -webkit-linear-gradient(45deg, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+		  background: linear-gradient(45deg, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+		}
+    </style>
+
+</head>
+<body >
+
+	<div id="preloader"></div>
+
+
+
+			
+	<div id="menu"></div>
+    <div class="container-fluid p-2" style="margin-top: -40px; background: linear-gradient(45deg, #26D0CE, #1A2980); color: white"><a href="profile_hospital.html"><b>Profile Home</b></a> / Edit Profile</div>
+
+
+
+
+<main>
+        <div class="container py-5" style="min-height: 600px;">
+
+
+                        <form method="post" class="form" id="f1" enctype="multipart/form-data">
+
+                            <h3>About</h3>
+                            <br>
+
+                            <input type="hidden" name="n_id" id="n_id">
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Name</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="n_name" id="n_name" class="form-control" required>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Short Description about yourself (Bio)</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <textarea name="n_des" id="n_des" class="form-control" placeholder="Short Description about yourself (Bio)" ></textarea>
+                                </div>
+                            </div>
+
+
+                            <hr>
+
+                            <h3>Current Address</h3>
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Pincode</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="number" name="pin" id="pin" class="form-control" placeholder="PIN" onkeyup="get_state(this.value)">
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Region</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                   < <input type="text" name="region" id="region" class="form-control" placeholder="Region" required> 
+                                    <select name="region" id="region" class="form-control" >
+                                        <option value="">Choose region</option>
+                                        <option value="North India"> North India </option>
+                                        <option value="North Eastern India"> North Easter India </option>
+                                        <option value="South India"> South India </option>
+                                        <option value="South Western India"> South Western India </option>
+                                        <option value="Western India"> Western India </option>
+                                        <option value="Eastern India"> Eastern India </option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>State</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="state" id="state" class="form-control" placeholder="State">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>District</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="district" id="district" class="form-control" placeholder="District" >
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>City / Town</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="city" id="city" class="form-control" placeholder="City / Town" >
+                                </div>
+                            </div>
+
+                            
+
+                            
+                            <hr>
+
+                            <h3>Contact Details</h3>
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Email</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="email" name="email" id="email" class="form-control" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Phone No</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="number" name="phn" id="phn" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Skype / Messenger Link</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="link" id="link" class="form-control" placeholder="Skype / Messenger Link">
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <h3>Professional Career / Upload section</h3>
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Experience (in years)</label>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="text" name="exp" id="exp" class="form-control" placeholder="Experience in years" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Upload your resume</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="file" name="resume" id="resume" class="form-control">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#view_modal" onclick="get_image(1)"><i class="fa fa-eye"> View</i></button>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Upload your License</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="file" name="license" id="license" class="form-control">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#view_modal" onclick="get_image(2)"><i class="fa fa-eye"> View</i></button>
+                                </div>
+                            </div>
+                            
+                            <h3>Display picture</h3>
+                            <br>
+
+
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label>Display picture</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="file" name="dp" id="dp" class="form-control">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#view_modal" onclick="get_image(3)"><i class="fa fa-eye"> View</i></button>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="form-group col-md-12" align="right">
+                                    <button class="btn btn-primary" type="submit">Update Details</button>
+                                    <button class="btn btn-danger" type="reset">Reset all</button>
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    
+
+                    
+
+        			
+
+        		
+
+
+       	</div>
+
+        <!-- Modal for viewing  -->
+
+
+       <div class="modal fade" id="view_modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">View</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div id="sub1"></div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-deafult" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+</main>
+
+
+
+
+			<div class="container-fluid bg-white">
+
+				<div class="container p-3">
+				<div class="row">
+					<div class="col-md-6 col-sm-12 col-xs-12">
+						<h5>Contact us</h5>
+						<p>Opposite to Jalukbari Masjid<br>Jalukbari<br>Ghy-14</p>
+						<p>Call us at: 00000000000</p>
+						<p>Mail us at: something@mail.com</p>
+					</div>
+					<div class="col-md-6 col-sm-12 col-xs-12" align="right">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-envelope"></i></a>
+						<a href="#"><i class="fa fa-google"></i></a>
+						
+					</div>
+				</div>
+				
+					
+				</div>
+			</div>
+
+			<div class="container-fluid sticky-bottom" style="background-color: #2f2f2f;" align="center">
+					<div class="text-white">All rights reserved @ POST <br>&copy; 2018</div>
+			</div>
+
+
+	<div class="overlay"></div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/mdb.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/custom_scrollbar.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+                $("#menu").load('menu_n.html');
+
+
+                $.ajax({
+
+                    url: "php/nurse_session_check.php",
+                    success:function(resp){
+                        if(resp == true){
+                            get_session_det();
+                        }else{
+                            window.location.href="nurse_login.html";
+                        }
+                    }
+                });
+
+
+                function get_session_det(){
+                    $.ajax({
+                        url: "php/get_session_det_n.php",
+                        success:function(resp){
+                            var e = JSON.parse(resp);
+                            if(e[0] == "no"){
+                                window.location.href="nurse_login.html";
+                            }else{
+                                $("#n_id").val(e[0]);
+                                $("#name_nurse").html(e[1]);
+                                $("#n_name").val(e[1]);
+                                $("#phn").val(e[3]);
+                                $("#email").val(e[4]);
+
+
+
+                                get_nurse_det(e[0]);
+                            }
+                        },
+                        error:function(resp){
+                            alert(resp);
+                        }
+                    });
+                }
+
+                function get_nurse_det(n){
+                    $.ajax({
+                        url: "php/get_nurse_det.php",
+                        type: "POST",
+                        data: {
+                            "n" : n,
+                        },
+                        success:function(resp){
+                            var e = JSON.parse(resp);
+                            if(e[0] == "no"){
+                                //window.location.href="hospital_login.html";
+                            }else{
+                                $("#n_id").val(e[0]);
+                                $("#n_name").val(e[1]);
+                                $("#n_des").val(e[2]);
+                                //$("#h_des_long").val(e[3]);
+                                $("#district").val(e[4]);
+                                $("#city").val(e[5]);
+                                $("#state").val(e[6]);
+                                $("#pin").val(e[7]);
+                                $("#exp").val(e[11]);
+                                $("#link").val(e[14]);
+
+                                $("#dp1").html('<img class="rounded-circle" src="'+e[8]+'" style="width: 80%">');
+                                
+                            }
+                        },
+                        error:function(resp){
+                            alert(resp);
+                        }
+                    });
+                }
+
+
+
+
+
+                
+
+
+            });
+
+
+    $("#f1").submit(function(e){
+
+        e.preventDefault();
+
+        var t = new FormData(this);
+
+        $.ajax({
+            url: "php/edit_det_nurse.php",
+            type: "POST",
+            dataType: 'html',
+            data: t,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(resp){
+
+                //console.log(resp);
+                window.location.href="edit_profile_n.html";
+            },
+            error:function(resp){
+                alert(resp);
+            }
+        });
+
+    });
+
+
+    function view_image(n){
+        $("#sub1").html('<img class="img-responsive" src="'+ n +'" width="100%">');
+    }
+
+
+    function get_image(n){
+        var n_id = $("#n_id").val();
+        $.ajax({
+            url: "php/get_an_image.php",
+            type: "POST",
+            data: {
+                "n" : n,
+                "n_id" : n_id,
+            },
+            success:function(resp){
+                view_image(resp);
+            },
+            error:function(resp){
+                alert(resp);
+            }
+
+        });
+    }
+
+
+    function get_state(n){
+        if(n.length == 6){
+            $.ajax({
+                url: "php/get_state.php",
+                type: "POST",
+                data:{
+                    "pin" : n,
+                },
+                success:function(resp){
+                    //alert(resp);
+                    var e = resp.split("*");
+                    //$("#city").val(e[1]);
+                    $("#state").val(e[1]);
+                    $("#district").val(e[2]);
+                },
+                error:function(resp){
+                    alert(resp);
+                }
+            });
+        }
+    }
+
+
+	
+
+
+</script>
+</html>
